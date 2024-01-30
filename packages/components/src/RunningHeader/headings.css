@@ -1,0 +1,58 @@
+h1 {
+  string-set: docifyH1Contents contents docifyH2Contents "" docifyH3Contents ""
+    docifyH4Contents "" docifyH5Contents "" docifyH6Contents "";
+}
+
+h2 {
+  string-set: docifyH2Contents contents docifyH3Contents "" docifyH4Contents ""
+    docifyH5Contents "" docifyH6Contents "";
+}
+
+h3 {
+  string-set: docifyH3Contents contents docifyH4Contents "" docifyH5Contents ""
+    docifyH6Contents "";
+}
+
+h4 {
+  string-set: docifyH4Contents contents docifyH5Contents "" docifyH6Contents "";
+}
+
+h5 {
+  string-set: docifyH5Contents contents docifyH6Contents "";
+}
+
+h6 {
+  string-set: docifyH6Contents contents;
+}
+
+.--docify-heading-contents:not(:empty)::before {
+  content: attr(data-before);
+}
+
+.--docify-heading-contents:not(:empty)::after {
+  content: attr(data-after);
+}
+
+.--docify-h1-contents {
+  content: string(docifyH1Contents);
+}
+
+.--docify-h2-contents {
+  content: string(docifyH2Contents);
+}
+
+.--docify-h3-contents {
+  content: string(docifyH3Contents);
+}
+
+.--docify-h4-contents {
+  content: string(docifyH4Contents);
+}
+
+.--docify-h5-contents {
+  content: string(docifyH5Contents);
+}
+
+.--docify-h6-contents {
+  content: string(docifyH6Contents);
+}
