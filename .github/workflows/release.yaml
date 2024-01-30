@@ -22,6 +22,10 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: npm install
       - run: npm run build
+      - name: Set git user
+        run: |
+          git config --global user.email "action@npm.com"
+          git config --global user.name "npm-action"
       - run: npm version patch -m "Bump version to %s [skip ci]"
       - run: npm publish --access public
         env:
