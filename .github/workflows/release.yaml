@@ -32,7 +32,7 @@ jobs:
       - run: npm publish --access public
         working-directory: ./package
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump version [skip ci]"
