@@ -23,6 +23,8 @@ jobs:
       - run: npm run build
         working-directory: ./package
       - run: git config --list
+      - run: git config --list
+        working-directory: ./package
       - run: ls
       - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
         working-directory: ./package
