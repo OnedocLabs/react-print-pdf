@@ -22,6 +22,7 @@ jobs:
         working-directory: ./
       - run: npm run build
         working-directory: ./
+      - run: git config --list
       - name: Configure Git
         run: |
           git config --global user.name "GitHub Actions"
