@@ -28,9 +28,9 @@ jobs:
       - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
         working-directory: ./
       - run: git diff HEAD
-      #      - run: npm publish --access public
-      #        env:
-      #          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Bump version [skip ci]"
