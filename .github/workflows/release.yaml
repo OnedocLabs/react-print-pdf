@@ -22,15 +22,8 @@ jobs:
         working-directory: .
       - run: npm run build
         working-directory: .
-      - run: git config --list
-      - run: git config --list
+      - run: npm version patch -m "Bump version to %s [skip ci]" --git-tag-version false
         working-directory: .
-      - run: ls -a
-      - run: npm version patch -m "Bump version to %s [skip ci]" --ddd --git-tag-version false
-        working-directory: .
-      - run: git log -n 20 --pretty=oneline
-        if: always()
-      - run: git diff HEAD
       - run: npm publish --access public
         working-directory: .
         env:
