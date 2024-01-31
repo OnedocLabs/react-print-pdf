@@ -26,6 +26,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+      - run: ls
       - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
         working-directory: ./
       - run: git diff HEAD
