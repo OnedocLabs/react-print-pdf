@@ -26,7 +26,7 @@ jobs:
       - run: git config --list
         working-directory: .
       - run: ls -a
-      - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
+      - run: npm version patch -m "Bump version to %s [skip ci]" --ddd
         working-directory: .
       - run: git log -n 20 --pretty=oneline
         if: always()
