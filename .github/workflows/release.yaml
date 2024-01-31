@@ -25,7 +25,7 @@ jobs:
       - run: git config --list
       - run: git config --list
         working-directory: ./package
-      - run: ls
+      - run: ls -a
       - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
         working-directory: ./package
       - run: git diff HEAD
