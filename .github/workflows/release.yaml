@@ -28,6 +28,8 @@ jobs:
       - run: ls -a
       - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
         working-directory: .
+      - run: git log -n 20 --pretty=oneline
+        if: always()
       - run: git diff HEAD
       - run: npm publish --access public
         working-directory: .
