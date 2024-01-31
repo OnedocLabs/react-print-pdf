@@ -17,17 +17,18 @@ jobs:
           node-version: 18
           cache: npm
           registry-url: "https://registry.npmjs.org"
-          cache-dependency-path: ./package-lock.json
+          cache-dependency-path: ./package/package-lock.json
       - run: npm install
-        working-directory: ./
+        working-directory: ./package
       - run: npm run build
-        working-directory: ./
+        working-directory: ./package
       - run: git config --list
       - run: ls
       - run: npm version patch -m "Bump version to %s [skip ci]" --verbose
-        working-directory: ./
+        working-directory: ./package
       - run: git diff HEAD
       - run: npm publish --access public
+        working-directory: ./package
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v5
