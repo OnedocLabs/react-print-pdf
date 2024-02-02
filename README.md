@@ -1,10 +1,4 @@
 ---
-title: Introduction
-description: Build PDFs using React and TypeScript.
-icon: react
----
-
----
 # Getting started 
 
 react-print
