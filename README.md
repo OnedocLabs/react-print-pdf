@@ -1,7 +1,19 @@
+![React email cover](https://twitter.com/OnedocLabs/header_photo)
+
+<div align="center"><strong>React Print</strong></div>
+<div align="center">The new way to build documents.<br />High-quality, unstyled components for creating PDFs.</div>
+<br />
+<div align="center">
+<a href="https://www.onedoclabs.com/">Website</a> 
+<span> · </span>
+<a href="https://github.com/OnedocLabs/react-print">GitHub</a> 
+<span> · </span>
+<a href="https://discord.com/invite/uRJE6e2rgr">Discord</a>
+</div>
+
 ---
 # Getting started 
 
-react-print
 ## 1. Installation
 
 Get the react-print component library.
