@@ -81,8 +81,8 @@ export const buildExample = async (
 
   const pages = await glob(path.join(targetFolder, "*.jpg"));
   const pdf = await glob(path.join(targetFolder, "*.pdf"));
-  const imagePath = path.relative(outputPath, pages[0]);
-  const pdfPath = path.relative(outputPath, pdf[0]);
+  const imagePath = path.relative(path.dirname(outputPath), pages[0]);
+  const pdfPath = path.relative(path.dirname(outputPath), pdf[0]);
 
   if (example.description) {
     markdown += `${example.description}\n\n`;
