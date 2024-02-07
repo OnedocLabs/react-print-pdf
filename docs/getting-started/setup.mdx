@@ -4,3 +4,68 @@ sidebarTitle: "Setup"
 description: "Create a brand-new folder with packages powered by React Print."
 icon: "hammer"
 ---
+
+## 1. Create directory
+
+Create a new folder called `react-print-starter` and initialize a new npm project
+
+```sh
+mkdir react-print-starter
+cd react-print-starter
+npm init -y
+```
+
+## 2. Install the dependencies
+Get the react-print package locally
+
+<CodeGroup>
+
+```sh npm
+npm install -s @onedoc/react-print
+```
+
+```sh yarn
+yarn add @onedoc/react-print
+```
+
+```sh pnpm
+pnpm add @onedoc/react-print
+```
+
+</CodeGroup>
+
+## 3. Create your first PDF Component 
+Create a new folder call `documents`, then create a new file inside call `index.jsx` and copy the following code:
+
+```jsx document/index.jsx
+import { PageTop, PageBottom, PageBreak } from '@onedoc/react-print';
+import * as React from "react";
+
+export const document = ({props}) => {
+    return (
+        <div>
+            <PageTop>
+                <span>Hello #1</span>
+            </PageTop>
+            <div>
+                Hello #2
+            </div>
+            <PageBottom>
+                <div className="text-gray-400 text-sm">
+                    Hello #3
+                </div>
+            </PageBottom>
+            <PageBreak />
+            <span>Hello #4, but on a new page ! </span>
+        </div>
+    );
+};
+```
+
+## 4. Run locally & See the changes live
+Start the development server and visit [localhost:3000](http://localhost:3000) and edit the `index.tsx` file to see the changes.
+
+(coming soon)
+
+## 5. Generate your document
+
