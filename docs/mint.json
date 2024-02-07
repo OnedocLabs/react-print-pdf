@@ -45,17 +45,12 @@
     "name": "Github",
     "url": "https://github.com/OnedocLabs/react-print"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
+  "tabs": [],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://google.com"
+      "url": "https://react.onedoclabs.com/"
     },
     {
       "name": "Discord",
@@ -66,32 +61,20 @@
       "name": "Github",
       "icon": "github",
       "url": "https://github.com/OnedocLabs/react-print"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://google.com"
     }
   ],
   "navigation": [
     {
       "group": "Overview",
-      "pages": [
-        "introduction",
-        "contributing"
-      ]
+      "pages": ["introduction", "contributing"]
     },
     {
       "group": "Getting Started",
-      "pages": [
-        "getting-started/setup"
-      ]
+      "pages": ["getting-started/setup"]
     },
     {
       "group": "Integrations",
-      "pages": [
-        "integrations/onedoc"
-      ]
+      "pages": ["integrations/onedoc"]
     },
     {
       "group": "Components",
