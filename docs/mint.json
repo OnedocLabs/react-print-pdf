@@ -1,20 +1,25 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "React Print",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+    "primary": "#06BCEE",
+    "light": "#81D7F7",
+    "dark": "#06A6D1",
+    "background": {
+      "dark": "#111111"
     }
   },
+
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
+
   "topbarLinks": [
     {
       "name": "Support",
@@ -22,8 +27,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Github",
+    "url": "https://github.com/OnedocLabs/react-print"
   },
   "tabs": [
     {
@@ -35,26 +40,30 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": ""
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/uRJE6e2rgr"
+    },
+    {
+      "name": "Github",
+      "icon": "github",
+      "url": "https://github.com/OnedocLabs/react-print"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": ""
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Overview",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "contributing"
       ]
     },
     {
