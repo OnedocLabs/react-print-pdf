@@ -31,6 +31,9 @@
     "default": "dark",
     "isHidden": true
   },
+  "feedback": {
+    "thumbsRating": true
+  },
   "topbarLinks": [
     {
       "name": "Support",
@@ -97,9 +100,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/Onedoclabs",
+    "github": "https://github.com/OnedocLabs/onedoc",
+    "linkedin": "https://www.linkedin.com/company/onedoclabs"
   },
   "backgroundImage": "docs/images/background.png",
   "classes": {
