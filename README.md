@@ -96,7 +96,7 @@ This project is open-source and is intended to be maintained and built by and fo
 
 Wanna help ? Awesome! There are many ways you can contribute ! Take a look at: 
 
-* (Contributing Guide)[www.google.com]
+* [Contributing Guide](www.google.com)
 
 # Authors 
 
