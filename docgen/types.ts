@@ -2,6 +2,7 @@ import React from "react";
 
 export interface Example {
   description?: string;
+  name?: string;
   template: React.ReactNode;
 }
 

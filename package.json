@@ -32,6 +32,7 @@
     "acorn": "^8.11.3",
     "acorn-typescript": "^1.4.13",
     "css-to-style": "^1.4.0",
+    "dotenv": "^16.4.1",
     "esformatter": "^0.11.3",
     "esformatter-jsx": "^8.0.1",
     "juice": "^10.0.0",

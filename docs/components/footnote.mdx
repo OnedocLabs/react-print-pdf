@@ -1,14 +1,77 @@
 ---
 title: Footnote
+icon: info
 ---
 
 ## Footnote
 
 Creates an automatically numbered footnote. This will remove the footnote content from the document flow and place it at the bottom of the page.
 
-<Frame type="glass"><img src="images/previews/footnote-7404e94f/document.1.jpg" style={{height: '400px'}} /></Frame>
+### Examples
 
-```jsx
+#### Preview
+
+<Frame type="glass"><img className="shadow shadow-black/20" src="images/previews/footnote-7404e94f/document.1.jpg" style={{ height: '400px' }} /></Frame>
+
+<div style={{height: '1rem'}}></div>
+
+<CodeGroup>
+```jsx template.tsx
+import { Footnote } from "@onedoc/react-print";
+
 <Footnote>Ceci est un exemple dynamique</Footnote>
 ```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup>
+
+#### Test
+
+<Frame type="glass"><img className="shadow shadow-black/20" src="images/previews/footnote-32d75237/document.1.jpg" style={{ height: '400px' }} /></Frame>
+
+<div style={{height: '1rem'}}></div>
+
+<CodeGroup>
+```jsx template.tsx
+import { Footnote } from "@onedoc/react-print";
+
+(
+<Footnote>
+  Ceci est un exemple d'une footnote qui est très longue et qui a du styling de configuré dessus.
+</Footnote>
+)
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup>
+
+### API
+
+<ResponseField name="Props">
+<Expandable title="Show available props">
+<ResponseField name="children" type="React.ReactNode" required={true}>The text to display in the footnote. This can be rich text.</ResponseField>
+</Expandable></ResponseField>

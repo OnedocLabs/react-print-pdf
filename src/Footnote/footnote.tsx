@@ -25,11 +25,20 @@ export const Footnote = ({
 };
 
 export const __docConfig: DocConfig = {
+  icon: "info",
   components: {
     Footnote: {
       examples: {
         default: {
           template: <Footnote>Ceci est un exemple dynamique</Footnote>,
+        },
+        test: {
+          template: (
+            <Footnote>
+              Ceci est un exemple d'une footnote qui est très longue et qui a du
+              styling de configuré dessus.
+            </Footnote>
+          ),
         },
       },
     },

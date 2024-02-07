@@ -1,4 +1,6 @@
-import { EnrichedExample, Example } from "./types";
+import { config } from "dotenv";
+
+import { EnrichedExample } from "./types";
 import { Onedoc } from "@onedoc/client";
 import { bundle, formatSnippet } from "./utils";
 import * as crypto from "crypto";
@@ -7,7 +9,12 @@ import * as fs from "fs";
 import { fromBuffer } from "pdf2pic";
 import { glob } from "glob";
 
-const onedoc = new Onedoc("");
+config({ path: ".env.local" });
+config();
+
+const onedoc = new Onedoc(process.env.ONEDOC_API_KEY!);
+
+const baseCss = fs.readFileSync(path.join(__dirname, "./base.css"));
 
 export const buildExample = async (
   example: EnrichedExample,
@@ -34,6 +41,12 @@ export const buildExample = async (
   if (!fs.existsSync(targetFolder)) {
     const { file, info, error } = await onedoc.render({
       html,
+      assets: [
+        {
+          path: "base.css",
+          content: baseCss,
+        },
+      ],
       save: false,
       test: false,
     });
@@ -67,11 +80,24 @@ export const buildExample = async (
   const pages = await glob(path.join(targetFolder, "*.jpg"));
   const imagePath = path.relative(path.join(__dirname, "../docs/"), pages[0]);
 
-  markdown += `<Frame type="glass"><img src="${imagePath}" style={{height: '400px'}} /></Frame>\n\n`;
+  if (example.description) {
+    markdown += `${example.description}\n\n`;
+  }
+
+  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${imagePath}" style={{ height: '400px' }} /></Frame>\n\n<div style={{height: '1rem'}}></div>\n\n`;
 
   // Check if the folder docs/previews contain the image
 
-  markdown += `\`\`\`jsx\n${snippet}\n\`\`\`\n\n`;
+  markdown += `<CodeGroup>
+\`\`\`jsx template.tsx
+import { ${component} } from "@onedoc/react-print";
+
+${snippet}
+\`\`\`
+\`\`\`css base.css
+${baseCss}
+\`\`\`
+</CodeGroup>\n\n`;
 
   return {
     markdown,

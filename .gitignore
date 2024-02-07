@@ -3,3 +3,5 @@ test
 dist
 .DS_Store
 .tmp
+
+.env.local
