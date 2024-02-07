@@ -59,7 +59,7 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
     }
 
     if (component.props) {
-      markdown += `### API\n\n<ResponseField name="Props">\n<Expandable title="Show available props">\n`;
+      markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
 
       Object.entries(component.props).forEach(([propName, prop]) => {
         markdown += `<ResponseField name="${propName}" type="${prop.type.name}" required={${prop.required}}>${prop.description}</ResponseField>\n`;

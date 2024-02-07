@@ -78,17 +78,19 @@ export const buildExample = async (
   }
 
   const pages = await glob(path.join(targetFolder, "*.jpg"));
+  const pdf = await glob(path.join(targetFolder, "*.pdf"));
   const imagePath = path.relative(path.join(__dirname, "../docs/"), pages[0]);
+  const pdfPath = path.relative(path.join(__dirname, "../docs/"), pdf[0]);
 
   if (example.description) {
     markdown += `${example.description}\n\n`;
   }
 
-  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${imagePath}" style={{ height: '400px' }} /></Frame>\n\n<div style={{height: '1rem'}}></div>\n\n`;
+  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
 
   // Check if the folder docs/previews contain the image
 
-  markdown += `<CodeGroup>
+  markdown += `<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 \`\`\`jsx template.tsx
 import { ${component} } from "@onedoc/react-print";
 
@@ -97,7 +99,9 @@ ${snippet}
 \`\`\`css base.css
 ${baseCss}
 \`\`\`
-</CodeGroup>\n\n`;
+</CodeGroup></div>\n\n`;
+
+  markdown += `<a href="${pdfPath}">Download the PDF example ↓</a>\n\n`;
 
   return {
     markdown,

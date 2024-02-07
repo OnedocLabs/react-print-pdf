@@ -13,9 +13,7 @@ Creates an automatically numbered footnote. This will remove the footnote conten
 
 <Frame type="glass"><img className="shadow shadow-black/20" src="images/previews/footnote-7404e94f/document.1.jpg" style={{ height: '400px' }} /></Frame>
 
-<div style={{height: '1rem'}}></div>
-
-<CodeGroup>
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
 import { Footnote } from "@onedoc/react-print";
 
@@ -35,43 +33,13 @@ body {
 }
 
 ```
-</CodeGroup>
+</CodeGroup></div>
 
-#### Test
-
-<Frame type="glass"><img className="shadow shadow-black/20" src="images/previews/footnote-32d75237/document.1.jpg" style={{ height: '400px' }} /></Frame>
-
-<div style={{height: '1rem'}}></div>
-
-<CodeGroup>
-```jsx template.tsx
-import { Footnote } from "@onedoc/react-print";
-
-(
-<Footnote>
-  Ceci est un exemple d'une footnote qui est très longue et qui a du styling de configuré dessus.
-</Footnote>
-)
-```
-```css base.css
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-
-html,
-body {
-  font-size: 28px;
-  font-family: "Inter", sans-serif;
-}
-
-@page {
-  size: A4;
-}
-
-```
-</CodeGroup>
+<a href="images/previews/footnote-7404e94f/document.pdf">Download the PDF example ↓</a>
 
 ### API
 
 <ResponseField name="Props">
-<Expandable title="Show available props">
+<Expandable defaultOpen={true} title="Show available props">
 <ResponseField name="children" type="React.ReactNode" required={true}>The text to display in the footnote. This can be rich text.</ResponseField>
 </Expandable></ResponseField>
