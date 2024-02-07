@@ -13,32 +13,28 @@ This component should be placed as early as possible in the document and will ap
 
 #### Preview
 
-<Frame type="glass">
-  <img
-    className="shadow shadow-black/20"
-    src="images/previews/pagetop-3b19c9c1/document.1.jpg"
-    style={{ height: "400px" }}
-  />
-</Frame>
+<Frame type="glass"><img className="shadow shadow-black/20" src="/images/previews/pagetop-3b19c9c1/document.1.jpg" style={{ height: '400px' }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
 import { PageTop } from "@onedoc/react-print";
 
-<PageTop style={{ backgroundColor: "#bfdbfe" }} />
-``` ```css base.css @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+<PageTop style={ { backgroundColor: "#bfdbfe" } } />
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
 body {
-font-size: 28px;
-font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
 }
 
 @page {
-size: A4;
+  size: A4;
 }
 
-````
+```
 </CodeGroup></div>
 
 <a href="images/previews/pagetop-3b19c9c1/document.pdf">Download the PDF example ↓</a>
@@ -51,7 +47,7 @@ This component will override the content of the `PageTop` component for the curr
 
 ```jsx
 import { CurrentPageTop } from "@onedoc/react-print";
-````
+```
 
 ## PageBottom
 
@@ -61,32 +57,28 @@ Displays content in the bottom of all the pages.
 
 #### Preview
 
-<Frame type="glass">
-  <img
-    className="shadow shadow-black/20"
-    src="images/previews/pagebottom-f3b9554c/document.1.jpg"
-    style={{ height: "400px" }}
-  />
-</Frame>
+<Frame type="glass"><img className="shadow shadow-black/20" src="/images/previews/pagebottom-f3b9554c/document.1.jpg" style={{ height: '400px' }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
 import { PageBottom } from "@onedoc/react-print";
 
-<PageBottom style={{ backgroundColor: "#bfdbfe" }} />
-``` ```css base.css @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+<PageBottom style={ { backgroundColor: "#bfdbfe" } } />
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
 body {
-font-size: 28px;
-font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
 }
 
 @page {
-size: A4;
+  size: A4;
 }
 
-````
+```
 </CodeGroup></div>
 
 <a href="images/previews/pagebottom-f3b9554c/document.pdf">Download the PDF example ↓</a>
@@ -97,7 +89,7 @@ Forces a page break.
 
 ```jsx
 import { PageBreak } from "@onedoc/react-print";
-````
+```
 
 ## NoBreak
 
@@ -115,29 +107,25 @@ Floats the content to the bottom of the page.
 
 #### Preview
 
-<Frame type="glass">
-  <img
-    className="shadow shadow-black/20"
-    src="images/previews/floatbottom-11460a72/document.jpg"
-    style={{ height: "400px" }}
-  />
-</Frame>
+<Frame type="glass"><img className="shadow shadow-black/20" src="/images/previews/floatbottom-11460a72/document.1.jpg" style={{ height: '400px' }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
 import { FloatBottom } from "@onedoc/react-print";
 
 <FloatBottom>Here are some floated contents</FloatBottom>
-``` ```css base.css @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
 body {
-font-size: 28px;
-font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
 }
 
 @page {
-size: A4;
+  size: A4;
 }
 
 ```
@@ -145,4 +133,3 @@ size: A4;
 
 <a href="images/previews/floatbottom-11460a72/document.pdf">Download the PDF example ↓</a>
 
-```

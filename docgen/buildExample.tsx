@@ -87,7 +87,7 @@ export const buildExample = async (
     markdown += `${example.description}\n\n`;
   }
 
-  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
+  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="/${imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
 
   // Check if the folder docs/previews contain the image
 
