@@ -20,7 +20,7 @@ A collection of high-quality, unstyled components for creating beautiful PDFs us
 
 # Why 
 
-We believe documents are at the core of communication—invoices, contracts, resumes, bills, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to *react-print*.
+We believe documents are at the core of communication—invoices, contracts, resumes, brochures, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to *react-print*.
 
 # Getting started 
 
