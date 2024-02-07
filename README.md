@@ -10,7 +10,7 @@
 <span> · </span>
 <a href="https://discord.com/invite/uRJE6e2rgr">Discord</a>
 <span> · </span>
-<a href="https://docs.onedoclabs.com">Documentation</a>
+<a href="https://react.onedoclabs.com">Documentation</a>
 </div>
 
 ---
