@@ -26,7 +26,7 @@ We believe documents are at the core of communication—invoices, contracts, res
 
 ## 1. Installation
 
-Get the react-print component library.
+Get the *react-print* component library.
 
 ### With npm 
 ```sh npm
