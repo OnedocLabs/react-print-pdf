@@ -2,20 +2,37 @@
   "name": "React Print",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "href": "https://www.onedoclabs.com/"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#06BCEE",
-    "light": "#81D7F7",
-    "dark": "#06A6D1",
+    "primary": "#ffffff",
+    "light": "#ffffff",
     "background": {
-      "dark": "#111111"
+      "light": "#FFFFFF",
+      "dark": "#000000"
+    },
+    "anchors": {
+      "from": "#101010",
+      "to": "#606060"
+    }
+  },
+  "seo": {
+    "indexHiddenPages": true
+  },
+  "analytics": {
+    "posthog": {
+      "apiKey": "phc_jHjWg3U3A39knTK6ChWEUHIXMFYZ7rATZOLzhK39dv9",
+      "apiHost": "https://eu.posthog.com"
     }
   },
   "modeToggle": {
     "default": "dark",
     "isHidden": true
+  },
+  "feedback": {
+    "thumbsRating": true
   },
   "topbarLinks": [
     {
@@ -83,9 +100,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/Onedoclabs",
+    "github": "https://github.com/OnedocLabs/onedoc",
+    "linkedin": "https://www.linkedin.com/company/onedoclabs"
   },
   "backgroundImage": "docs/images/background.png",
   "classes": {
