@@ -13,6 +13,7 @@ export interface EnrichedExample extends Example {
 export interface DocConfig<T = Example> {
   name?: string;
   icon?: string;
+  description: string;
   components: {
     [componentName: string]: {
       examples: {

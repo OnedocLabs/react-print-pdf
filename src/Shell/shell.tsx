@@ -79,6 +79,7 @@ export const FloatBottom = (props: any) => {
 export const __docConfig: DocConfig = {
   name: "Shell",
   icon: "border-all",
+  description: "Display content in other page regions.",
   components: {
     PageTop: {
       examples: {

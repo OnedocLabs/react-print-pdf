@@ -48,6 +48,7 @@ export const RunningH6 = RunningHeader(6);
 export const __docConfig: DocConfig = {
   name: "Running header",
   icon: "heading",
+  description: "Display running header contents on the page.",
   components: {
     RunningH1: {
       examples: {

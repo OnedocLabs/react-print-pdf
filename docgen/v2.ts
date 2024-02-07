@@ -27,6 +27,7 @@ type docFile = {
   markdown: string;
   path: string;
   outputPath: string;
+  config: DocConfig;
 };
 
 const process = async () => {
@@ -59,6 +60,7 @@ const process = async () => {
         let docConfig = Object.assign(
           {
             name: formatCamelCaseToTitle(path.basename(filePath, ".tsx")),
+            description: "",
             components: {},
           } satisfies DocConfig,
           elements.__docConfig
@@ -88,6 +90,7 @@ const process = async () => {
             .toLowerCase(),
           outputPath,
           markdown,
+          config: docConfig,
         };
       })
     )
@@ -103,7 +106,11 @@ const process = async () => {
     fs.mkdirSync(docsPath, { recursive: true });
   }
 
-  docs.forEach((docFile) => {
+  const sortedDocs = docs.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
+  sortedDocs.forEach((docFile) => {
     fs.writeFileSync(docFile.outputPath, docFile.markdown);
   });
 
@@ -114,17 +121,33 @@ const process = async () => {
 
   mint.navigation.forEach((navItem, index) => {
     if (navItem.group === "Components") {
-      mint.navigation[index].pages = docs
-        .sort((a, b) => {
-          return a.name.localeCompare(b.name);
-        })
-        .map((docFile) => {
-          return `components/${docFile.baseName}`;
-        });
+      mint.navigation[index].pages = sortedDocs.map((docFile) => {
+        return `components/${docFile.baseName}`;
+      });
     }
   });
 
   fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
+
+  // Build the card groups
+  let snippet = `<CardGroup>`;
+
+  sortedDocs.forEach((docFile) => {
+    const href = path
+      .relative(path.join(__dirname, "../docs"), docFile.outputPath)
+      .replace(".mdx", "");
+
+    snippet += `<Card title="${docFile.name}" icon="${docFile.config.icon}" href="${href}">
+    ${docFile.config.description}
+  </Card>`;
+  });
+
+  snippet += `</CardGroup>`;
+
+  fs.writeFileSync(
+    path.join(__dirname, "../docs/snippets/components.mdx"),
+    snippet
+  );
 };
 
 process();

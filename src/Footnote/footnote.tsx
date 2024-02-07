@@ -26,6 +26,7 @@ export const Footnote = ({
 
 export const __docConfig: DocConfig = {
   icon: "info",
+  description: "Create automatically numbered footnotes.",
   components: {
     Footnote: {
       examples: {
