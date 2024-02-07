@@ -61,6 +61,11 @@
       "name": "Github",
       "icon": "github",
       "url": "https://github.com/OnedocLabs/react-print"
+    },
+    {
+      "name": "Onedoc",
+      "icon": "globe",
+      "url": "https://www.onedoclabs.com/"
     }
   ],
   "navigation": [
