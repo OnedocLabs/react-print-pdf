@@ -111,9 +111,16 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 [MIT License](https://github.com/OnedocLabs/react-print/blob/main/LICENSE.md)
 
 # Join the movement !
+## Contributors
 
-![React-pdf example](https://github.com/OnedocLabs/react-print/assets/33000377/96b955c2-5014-4a0d-b246-bc7839d977ce)
+<p align="center">
+    <a href="https://github.com/Onedoclabs/react-print/graphs/contributors">
+        <img src="https://contrib.rocks/image?repo=onedoclabs/react-print&max=100&columns=10" width="400"/></a>
+</p>
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Onedoclabs/react-print&type=Date)](https://star-history.com/#Onedoclabs/react-print&Date)
 
 
 <div class="title-block" style="text-align: center;" align="center">
