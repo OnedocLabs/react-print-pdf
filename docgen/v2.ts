@@ -26,6 +26,7 @@ type docFile = {
   baseName: string;
   markdown: string;
   path: string;
+  outputPath: string;
 };
 
 const process = async () => {
@@ -67,10 +68,16 @@ const process = async () => {
 
         docConfig = mergeTemplateInfo(docConfig, templates);
 
+        const outputPath = path.join(
+          __dirname,
+          `../docs/components/${path.basename(filePath, ".tsx")}.mdx`
+        );
+
         const markdown = await buildFileMarkdown(
           docConfig,
           types,
-          fs.readFileSync(path.join(__dirname, "../dist/index.css"), "utf-8")
+          fs.readFileSync(path.join(__dirname, "../dist/index.css"), "utf-8"),
+          outputPath
         );
 
         return {
@@ -79,6 +86,7 @@ const process = async () => {
           path: path
             .relative(path.join(__dirname, "../src"), filePath)
             .toLowerCase(),
+          outputPath,
           markdown,
         };
       })
@@ -96,12 +104,7 @@ const process = async () => {
   }
 
   docs.forEach((docFile) => {
-    const outPath = path.join(
-      __dirname,
-      `../docs/components/${docFile.baseName}.mdx`
-    );
-
-    fs.writeFileSync(outPath, docFile.markdown);
+    fs.writeFileSync(docFile.outputPath, docFile.markdown);
   });
 
   // Write to the ./docs/mint.json file, replacing the contents of the "components" key with the new components

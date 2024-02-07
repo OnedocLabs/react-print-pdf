@@ -6,7 +6,8 @@ import { formatCamelCaseToTitle } from "./utils";
 export const buildFileMarkdown = async (
   docConfig: ExtendedDocConfig,
   componentDocs: ComponentDoc[],
-  style: string
+  style: string,
+  outputPath: string
 ) => {
   let markdown = `---
 title: ${docConfig.name}
@@ -37,7 +38,8 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
         const { markdown: exampleMarkdown } = await buildExample(
           examples.default,
           component.displayName,
-          style
+          style,
+          outputPath
         );
 
         markdown += exampleMarkdown;
@@ -56,7 +58,8 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
           const { markdown: exampleMarkdown } = await buildExample(
             example,
             component.displayName,
-            style
+            style,
+            outputPath
           );
 
           markdown += exampleMarkdown;

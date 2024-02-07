@@ -20,7 +20,8 @@ const indexCss = fs.readFileSync(path.join(__dirname, "../dist/index.css"));
 export const buildExample = async (
   example: EnrichedExample,
   component: string,
-  style: string
+  style: string,
+  outputPath: string
 ) => {
   let markdown = ``;
 
@@ -80,14 +81,14 @@ export const buildExample = async (
 
   const pages = await glob(path.join(targetFolder, "*.jpg"));
   const pdf = await glob(path.join(targetFolder, "*.pdf"));
-  const imagePath = path.relative(path.join(__dirname, "../docs/"), pages[0]);
-  const pdfPath = path.relative(path.join(__dirname, "../docs/"), pdf[0]);
+  const imagePath = path.relative(outputPath, pages[0]);
+  const pdfPath = path.relative(outputPath, pdf[0]);
 
   if (example.description) {
     markdown += `${example.description}\n\n`;
   }
 
-  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="/${imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
+  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
 
   // Check if the folder docs/previews contain the image
 
