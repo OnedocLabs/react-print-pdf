@@ -103,7 +103,7 @@ ${baseCss}
 \`\`\`
 </CodeGroup></div>\n\n`;
 
-  markdown += `<a href="${pdfPath}">Download the PDF example ↓</a>\n\n`;
+  // markdown += `<a href="${pdfPath}">Download the PDF example ↓</a>\n\n`;
 
   return {
     markdown,
