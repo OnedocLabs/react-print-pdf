@@ -104,10 +104,5 @@
     "twitter": "https://twitter.com/Onedoclabs",
     "github": "https://github.com/OnedocLabs/onedoc",
     "linkedin": "https://www.linkedin.com/company/onedoclabs"
-  },
-  "backgroundImage": "docs/images/background.png",
-  "classes": {
-    "anchors": "group-hover:bg-gradient-to-tr from-primary to-primary-dark dark:from-[#61DAFB] dark:to-[#06BCEE]",
-    "activeAnchors": "bg-gradient-to-tr"
   }
 }
