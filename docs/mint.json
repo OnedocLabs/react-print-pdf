@@ -50,7 +50,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://react.onedoclabs.com/"
+      "url": "https://react.onedoclabs.com/introduction"
     },
     {
       "name": "Discord",
@@ -66,22 +66,15 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": [
-        "introduction",
-        "contributing"
-      ]
+      "pages": ["introduction", "contributing"]
     },
     {
       "group": "Getting Started",
-      "pages": [
-        "getting-started/setup"
-      ]
+      "pages": ["getting-started/setup"]
     },
     {
       "group": "Integrations",
-      "pages": [
-        "integrations/onedoc"
-      ]
+      "pages": ["integrations/onedoc"]
     },
     {
       "group": "Components",
