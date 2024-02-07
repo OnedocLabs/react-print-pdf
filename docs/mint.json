@@ -1,5 +1,4 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
   "name": "React Print",
   "logo": {
     "dark": "/logo/dark.svg",
@@ -107,5 +106,11 @@
     "twitter": "https://twitter.com/mintlify",
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
+  },
+  "backgroundImage": "docs/images/background.png",
+  "classes": {
+    "anchors": "group-hover:bg-gradient-to-tr from-primary to-primary-dark dark:from-[#61DAFB] dark:to-[#06BCEE]",
+    "activeAnchors": "bg-gradient-to-tr"
   }
+
 }
