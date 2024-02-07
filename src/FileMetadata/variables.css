@@ -1,7 +1,0 @@
-.--docify-page-number-current {
-  content: counter(page);
-}
-
-.--docify-page-number-total {
-  content: counter(pages);
-}

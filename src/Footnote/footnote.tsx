@@ -1,8 +1,9 @@
 import React from "react";
 import "./footnote.css";
+import type { DocConfig } from "../../docgen/types";
 
 /**
- * Creates an automatically numbered footnote.
+ * Creates an automatically numbered footnote. This will remove the footnote content from the document flow and place it at the bottom of the page.
  */
 export const Footnote = ({
   children,
@@ -21,4 +22,16 @@ export const Footnote = ({
       {children}
     </span>
   );
+};
+
+export const __docConfig: DocConfig = {
+  components: {
+    Footnote: {
+      examples: {
+        default: {
+          template: <Footnote>Ceci est un exemple dynamique</Footnote>,
+        },
+      },
+    },
+  },
 };

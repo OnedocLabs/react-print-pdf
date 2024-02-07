@@ -1,0 +1,141 @@
+---
+title: 'Onedoc'
+sidebarTitle: 'Onedoc'
+description: 'Use Onedoc as your primary documents genration and management providers'
+icon: '1'
+---
+
+In this section we will show you how can you generate and host a .pdf using [Onedoc's SDK](https://www.npmjs.com/package/@onedoc/client).
+
+<Warning>
+  Onedoc is currently in public beta mode.
+</Warning>
+
+## Prerequisites
+
+To get the most out of this guide, you'll need to:
+
+- [Sign-up/in to Onedoc](https://app.onedoclabs.com/login)
+- [Generate your API Key](https://app.onedoclabs.com/login)
+
+## 1. Installation
+
+<Tip>
+  Want to get started without a project? We have setup a [simple
+  CodeSandbox](https://codesandbox.io/p/devbox/onedoc-template-invoice-forked-jdyw6j?embed=1&file=%2Findex.tsx)
+  for you to try out.
+</Tip>
+
+If you did not have set up a NodeJS project, you can use the following command to do so: 
+
+```sh npm
+npm init -y
+```
+
+Get the Onedoc Node.js SDK
+
+<CodeGroup>
+
+```sh npm
+npm install -s @onedoc/client
+```
+
+```sh yarn
+yarn add @onedoc/client
+```
+
+```sh pnpm
+pnpm add @onedoc/client
+```
+
+</CodeGroup>
+
+## 2. Create a document template
+
+Create a `components` directory using the following command:
+
+```sh terminal
+mkdir components
+```
+
+Then create your document template on `components/pdf-template.jsx`.<br/>Your file must export a React component.
+
+```javascript components/pdf-template.jsx
+import * as React from "react";
+
+export const PDFTemplate = ({ name }) => {
+  return (
+    <div>
+      <h1> Hello {name} !</h1>
+    </div>
+  );
+};
+```
+
+and optionally, a stylesheet named `stylesheet.css`, in the `root` directory:
+
+```css ./stylesheet.css
+body {
+  background-color: lightblue;
+}
+```
+
+## 3. Generate your PDF
+
+Create a new file `generate.tsx', import the React document template and generate a PDF using your `ONEDOC_API_KEY` and your main React component.
+
+<CodeGroup>
+
+```javascript generate.tsx
+import React from "react";
+import { PDFTemplate } from "./components/pdf-template";
+import { Onedoc } from "@onedoc/client";
+import { readFileSync, writeFileSync } from "fs";
+import { renderToString } from "react-dom/server";
+import { join } from "path";
+
+const ONEDOC_API_KEY = "####-####-####-####"; // replace with your api key
+
+(async () => {
+  const onedoc = new Onedoc(ONEDOC_API_KEY);
+
+  let doc = {
+    html: renderToString(<PDFTemplate name="Bruce Wayne" />),
+    title: "Hello",
+    test: true, // if true, produce a PDF in test mode with a Onedoc's watermark 
+    save: true, // if true, host the document and provide a download link in the console and your Onedoc's dashboard
+    expiresIn: 30, // the number of day you want to host your document
+    assets: [
+      {
+        path: "./stylesheet.css",
+        content: readFileSync(join(process.cwd(), "stylesheet.css")).toString(),
+      },
+    ],
+  };
+
+  const { file, link, error, info } = await onedoc.render(doc);
+
+  if (error) {
+    throw error;
+  }
+
+  console.log(link);
+})();
+```
+
+</CodeGroup>
+
+You are almost done ! Run the script using the following command : 
+
+```sh terminal
+npx tsx ./generate.tsx
+```
+
+
+Stylesheets and other referenced assets should be passed in the `asset` parameter. If you are using a framework such as Tailwind, you must submit a <b>compiled stylesheet</b> that can be applied to a HTML file that contains the compiled React component. <br/>
+
+You must upload the content of your asset in string or Buffer format in the `content` field.
+
+## 4. Congratulations !
+
+You just created your first PDF using Onedoc Node.js + React SDK. You can now access your private [dashboard](https://app.onedoclabs.com/) to preview and download your PDF. <br/>

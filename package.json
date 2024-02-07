@@ -1,6 +1,6 @@
 {
   "name": "@onedoc/react-print",
-  "version": "0.1.17",
+  "version": "0.1.38",
   "description": "Onedoc components for JavaScript React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -20,17 +20,26 @@
     "build": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "(cd ./docs && mintlify dev --watch)",
-    "build-components": "tsx ./scripts/docgen.ts"
+    "build-components": "npm run build && tsx ./docgen/v2.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@onedoc/client": "^0.1.28",
     "@swc/core": "^1.3.107",
-    "@types/react": "^18.2.48",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.18",
     "acorn": "^8.11.3",
     "acorn-typescript": "^1.4.13",
+    "css-to-style": "^1.4.0",
+    "esformatter": "^0.11.3",
+    "esformatter-jsx": "^8.0.1",
+    "juice": "^10.0.0",
     "mintlify": "^4.0.122",
+    "pdf2pic": "^3.1.1",
+    "react": "^18.2.0",
     "react-docgen-typescript": "^2.2.2",
+    "react-dom": "^18.2.0",
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
@@ -49,6 +58,6 @@
     "dts": true
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "@ts-morph/bootstrap": "^0.22.0"
   }
 }

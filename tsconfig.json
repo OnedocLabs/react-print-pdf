@@ -9,7 +9,7 @@
     "allowJs": true,
     "jsx": "react",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

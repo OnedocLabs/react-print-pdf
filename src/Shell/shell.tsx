@@ -52,5 +52,3 @@ export const FloatBottom = (props: any) => {
     </div>
   );
 };
-
-export const _docConfig = {};

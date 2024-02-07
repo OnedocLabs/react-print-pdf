@@ -2,3 +2,4 @@ node_modules
 test
 dist
 .DS_Store
+.tmp
