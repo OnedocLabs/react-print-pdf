@@ -113,6 +113,10 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 
 # Join the movement !
 
+![React-pdf example](https://github.com/OnedocLabs/react-print/assets/33000377/96b955c2-5014-4a0d-b246-bc7839d977ce)
+
+
+
 <div class="title-block" style="text-align: center;" align="center">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Onedoclabs/react-print)](https://github.com/OnedocLabs/react-print)
