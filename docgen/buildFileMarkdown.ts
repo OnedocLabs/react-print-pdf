@@ -1,4 +1,4 @@
-import { ExtendedDocConfig } from "./types";
+import { EnrichedExample, ExtendedDocConfig } from "./types";
 import { ComponentDoc } from "react-docgen-typescript";
 import { buildExample } from "./buildExample";
 import { formatCamelCaseToTitle } from "./utils";
@@ -14,7 +14,13 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
 ---\n\n`;
 
   for (const component of componentDocs) {
-    const examples = docConfig.components[component.displayName].examples || {};
+    let examples: {
+      [key: string]: EnrichedExample;
+    } = {};
+
+    try {
+      examples = docConfig.components[component.displayName].examples || {};
+    } catch (e) {}
 
     markdown += `## ${component.displayName}\n\n`;
 
@@ -56,9 +62,11 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
           markdown += exampleMarkdown;
         }
       }
+    } else {
+      markdown += `\`\`\`jsx\nimport { ${component.displayName} } from "@onedoc/react-print";\n\`\`\`\n\n`;
     }
 
-    if (component.props) {
+    if (component.props && Object.keys(component.props).length > 0) {
       markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
 
       Object.entries(component.props).forEach(([propName, prop]) => {

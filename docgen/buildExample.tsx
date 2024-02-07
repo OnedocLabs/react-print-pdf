@@ -15,6 +15,7 @@ config();
 const onedoc = new Onedoc(process.env.ONEDOC_API_KEY!);
 
 const baseCss = fs.readFileSync(path.join(__dirname, "./base.css"));
+const indexCss = fs.readFileSync(path.join(__dirname, "../dist/index.css"));
 
 export const buildExample = async (
   example: EnrichedExample,
@@ -26,8 +27,6 @@ export const buildExample = async (
   const snippet = formatSnippet(example.templateString);
 
   const html = bundle(example.template, style);
-
-  console.log(html);
 
   const hash = crypto.createHash("sha256");
   hash.update(html);
@@ -45,6 +44,10 @@ export const buildExample = async (
         {
           path: "base.css",
           content: baseCss,
+        },
+        {
+          path: "index.css",
+          content: indexCss,
         },
       ],
       save: false,
@@ -72,9 +75,7 @@ export const buildExample = async (
       width: 1920,
     });
 
-    const pages = await pdf2pic();
-
-    console.log(pages);
+    await pdf2pic();
   }
 
   const pages = await glob(path.join(targetFolder, "*.jpg"));

@@ -34,10 +34,6 @@ const process = async () => {
   const docs = (
     await Promise.all(
       files.map(async (filePath) => {
-        if (filePath.indexOf("footnote") < 0) {
-          return;
-        }
-
         await build({
           entry: [filePath],
           dts: false,
@@ -115,9 +111,13 @@ const process = async () => {
 
   mint.navigation.forEach((navItem, index) => {
     if (navItem.group === "Components") {
-      mint.navigation[index].pages = docs.map((docFile) => {
-        return `components/${docFile.baseName}`;
-      });
+      mint.navigation[index].pages = docs
+        .sort((a, b) => {
+          return a.name.localeCompare(b.name);
+        })
+        .map((docFile) => {
+          return `components/${docFile.baseName}`;
+        });
     }
   });
 
