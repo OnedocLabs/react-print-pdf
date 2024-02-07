@@ -106,6 +106,6 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 
 # License
 
-[MIT License]()
+[MIT License](https://github.com/OnedocLabs/react-print/blob/main/LICENSE.md)
 
 ---
