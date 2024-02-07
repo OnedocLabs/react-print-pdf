@@ -69,6 +69,17 @@
       ]
     },
     {
+      "group": "Components",
+      "pages": [
+        "components/trackbox",
+        "components/signature",
+        "components/shell",
+        "components/headings",
+        "components/frontmatter",
+        "components/footnote"
+      ]
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/introduction"

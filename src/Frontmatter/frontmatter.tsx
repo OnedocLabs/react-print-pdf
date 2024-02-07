@@ -5,8 +5,9 @@ interface Frontmatter {
 }
 
 export const formatters = {
-  date: (language:string, options: Intl.DateTimeFormatOptions) => (date: string) =>
-    new Intl.DateTimeFormat(language, options).format(new Date(date)),
+  date:
+    (language: string, options: Intl.DateTimeFormatOptions) => (date: string) =>
+      new Intl.DateTimeFormat(language, options).format(new Date(date)),
   raw: () => (value: string) => value,
 };
 
@@ -47,7 +48,7 @@ export const FrontmatterProvider = ({
   );
 };
 
-export const useFrontmatter = (field: string) => {
+const useFrontmatter = (field: string) => {
   const frontmatter = useContext(FrontmatterContext);
 
   return frontmatter[field] || undefined;
