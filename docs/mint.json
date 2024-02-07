@@ -1,5 +1,6 @@
 {
   "name": "React Print",
+  "schema": "schema.json",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg",
