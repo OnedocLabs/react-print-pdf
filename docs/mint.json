@@ -66,6 +66,12 @@
       ]
     },
     {
+      "group": "Getting Started",
+      "pages": [
+        "getting-started/setup"
+      ]
+    },
+    {
       "group": "Essentials",
       "pages": [
         "essentials/markdown",

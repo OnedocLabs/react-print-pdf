@@ -1,71 +1,51 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: 'React Print'
+sidebarTitle: 'Introduction'
+description: 'Build PDFs using React and TypeScript.'
+icon: 'hand-wave'
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+## Why ?
+We believe documents are at the core of communication—invoices, contracts, resumes, bills, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to react-print.
 
-## Setting up
+## Getting Started
 
-The first step to world-class documentation is setting up your editing environments.
+React Print is designed to be incrementally adopted, so you can add it to most codebases in a few minutes.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
+<Card
+title="Set up"
+icon="hammer"
+href="/getting-started/setup"
+>
+Create a brand-new folder with packages powered by React Print.
+</Card>
+
+## Components
+This is a set of standard components to help you build amazing PDFs without having to deal with the mess of creating table-based layouts and maintaining archaic markup.
+
+<CardGroup>
+  <Card title="Headings" icon='up' href="/components/headings">
+    A React html component to wrap emails.
   </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
 
-## Make it yours
+  <Card
+    title="Container"
+    icon='grid'
+    href="/components/container"
+  >
 
-Update your docs to your brand and add valuable content for the best user conversion.
+    The main wrapper that hold your content.
+  </Card>
 
-<CardGroup cols={2}>
   <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
+    title="Button"
+    icon='b'
+    href="/components/button"
   >
-    Customize your docs to your company's colors and brands
+    A React button component to help build emails.
   </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/showcase"
-  >
-    Check out our showcase of our favorite documentation
+
+  <Card title="Text" icon='text-size' href="/components/text">
+    A block of text separated by blank spaces.
   </Card>
 </CardGroup>
