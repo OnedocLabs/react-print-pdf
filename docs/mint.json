@@ -35,14 +35,9 @@
   "feedback": {
     "thumbsRating": true
   },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:contact@onedoclabs.com"
-    }
-  ],
+  "topbarLinks": [],
   "topbarCtaButton": {
-    "name": "Github",
+    "type": "github",
     "url": "https://github.com/OnedocLabs/react-print"
   },
   "tabs": [],
