@@ -23,7 +23,7 @@ Documentation is extremely important and takes a fair deal of time and effort to
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/onedoclabs/react-print
+git clone https://github.com/onedoclabs/react-print-pdf
 ```
 
 2. Install all dependencies:
@@ -62,26 +62,39 @@ We're open to expanding the catalog of components to cover as many use cases as 
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/onedoclabs/react-print
+git clone https://github.com/onedoclabs/react-print-pdf
 ```
 
-2. Install all dependencies:
+2. Install pip2pic dependencies:
+
+```sh
+brew update
+brew install gs graphicsmagick
+```
+
+3. Install pip2pic:
+
+```sh
+npm install --save pdf2pic
+```
+
+4. Install all dependencies:
 
 ```sh
 pnpm install
 ```
 
-3. Run local servers and watch for changes:
+5. Run local servers and watch for changes:
 
 ```sh
 pnpm dev
 ```
 
-4. Add a new folder under `src` and build your component.
+6. Add a new folder under `src` and build your component.
 
-5. Don't forget to add tests.
+7. Don't forget to add tests.
 
-6. Submit a pull request.
+8. Submit a pull request.
 
 </Accordion>
 
