@@ -21,14 +21,9 @@ export async function buildTemplates() {
   const css = await postcss([
     tailwindcss(),
     postcssColorFunctionalNotation,
-  ]).process(
-    `@tailwind base;
-@tailwind components;
-@tailwind utilities;`,
-    {
-      from: undefined,
-    }
-  );
+  ]).process(`@tailwind base;@tailwind components;@tailwind utilities;`, {
+    from: undefined,
+  });
 
   return await Promise.all(
     templates.map(async (template) => {
@@ -93,9 +88,10 @@ export async function buildTemplates() {
 
       let markdown = `---
 title: ${name}
+${attributes.icon ? `icon: ${attributes.icon}` : ""}
 ---\n\n`;
 
-      markdown += `<Frame type="glass"><img src="${paths.imagePath}" style={{ height: '600px' }} /></Frame>\n\n`;
+      markdown += `<Frame type="glass"><img src="${paths.imagePath}" style={{ height: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>\n\n`;
 
       markdown += `\`\`\`jsx
 ${formatSnippet(body)}
@@ -103,6 +99,7 @@ ${formatSnippet(body)}
 
       return {
         name,
+        icon: attributes.icon,
         path: relative(join(__dirname, "../src"), template)
           .toLowerCase()
           .replace(/\.mdx$/, ""),

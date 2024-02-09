@@ -40,6 +40,10 @@ export async function renderPreview(
     const { file, info, error } = await onedoc.render({
       html,
       assets: [
+        {
+          path: "style.css",
+          content: Buffer.from(style),
+        },
         ...(useBaseCss
           ? [
               {
@@ -47,7 +51,16 @@ export async function renderPreview(
                 content: baseCss,
               },
             ]
-          : []),
+          : [
+              {
+                path: "default.css",
+                content: Buffer.from(
+                  `@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+                  html, body { font-family: 'Inter', sans-serif; }
+                  @page { size: A4; }`
+                ),
+              },
+            ]),
         {
           path: "index.css",
           content: indexCss,
@@ -78,10 +91,20 @@ export async function renderPreview(
       width: 1920,
     });
 
-    await pdf2pic();
+    let currentPage = 1;
+
+    while (true) {
+      try {
+        await pdf2pic(currentPage);
+      } catch (e) {
+        break;
+      }
+
+      currentPage++;
+    }
   }
 
-  const pages = await glob(path.join(targetFolder, "*.jpg"));
+  const pages = (await glob(path.join(targetFolder, "*.jpg"))).sort();
   const pdf = await glob(path.join(targetFolder, "*.pdf"));
   const imagePath = path.relative(path.dirname(outputPath), pages[0]);
   const pdfPath = path.relative(path.dirname(outputPath), pdf[0]);
