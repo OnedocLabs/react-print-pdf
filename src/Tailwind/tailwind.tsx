@@ -62,7 +62,7 @@ export const Tailwind = ({
 export const __docConfig: DocConfig = {
   name: "Tailwind",
   icon: "wind",
-  description: `Allows for a simple, drop-in way to use Tailwind CSS in your components. This is useful for when you want to use Tailwind classes in your components, but don't want to set up a full Tailwind project. All children of this component will have access to the Tailwind CSS classes.`,
+  description: `A simple, drop-in way to use Tailwind CSS in your components.`,
   components: {
     Tailwind: {
       examples: {
