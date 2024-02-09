@@ -99,7 +99,7 @@ A set of standard components to help you build amazing documents without having 
 > [!NOTE]
 > Help us extend this list by actively contributing and adding your favorite components!
 
-# Integrations
+# Integrations 🔗
 
 PDF created with _react-print_ can generated, hosted (and more) with your preferred document management providers.
 
