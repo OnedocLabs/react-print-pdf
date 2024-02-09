@@ -7,9 +7,11 @@ import { DocConfig } from "docgen/types";
 import React from "react";
 import postcss from "postcss";
 import tailwindcss from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 import type { Config as TailwindConfig } from "tailwindcss";
 // @ts-ignore
 import postcssColorFunctionalNotation from "postcss-color-functional-notation";
+import { merge } from "ts-deepmerge";
 
 import { quickSafeRenderToString } from "./utils.resend";
 import { CorePluginsConfig } from "tailwindcss/types/config";
@@ -39,13 +41,28 @@ export const Tailwind = ({
 
   const corePlugins = config?.corePlugins as CorePluginsConfig;
 
+  // TODO: understand why this is necessary when using font-sans. Probably some misconfigured serif font in Prince.
+  let fontSans = config?.theme?.fontFamily?.sans ?? [
+    "arial",
+    ...defaultTheme.fontFamily.sans,
+  ];
+
   const tailwindConfig = {
-    ...config,
+    ...merge(config || {}, {
+      theme: {
+        fontFamily: {
+          sans: fontSans,
+        },
+      },
+    }),
     corePlugins: {
       preflight: false,
       ...corePlugins,
     },
   };
+
+  // @ts-ignore
+  console.log(tailwindConfig.theme);
 
   const { css } = postcss([
     tailwindcss({

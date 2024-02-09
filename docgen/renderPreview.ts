@@ -54,11 +54,7 @@ export async function renderPreview(
           : [
               {
                 path: "default.css",
-                content: Buffer.from(
-                  `@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-                  html, body { font-family: 'Inter', sans-serif; }
-                  @page { size: A4; }`
-                ),
+                content: Buffer.from(`@page { size: A4; }`),
               },
             ]),
         {
