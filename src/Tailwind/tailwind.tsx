@@ -78,6 +78,7 @@ export const __docConfig: DocConfig = {
           ),
         },
         config: {
+          name: "Custom Tailwind config",
           description:
             "You can also pass a custom Tailwind config to the Tailwind component.",
           template: (
