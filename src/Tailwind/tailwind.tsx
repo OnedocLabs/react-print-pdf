@@ -59,6 +59,8 @@ export const Tailwind = ({
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+
+        ${preflightCss.toString()}
       `,
     {
       from: undefined,
@@ -67,7 +69,7 @@ export const Tailwind = ({
 
   return (
     <>
-      <style>{`${preflightCss}\n\n${css}`}</style>
+      <style>{css}</style>
       {children}
     </>
   );
