@@ -1,21 +1,6 @@
-import { config } from "dotenv";
-
 import { EnrichedExample } from "./types";
-import { Onedoc } from "@onedoc/client";
-import { bundle, formatSnippet } from "./utils";
-import * as crypto from "crypto";
-import * as path from "path";
-import * as fs from "fs";
-import { fromBuffer } from "pdf2pic";
-import { glob } from "glob";
-
-config({ path: ".env.local" });
-config();
-
-const onedoc = new Onedoc(process.env.ONEDOC_API_KEY!);
-
-const baseCss = fs.readFileSync(path.join(__dirname, "./base.css"));
-const indexCss = fs.readFileSync(path.join(__dirname, "../dist/index.css"));
+import { formatSnippet } from "./utils";
+import { renderPreview, baseCss } from "./renderPreview";
 
 export const buildExample = async (
   example: EnrichedExample,
@@ -27,68 +12,18 @@ export const buildExample = async (
 
   const snippet = formatSnippet(example.templateString);
 
-  const html = bundle(example.template, style);
-
-  const hash = crypto.createHash("sha256");
-  hash.update(html);
-
-  let id = hash.digest("hex");
-  id = component.replace(" ", "-").toLowerCase() + "-" + id.slice(0, 8);
-
-  const targetFolder = path.join(__dirname, `../docs/images/previews/${id}/`);
-
-  // If the file doesn't exist, create it by generating the document with Onedoc
-  if (!fs.existsSync(targetFolder)) {
-    const { file, info, error } = await onedoc.render({
-      html,
-      assets: [
-        {
-          path: "base.css",
-          content: baseCss,
-        },
-        {
-          path: "index.css",
-          content: indexCss,
-        },
-      ],
-      save: false,
-      test: false,
-    });
-
-    if (error) {
-      throw new Error(`Error rendering the document: ${error}`);
-    }
-
-    // Create the directory
-    fs.mkdirSync(targetFolder, { recursive: true });
-
-    const buffer = Buffer.from(file);
-
-    // Save the buffer to a file called id.pdf
-    fs.writeFileSync(path.join(targetFolder, "document.pdf"), buffer);
-
-    const pdf2pic = fromBuffer(buffer, {
-      density: 300,
-      saveFilename: "document",
-      savePath: targetFolder,
-      format: "jpg",
-      preserveAspectRatio: true,
-      width: 1920,
-    });
-
-    await pdf2pic();
-  }
-
-  const pages = await glob(path.join(targetFolder, "*.jpg"));
-  const pdf = await glob(path.join(targetFolder, "*.pdf"));
-  const imagePath = path.relative(path.dirname(outputPath), pages[0]);
-  const pdfPath = path.relative(path.dirname(outputPath), pdf[0]);
+  const paths = await renderPreview(
+    example.template,
+    component,
+    outputPath,
+    style
+  );
 
   if (example.description) {
     markdown += `${example.description}\n\n`;
   }
 
-  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
+  markdown += `<Frame type="glass"><img className="shadow shadow-black/20" src="${paths.imagePath}" style={{ height: '400px' }} /></Frame>\n\n`;
 
   // Check if the folder docs/previews contain the image
 
