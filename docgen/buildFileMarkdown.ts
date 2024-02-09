@@ -1,7 +1,7 @@
 import { EnrichedExample, ExtendedDocConfig } from "./types";
 import { ComponentDoc } from "react-docgen-typescript";
 import { buildExample } from "./buildExample";
-import { formatCamelCaseToTitle } from "./utils";
+import { formatCamelCaseToTitle, safePropType } from "./utils";
 
 export const buildFileMarkdown = async (
   docConfig: ExtendedDocConfig,
@@ -73,7 +73,11 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
       markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
 
       Object.entries(component.props).forEach(([propName, prop]) => {
-        markdown += `<ResponseField name="${propName}" type="${prop.type.name}" required={${prop.required}}>${prop.description}</ResponseField>\n`;
+        markdown += `<ResponseField name="${propName}" type="${safePropType(
+          prop.type.name
+        )}" required={${prop.required}}>\n\n${
+          prop.description
+        }\n\n</ResponseField>\n`;
       });
 
       markdown += `</Expandable></ResponseField>\n`;

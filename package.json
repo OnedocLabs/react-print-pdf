@@ -36,22 +36,17 @@
     "acorn": "^8.11.3",
     "acorn-typescript": "^1.4.13",
     "autoprefixer": "^10.4.17",
-    "css-to-style": "^1.4.0",
     "dotenv": "^16.4.1",
     "esformatter": "^0.11.3",
     "esformatter-jsx": "^8.0.1",
     "front-matter": "^4.0.2",
-    "juice": "^10.0.0",
     "mintlify": "^4.0.122",
     "pdf2pic": "^3.1.1",
-    "postcss": "^8.4.35",
-    "postcss-color-functional-notation": "^6.0.4",
     "pre-commit": "^1.2.2",
     "react": "^18.2.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.2.0",
     "remark-frontmatter": "^5.0.0",
-    "tailwindcss": "^3.4.1",
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
@@ -68,5 +63,11 @@
       "esm"
     ],
     "dts": true
+  },
+  "dependencies": {
+    "postcss": "^8.4.35",
+    "postcss-color-functional-notation": "^6.0.4",
+    "postcss-css-variables": "^0.19.0",
+    "tailwindcss": "3.3.2"
   }
 }

@@ -8,5 +8,13 @@ export {
   RunningH5,
   RunningH6,
 } from "./RunningHeader/headings";
-export * from "./Shell/shell";
+export {
+  PageBottom,
+  PageBreak,
+  PageTop,
+  CurrentPageTop,
+  NoBreak,
+  FloatBottom,
+} from "./Shell/shell";
 export { Footnote } from "./Footnote/footnote";
+export { Tailwind } from "./Tailwind/tailwind";

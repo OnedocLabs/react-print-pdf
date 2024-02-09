@@ -3,8 +3,6 @@ import { DocConfig, ExtendedDocConfig } from "./types";
 import * as esformatter from "esformatter";
 import * as esformatterJsx from "esformatter-jsx";
 import { renderToString } from "react-dom/server";
-import juice from "juice";
-import parse from "css-to-style";
 
 export const formatCamelCaseToTitle = (str: string) => {
   // Convert camelCase to Title Case with spaces
@@ -96,30 +94,6 @@ export const formatSnippet = (snippet: string) => {
   return esformatter.format(snippet, {});
 };
 
-const reparseCss = (html: string) => {
-  // Replace all style="" with style={{}} and parse the css.
-  const styleRegex = /style="([^"]*)"/g;
-  const matches = html.match(styleRegex);
-  if (matches) {
-    for (const match of matches) {
-      const style = match.replace(/style="/, "").replace(/"/, "");
-      const parsed = parse(style);
-      const styleString = JSON.stringify(parsed);
-      html = html.replace(match, `style={${styleString}}`);
-    }
-  }
-
-  // Replace all class="" with className=""
-  const classRegex = /class="([^"]*)"/g;
-  const classMatches = html.match(classRegex);
-  if (classMatches) {
-    for (const match of classMatches) {
-      html = html.replace(match, match.replace(/class="/, 'className="'));
-    }
-  }
-  return html;
-};
-
 export const bundle = (reactComponent: React.ReactNode, style: string) => {
   if (!reactComponent) {
     return "";
@@ -127,12 +101,13 @@ export const bundle = (reactComponent: React.ReactNode, style: string) => {
 
   const html = renderToString(reactComponent as React.ReactElement);
 
-  const parsed = `<style>
-        \{\`${style}\`\}
-      </style>
+  const parsed = `${style.trim().length ? `<style>${style}</style>` : ""}
       ${html}`;
 
-  const sanitizedCss = juice(parsed);
+  return parsed;
+};
 
-  return sanitizedCss.trim();
+export const safePropType = (str: string) => {
+  // Replace all " by ' to avoid conflicts with markdown
+  return str.replace(/"/g, "'");
 };

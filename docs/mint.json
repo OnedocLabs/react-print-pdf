@@ -88,7 +88,8 @@
       "pages": [
         "components/footnote",
         "components/headings",
-        "components/shell"
+        "components/shell",
+        "components/tailwind"
       ]
     },
     {

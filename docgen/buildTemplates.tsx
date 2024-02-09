@@ -3,9 +3,6 @@ import { join, relative, dirname, basename, resolve } from "path";
 import { build } from "tsup";
 import { renderPreview } from "./renderPreview";
 import React from "react";
-import postcss from "postcss";
-import tailwindcss from "tailwindcss";
-import postcssColorFunctionalNotation from "postcss-color-functional-notation";
 import remarkFrontmatter from "remark-frontmatter";
 import frontmatter from "front-matter";
 import { promises as fs } from "fs";
@@ -17,13 +14,6 @@ export async function buildTemplates() {
   const { default: mdx } = await import("@mdx-js/esbuild");
 
   const templates = await glob(join(__dirname, "../src/ui/**/*.mdx"));
-
-  const css = await postcss([
-    tailwindcss(),
-    postcssColorFunctionalNotation,
-  ]).process(`@tailwind base;@tailwind components;@tailwind utilities;`, {
-    from: undefined,
-  });
 
   return await Promise.all(
     templates.map(async (template) => {
@@ -79,7 +69,7 @@ export async function buildTemplates() {
           " "
         )} ${basename(outPath, ".js")}`,
         docLocation,
-        css.content,
+        "",
         false
       );
 
@@ -116,7 +106,7 @@ export const buildTemplateList = (
   path: string
 ) => {
   let markdown = `---
-title: All
+title: Browse
 ---\n\n
 
 <CardGroup>\n`;
