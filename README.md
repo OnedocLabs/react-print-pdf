@@ -20,10 +20,10 @@
 https://github.com/OnedocLabs/react-print-pdf/assets/33000377/1c625983-ab1a-4a55-b30e-e7bcaf596d92
 
 # Key Features 🎯
-* Easy to use: Build your first PDF with react-print-pdf in less than 5 minutes.
-* Open source: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
-* Components & Templates: Kickstart your next document by using our list of components and template created by Onedoc's Team and the community.
-* Marketplace: Share your latest templates and components with the community and contribute to the future of react-print-pdf 
+* **Easy to use**: Build your first PDF with react-print-pdf in less than 5 minutes.
+* **Open source**: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
+* **Components & Templates**: Kickstart your next document by using our list of components and template created by Onedoc's Team and the community.
+* **Marketplace**: Share your latest templates and components with the community and contribute to the future of react-print-pdf 
 
 # Introduction ℹ️
 
