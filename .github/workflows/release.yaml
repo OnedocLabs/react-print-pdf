@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "src/**"
-      - "package.json"
-      - "package-lock"
     paths-ignore:
       - "docs/**"
       - "docgen/**"
