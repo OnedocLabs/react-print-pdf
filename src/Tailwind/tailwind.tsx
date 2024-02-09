@@ -10,14 +10,18 @@ import tailwindcss from "tailwindcss";
 import type { Config as TailwindConfig } from "tailwindcss";
 // @ts-ignore
 import postcssColorFunctionalNotation from "postcss-color-functional-notation";
-// @ts-ignore
-import postcssCssVariables from "postcss-css-variables";
 
 import { quickSafeRenderToString } from "./utils.resend";
+import { CorePluginsConfig } from "tailwindcss/types/config";
+import { readFileSync } from "fs";
+
+const preflightCss = readFileSync(
+  require.resolve("tailwindcss/lib/css/preflight.css")
+);
 
 export const Tailwind = ({
   children,
-  twConfig,
+  config,
 }: {
   /**
    * The children of the Tailwind component. Components will have access to the Tailwind CSS classes.
@@ -29,13 +33,23 @@ export const Tailwind = ({
    *
    * NB: The `content` option is automatically set to the children of the Tailwind component.
    */
-  twConfig?: Omit<TailwindConfig, "content">;
+  config?: Omit<TailwindConfig, "content">;
 }) => {
   const markup = quickSafeRenderToString(children);
 
+  const corePlugins = config?.corePlugins as CorePluginsConfig;
+
+  const tailwindConfig = {
+    ...config,
+    corePlugins: {
+      preflight: false,
+      ...corePlugins,
+    },
+  };
+
   const { css } = postcss([
     tailwindcss({
-      ...twConfig,
+      ...tailwindConfig,
       content: [{ raw: markup, extension: "html" }],
     }),
     // postcssCssVariables,
@@ -53,7 +67,7 @@ export const Tailwind = ({
 
   return (
     <>
-      <style>{css}</style>
+      <style>{`${preflightCss}\n\n${css}`}</style>
       {children}
     </>
   );
@@ -83,7 +97,7 @@ export const __docConfig: DocConfig = {
             "You can also pass a custom Tailwind config to the Tailwind component.",
           template: (
             <Tailwind
-              twConfig={{
+              config={{
                 theme: {
                   extend: {
                     colors: {
