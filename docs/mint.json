@@ -97,7 +97,8 @@
       "group": "Templates",
       "pages": [
         "ui/templates",
-        "ui/templates/receipt"
+        "ui/templates/receipt",
+        "ui/templates/invoice"
       ]
     }
   ],
