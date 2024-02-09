@@ -1,6 +1,6 @@
 {
   "name": "@onedoc/react-print",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "description": "Onedoc components for JavaScript React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
