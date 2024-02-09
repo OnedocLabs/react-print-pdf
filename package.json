@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --external @onedoc/react-print",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "(cd ./docs && mintlify dev --watch)",
     "build-components": "npm run build && tsx ./docgen/index.ts"

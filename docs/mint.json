@@ -86,6 +86,7 @@
     {
       "group": "Components",
       "pages": [
+        "components/compile",
         "components/footnote",
         "components/headings",
         "components/shell",
