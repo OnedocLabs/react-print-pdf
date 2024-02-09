@@ -1,11 +1,18 @@
 import * as glob from "glob";
 import * as path from "path";
 import * as fs from "fs";
-import * as ts from "typescript";
-
+import { build } from "tsup";
 import * as docgen from "react-docgen-typescript";
-import { buildExample } from "./buildExamples";
 import { DocConfig } from "./types";
+import {
+  formatCamelCaseToTitle,
+  getTemplateContents,
+  mergeTemplateInfo,
+} from "./utils";
+import { buildFileMarkdown } from "./buildFileMarkdown";
+
+const tmpDir = path.join(__dirname, "../.tmp");
+const docsPath = path.join(__dirname, "../docs/components");
 
 const options: docgen.ParserOptions = {
   savePropValueAsString: true,
@@ -16,117 +23,78 @@ const options: docgen.ParserOptions = {
 
 type docFile = {
   name: string;
+  baseName: string;
   markdown: string;
   path: string;
+  outputPath: string;
+  config: DocConfig;
 };
-
-// List all the .tsx files in the ./src directory
-const files = glob.sync(path.join(__dirname, "../src/**/*.tsx"));
-
-const extractConfig = (filePath: string) => {
-  // use typescript to parse the ast and find a varialble named _docConfig
-  const fileContents = fs.readFileSync(filePath, "utf-8");
-
-  const sourceFile = ts.createSourceFile(
-    filePath,
-    fileContents,
-    ts.ScriptTarget.ES2015,
-    true
-  );
-
-  let config = {};
-
-  sourceFile.forEachChild((node) => {
-    if (ts.isVariableStatement(node)) {
-      node.declarationList.declarations.forEach((declaration) => {
-        if (declaration.name.getText() === "_docConfig") {
-          const rawContents = declaration
-            .getText()
-            .split("=")
-            .slice(1)
-            .join("=")
-            .trim();
-          // Exec the raw contents to get the object
-          config = eval(`(${rawContents})`);
-        }
-      });
-    }
-  });
-
-  return config as DocConfig;
-};
-
-const formatCamelCaseToTitle = (str: string) => {
-  // Convert camelCase to Title Case with spaces
-  return str
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, (str) => str.toUpperCase());
-};
-
-// Clear the ./docs/components directory
-const docsPath = path.join(__dirname, "../docs/components");
 
 const process = async () => {
-  const docFiles = (
+  const files = glob
+    .sync(path.join(__dirname, "../src/**/*.tsx"))
+    .filter((filePath) => {
+      return !filePath.includes("/src/ui/");
+    });
+
+  const docs = (
     await Promise.all(
       files.map(async (filePath) => {
-        console.log(filePath);
+        await build({
+          entry: [filePath],
+          dts: false,
+          outDir: tmpDir,
+          format: "cjs",
+          sourcemap: false,
+          splitting: false,
+          bundle: true,
+          config: false,
+          clean: true,
+        });
+
+        const entrypoint = path.join(
+          tmpDir,
+          path.basename(filePath, ".tsx") + ".js"
+        );
+
+        const elements = await import(entrypoint);
 
         const types = docgen.parse(filePath, options);
 
-        if (types.length === 0) {
-          return false;
-        }
-
-        const inFileConfig = extractConfig(filePath);
-
-        const config: DocConfig = Object.assign(
+        let docConfig = Object.assign(
           {
             name: formatCamelCaseToTitle(path.basename(filePath, ".tsx")),
-            icon: "react",
+            description: "",
             components: {},
           } satisfies DocConfig,
-          inFileConfig
+          elements.__docConfig
         );
 
-        let imports = ``;
-        let frontmatter = `title: ${config.name}`;
-        let markdown = ``;
+        const templates = getTemplateContents(filePath);
 
-        for (const component of types) {
-          const examples =
-            config.components[component.displayName]?.examples || {};
+        docConfig = mergeTemplateInfo(docConfig, templates);
 
-          markdown += `## ${component.displayName}\n\n`;
+        const outputPath = path.join(
+          __dirname,
+          `../docs/components/${path.basename(filePath, ".tsx")}.mdx`
+        );
 
-          console.log(examples);
-
-          if (examples.default) {
-            const example = await buildExample({
-              path: filePath,
-              componentName: component.displayName,
-              example: examples.default,
-            });
-
-            console.log(config);
-
-            markdown += `${example.contents}\n\n`;
-          }
-
-          if (component.description) {
-            markdown += `${component.description}\n\n`;
-          }
-        }
+        const markdown = await buildFileMarkdown(
+          docConfig,
+          types,
+          fs.readFileSync(path.join(__dirname, "../dist/index.css"), "utf-8"),
+          outputPath
+        );
 
         return {
-          name: path.basename(filePath, ".tsx"),
-          markdown: `---
-${frontmatter}
----
-${imports}
-
-${markdown}`,
-          path: filePath,
+          name: docConfig.name,
+          baseName: path.basename(filePath, ".tsx"),
+          path: path
+            .relative(path.join(__dirname, "../src"), filePath)
+            .toLowerCase(),
+          outputPath,
+          markdown,
+          config: docConfig,
         };
       })
     )
@@ -136,17 +104,16 @@ ${markdown}`,
   if (!fs.existsSync(docsPath)) {
     fs.mkdirSync(docsPath, { recursive: true });
   } else {
-    fs.rmdirSync(docsPath, { recursive: true });
+    fs.rmSync(docsPath, { recursive: true });
     fs.mkdirSync(docsPath, { recursive: true });
   }
 
-  docFiles.forEach((docFile) => {
-    const outPath = path.join(
-      __dirname,
-      `../docs/components/${docFile.name}.mdx`
-    );
+  const sortedDocs = docs.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
 
-    fs.writeFileSync(outPath, docFile.markdown);
+  sortedDocs.forEach((docFile) => {
+    fs.writeFileSync(docFile.outputPath, docFile.markdown);
   });
 
   // Write to the ./docs/mint.json file, replacing the contents of the "components" key with the new components
@@ -156,13 +123,33 @@ ${markdown}`,
 
   mint.navigation.forEach((navItem, index) => {
     if (navItem.group === "Components") {
-      mint.navigation[index].pages = docFiles.map((docFile) => {
-        return `components/${docFile.name}`;
+      mint.navigation[index].pages = sortedDocs.map((docFile) => {
+        return `components/${docFile.baseName}`;
       });
     }
   });
 
   fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
+
+  // Build the card groups
+  let snippet = `<CardGroup>`;
+
+  sortedDocs.forEach((docFile) => {
+    const href = path
+      .relative(path.join(__dirname, "../docs"), docFile.outputPath)
+      .replace(".mdx", "");
+
+    snippet += `<Card title="${docFile.name}" icon="${docFile.config.icon}" href="${href}">
+    ${docFile.config.description}
+  </Card>`;
+  });
+
+  snippet += `</CardGroup>`;
+
+  fs.writeFileSync(
+    path.join(__dirname, "../docs/snippets/components.mdx"),
+    snippet
+  );
 };
 
 process();

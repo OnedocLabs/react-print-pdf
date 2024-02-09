@@ -13,7 +13,13 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@components/*": [
+        "src/*"
+      ]
+    },
+    "baseUrl": ".",
   },
   "include": [
     "src"

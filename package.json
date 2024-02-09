@@ -20,8 +20,11 @@
     "build": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "(cd ./docs && mintlify dev --watch)",
-    "build-components": "npm run build && tsx ./docgen/v2.ts"
+    "build-components": "npm run build && tsx ./docgen/index.ts"
   },
+  "pre-commit": [
+    "build-components"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -38,6 +41,7 @@
     "juice": "^10.0.0",
     "mintlify": "^4.0.122",
     "pdf2pic": "^3.1.1",
+    "pre-commit": "^1.2.2",
     "react": "^18.2.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.2.0",
@@ -57,8 +61,5 @@
       "esm"
     ],
     "dts": true
-  },
-  "dependencies": {
-    "@ts-morph/bootstrap": "^0.22.0"
   }
 }
