@@ -16,6 +16,7 @@ npm init -y
 ```
 
 ## 2. Install the dependencies
+
 Get the react-print package locally
 
 <CodeGroup>
@@ -34,40 +35,44 @@ pnpm add @onedoc/react-print
 
 </CodeGroup>
 
-## 3. Create your first PDF Component 
+## 3. Create your first PDF Component
+
 Create a new folder call `documents`, then create a new file inside call `index.jsx` and copy the following code:
 
-```jsx document/index.jsx
-import { PageTop, PageBottom, PageBreak } from '@onedoc/react-print';
+```jsx document/index.tsx
+import { PageTop, PageBottom, PageBreak } from "@onedoc/react-print";
 import * as React from "react";
 
-export const document = ({props}) => {
-    return (
-        <div>
-            <PageTop>
-                <span>Hello #1</span>
-            </PageTop>
-            <div>
-                Hello #2
-            </div>
-            <PageBottom>
-                <div className="text-gray-400 text-sm">
-                    Hello #3
-                </div>
-            </PageBottom>
-            <PageBreak />
-            <span>Hello #4, but on a new page ! </span>
-        </div>
-    );
+export const Document = ({ props }) => {
+  return (
+    <div>
+      <PageTop>
+        <span>Hello #1</span>
+      </PageTop>
+      <div>Hello #2</div>
+      <PageBottom>
+        <div className="text-gray-400 text-sm">Hello #3</div>
+      </PageBottom>
+      <PageBreak />
+      <span>Hello #4, but on a new page ! </span>
+    </div>
+  );
 };
 ```
 
-## 4. Run locally and see the changes live
-Start the development server and visit [localhost:3000](http://localhost:3000) and edit the `index.tsx` file to see the changes.
+## 4. Compile your document to HTML
 
-(coming soon)
+```js index.tsx
+import { compile } from "@onedoc/react-print";
+import { Document } from "./document";
+
+const html = compile(<Document />);
+
+console.log(html);
+```
 
 ## 5. Generate your document with Onedoc
+
 It's now time to generate your PDF from your component. We recommend using [Onedoc](/integrations/onedoc) as react-print has beem build especially to work witht his software. However, feel free to use any integrations that suits you the best.
 
 [How to generate my PDF from my react-print component](/integrations/onedoc)
@@ -81,9 +86,11 @@ Try to modify your PDF by using our different pre-built components.
     A React component to help build running heads.
   </Card>
 
-  <Card title="Footnote" icon='file' href="/components/footnote">
-    A React component to help you build beautiful foot-notes.
-  </Card>
+{" "}
+
+<Card title="Footnote" icon="file" href="/components/footnote">
+  A React component to help you build beautiful foot-notes.
+</Card>
 
   <Card title="Shell" icon='table-layout' href="/components/button">
     A suite of React components for structured document layout management.

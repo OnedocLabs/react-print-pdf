@@ -18,3 +18,4 @@ export {
 } from "./Shell/shell";
 export { Footnote } from "./Footnote/footnote";
 export { Tailwind } from "./Tailwind/tailwind";
+export { compile } from "./compile/compile";
