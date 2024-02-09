@@ -90,6 +90,13 @@
         "components/headings",
         "components/shell"
       ]
+    },
+    {
+      "group": "Templates",
+      "pages": [
+        "ui/templates",
+        "ui/templates/invoice"
+      ]
     }
   ],
   "footerSocials": {

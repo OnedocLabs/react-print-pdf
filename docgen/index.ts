@@ -10,6 +10,7 @@ import {
   mergeTemplateInfo,
 } from "./utils";
 import { buildFileMarkdown } from "./buildFileMarkdown";
+import { buildTemplateList, buildTemplates } from "./buildTemplates";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");
@@ -40,10 +41,21 @@ const process = async () => {
   const docs = (
     await Promise.all(
       files.map(async (filePath) => {
+        const relativePath = path.relative(
+          path.join(__dirname, "../src"),
+          filePath
+        );
+
+        const entrypoint = path.join(
+          tmpDir,
+          path.dirname(relativePath),
+          path.basename(relativePath, ".tsx") + ".js"
+        );
+
         await build({
           entry: [filePath],
           dts: false,
-          outDir: tmpDir,
+          outDir: path.dirname(entrypoint),
           format: "cjs",
           sourcemap: false,
           splitting: false,
@@ -51,11 +63,6 @@ const process = async () => {
           config: false,
           clean: true,
         });
-
-        const entrypoint = path.join(
-          tmpDir,
-          path.basename(filePath, ".tsx") + ".js"
-        );
 
         const elements = await import(entrypoint);
 
@@ -116,21 +123,6 @@ const process = async () => {
     fs.writeFileSync(docFile.outputPath, docFile.markdown);
   });
 
-  // Write to the ./docs/mint.json file, replacing the contents of the "components" key with the new components
-  const mintPath = path.join(__dirname, "../docs/mint.json");
-
-  const mint = JSON.parse(fs.readFileSync(mintPath, "utf-8"));
-
-  mint.navigation.forEach((navItem, index) => {
-    if (navItem.group === "Components") {
-      mint.navigation[index].pages = sortedDocs.map((docFile) => {
-        return `components/${docFile.baseName}`;
-      });
-    }
-  });
-
-  fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
-
   // Build the card groups
   let snippet = `<CardGroup>`;
 
@@ -150,6 +142,52 @@ const process = async () => {
     path.join(__dirname, "../docs/snippets/components.mdx"),
     snippet
   );
+
+  const templatesBuild = await buildTemplates();
+
+  templatesBuild.forEach((template) => {
+    const dirname = path.dirname(template.outputPath);
+
+    if (!fs.existsSync(dirname)) {
+      fs.mkdirSync(dirname, { recursive: true });
+    }
+
+    fs.writeFileSync(template.outputPath, template.markdown);
+  });
+
+  const templateListingPath = path.join(__dirname, "../docs/ui/templates.mdx");
+
+  const templateListingContents = await buildTemplateList(
+    templatesBuild,
+    templateListingPath
+  );
+
+  fs.writeFileSync(templateListingPath, templateListingContents);
+
+  // Write to the ./docs/mint.json file, replacing the contents of the "components" key with the new components
+  const mintPath = path.join(__dirname, "../docs/mint.json");
+
+  const mint = JSON.parse(fs.readFileSync(mintPath, "utf-8"));
+
+  mint.navigation.forEach((navItem, index) => {
+    if (navItem.group === "Components") {
+      mint.navigation[index].pages = sortedDocs.map((docFile) => {
+        return `components/${docFile.baseName}`;
+      });
+    } else if (navItem.group === "Templates") {
+      mint.navigation[index].pages = [
+        path.relative(
+          path.join(__dirname, "../docs"),
+          templateListingPath.replace(".mdx", "")
+        ),
+        ...templatesBuild.map((template) => {
+          return `${template.path}`;
+        }),
+      ];
+    }
+  });
+
+  fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
 };
 
 process();

@@ -22,7 +22,8 @@ export async function renderPreview(
   component: React.ReactNode,
   componentName: string,
   outputPath: string,
-  style: string
+  style: string,
+  useBaseCss: boolean = true
 ) {
   const html = bundle(component, style);
 
@@ -30,7 +31,7 @@ export async function renderPreview(
   hash.update(html);
 
   let id = hash.digest("hex");
-  id = componentName.replace(" ", "-").toLowerCase() + "-" + id.slice(0, 8);
+  id = componentName.replace(/ /g, "-").toLowerCase() + "-" + id.slice(0, 8);
 
   const targetFolder = path.join(__dirname, `../docs/images/previews/${id}/`);
 
@@ -39,10 +40,14 @@ export async function renderPreview(
     const { file, info, error } = await onedoc.render({
       html,
       assets: [
-        {
-          path: "base.css",
-          content: baseCss,
-        },
+        ...(useBaseCss
+          ? [
+              {
+                path: "base.css",
+                content: baseCss,
+              },
+            ]
+          : []),
         {
           path: "index.css",
           content: indexCss,
