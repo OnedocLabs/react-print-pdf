@@ -1,0 +1,52 @@
+---
+title: Layout & Inlining style
+icon: table-pivot
+---
+
+How to enforce custom layout on your PDF. Page size, orientation, margins etc.
+
+## Layout
+
+You can use the @page at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).
+```css
+@page {
+        size: A4;
+        margin-top:0;
+        margin-right:1cm;
+        margin-left:1cm;
+        margin-bottom:0;
+      }
+```
+
+## Inlining style
+
+You can inline css directly in react component as follows:
+
+```jsx
+
+export const DOC = () => {
+  return (
+    <>
+        <style>
+                {`@page {
+                    size: A4;
+                    margin-top:0;
+                }
+                body {
+                    background-color: blue;
+                }`}
+        </style>
+        <Tailwind>
+                <div className="font-sans m-0">
+                    Hello
+                </div>
+        </Tailwind>
+    </>
+  );
+};
+
+```
+This example showcases a way enforcing style using Tailwind and CSS without uploading any asset at PDF rendering.
+
+
+

@@ -86,6 +86,7 @@
     {
       "group": "Components",
       "pages": [
+        "components/layout_inline_style",
         "components/compile",
         "components/footnote",
         "components/headings",
