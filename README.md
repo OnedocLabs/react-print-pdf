@@ -101,7 +101,7 @@ A set of standard components to help you build amazing documents without having 
 
 # Integrations 🔗
 
-PDF created with _react-print_ can generated, hosted (and more) with your preferred document management providers.
+PDF created with _react-print_ can be generated, hosted (and more) with your preferred document management providers.
 
 - [Onedoc](https://app.onedoclabs.com/login) **(our preferred system)**
 - Others _(coming soon..)_
