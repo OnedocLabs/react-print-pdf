@@ -2,8 +2,8 @@
   "name": "React Print",
   "schema": "schema.json",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg",
+    "dark": "/logo/react-print-trim.png",
+    "light": "/logo/react-print-trim.png",
     "href": "https://www.onedoclabs.com/"
   },
   "favicon": "/favicon.svg",
@@ -66,22 +66,15 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": [
-        "introduction",
-        "contributing"
-      ]
+      "pages": ["introduction", "contributing"]
     },
     {
       "group": "Getting Started",
-      "pages": [
-        "getting-started/setup"
-      ]
+      "pages": ["getting-started/setup"]
     },
     {
       "group": "Integrations",
-      "pages": [
-        "integrations/onedoc"
-      ]
+      "pages": ["integrations/onedoc"]
     },
     {
       "group": "Components",
@@ -96,11 +89,7 @@
     },
     {
       "group": "Templates",
-      "pages": [
-        "ui/templates",
-        "ui/templates/receipt",
-        "ui/templates/invoice"
-      ]
+      "pages": ["ui/templates", "ui/templates/receipt", "ui/templates/invoice"]
     }
   ],
   "footerSocials": {
