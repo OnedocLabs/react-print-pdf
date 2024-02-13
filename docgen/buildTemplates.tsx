@@ -51,6 +51,8 @@ export async function buildTemplates() {
 
       const { default: Component } = await import(outPath);
 
+      const RealComponent = Component.default ? Component.default : Component;
+
       const { attributes, body } = frontmatter<{
         title?: string;
         description?: string;
@@ -65,7 +67,7 @@ export async function buildTemplates() {
       );
 
       const paths = await renderPreview(
-        <Component />,
+        <RealComponent />,
         `${dirname(relative(join(__dirname, "../src"), template)).replace(
           /\//g,
           " "

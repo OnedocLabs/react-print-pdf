@@ -7,6 +7,7 @@
  * All credits belong to the original author
  */
 import * as React from "react";
+import { renderToString } from "react-dom/server";
 
 const propToAttributeString = (propValue: string | object) => {
   if (typeof propValue === "string") return propValue;
@@ -36,11 +37,27 @@ export const quickSafeRenderToString = (element: React.ReactNode): string => {
     const { type, props } = element;
 
     if (typeof type === "function") {
+      const isClass = type.prototype && type.prototype.isReactComponent;
+
+      console.log("b");
+
+      if (isClass) {
+        // If the element is a class component, render it
+        const classComponent = type as React.ComponentClass;
+        const componentInstance = renderToString(
+          React.createElement(classComponent, props)
+        );
+
+        return componentInstance;
+      }
+
       const functionComponent = type as React.FC;
       // If the element is a component (function component), render it
       const componentRenderingResults = functionComponent(props);
       return quickSafeRenderToString(componentRenderingResults);
     }
+
+    console.log("a");
 
     // Regular HTML-like element
     let elementAttributes = Object.keys(props || {})

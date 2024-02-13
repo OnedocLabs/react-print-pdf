@@ -11,7 +11,6 @@ import {
 } from "./utils";
 import { buildFileMarkdown } from "./buildFileMarkdown";
 import { buildTemplateList, buildTemplates } from "./buildTemplates";
-import { group } from "console";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");

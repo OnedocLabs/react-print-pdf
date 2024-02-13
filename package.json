@@ -51,6 +51,7 @@
     "pre-commit": "^1.2.2",
     "qrcode.react": "^3.1.0",
     "react-docgen-typescript": "^2.2.2",
+    "recharts": "^2.12.0",
     "remark-frontmatter": "^5.0.0",
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
