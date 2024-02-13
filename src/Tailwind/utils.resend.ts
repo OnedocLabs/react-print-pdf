@@ -55,8 +55,6 @@ export const quickSafeRenderToString = (element: React.ReactNode): string => {
       return quickSafeRenderToString(componentRenderingResults);
     }
 
-    console.log("a");
-
     // Regular HTML-like element
     let elementAttributes = Object.keys(props || {})
       .filter((propName) => propName !== "children")
