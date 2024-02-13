@@ -1,0 +1,32 @@
+---
+title: Advanced
+icon: file-invoice
+category: Invoices
+---
+
+<Frame type="glass"><img src="../../images/previews/ui-templates-invoice-2-5fe2f0d5/document.1.jpg" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+```jsx
+import { Footnote, PageBottom, Tailwind, CSS } from "@onedoc/react-print";
+
+<Tailwind>
+  <CSS>
+    { `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');` }
+  </CSS>
+  <div className="font-[inter]">
+    <PageBottom>
+      <div>
+        Invoice #1234 - Powered by
+        { " " }
+        <a href="https://kubefinance.com" target="_blank">
+          Kube
+        </a>
+      </div>
+    </PageBottom>
+    <h1>Invoice #10928</h1>
+    <div>Business Name</div>
+  </div>
+</Tailwind>
+
+```
+

@@ -36,6 +36,7 @@ export async function buildTemplates() {
         esbuildPlugins: [
           mdx({
             remarkPlugins: [remarkFrontmatter],
+            providerImportSource: "@onedoc/react-print/mdx",
           }),
         ],
         dts: false,
@@ -54,6 +55,7 @@ export async function buildTemplates() {
         title?: string;
         description?: string;
         icon?: string;
+        category?: string;
       }>(
         await fs
           .readFile(template, {
@@ -79,6 +81,7 @@ export async function buildTemplates() {
       let markdown = `---
 title: ${name}
 ${attributes.icon ? `icon: ${attributes.icon}` : ""}
+category: ${attributes.category || "Uncategorized"}
 ---\n\n`;
 
       markdown += `<Frame type="glass"><img src="${paths.imagePath}" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>\n\n`;
@@ -90,6 +93,7 @@ ${formatSnippet(body)}
       return {
         name,
         icon: attributes.icon,
+        category: attributes.category,
         path: relative(join(__dirname, "../src"), template)
           .toLowerCase()
           .replace(/\.mdx$/, ""),
@@ -101,28 +105,44 @@ ${formatSnippet(body)}
   );
 }
 
-export const buildTemplateList = (
+export const buildTemplateList = async (
   templates: Awaited<ReturnType<typeof buildTemplates>>,
   path: string
 ) => {
   let markdown = `---
 title: Browse
----\n\n
+icon: list
+---\n\n`;
 
-<CardGroup>\n`;
+  // Group templates by category
+  const categories: {
+    [key: string]: Awaited<ReturnType<typeof buildTemplates>>[0][];
+  } = templates.reduce((acc, template) => {
+    const category = template.category || "Uncategorized";
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(template);
+    return acc;
+  }, {});
 
-  templates.forEach((template) => {
-    markdown += ` <Card title="${template.name}" href="${relative(
-      path,
-      template.path
-    )}">
-    <div style={{ marginTop: "1rem", borderRadius: "0.25rem", overflow: "hidden" }}>
-      <img src="${relative(path, template.image)}"/>
-    </div>
-  </Card>\n`;
+  // Generate markdown for each category
+  Object.entries(categories).forEach(([category, templates]) => {
+    markdown += `## ${category}\n\n<CardGroup>\n`;
+
+    templates.forEach((template) => {
+      markdown += ` <Card title="${template.name}" href="${relative(
+        path,
+        template.path
+      )}">
+      <div style={{ marginTop: "1rem", borderRadius: "0.25rem", overflow: "hidden" }}>
+        <img src="${relative(path, template.image)}"/>
+      </div>
+    </Card>\n`;
+    });
+
+    markdown += `</CardGroup>\n\n`;
   });
-
-  markdown += `</CardGroup>`;
 
   return markdown;
 };

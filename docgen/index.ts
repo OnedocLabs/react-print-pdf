@@ -11,6 +11,7 @@ import {
 } from "./utils";
 import { buildFileMarkdown } from "./buildFileMarkdown";
 import { buildTemplateList, buildTemplates } from "./buildTemplates";
+import { group } from "console";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");
@@ -175,15 +176,45 @@ const process = async () => {
         return `components/${docFile.baseName}`;
       });
     } else if (navItem.group === "Templates") {
-      mint.navigation[index].pages = [
-        path.relative(
-          path.join(__dirname, "../docs"),
-          templateListingPath.replace(".mdx", "")
-        ),
-        ...templatesBuild.map((template) => {
-          return `${template.path}`;
-        }),
-      ];
+      // Group templates by category
+      const categoryPages: {
+        [key: string]: {
+          group: string;
+          icon?: string;
+          pages: string[];
+        };
+      } = templatesBuild.reduce((acc, template) => {
+        const category = template.category || "Uncategorized";
+        const icon = template.icon;
+
+        if (!acc[category]) {
+          acc[category] = {
+            group: category,
+            icon: icon,
+            pages: [],
+          };
+        }
+
+        acc[category].pages.push(
+          path.relative(
+            path.join(__dirname, "../docs"),
+            template.outputPath.replace(".mdx", "")
+          )
+        );
+
+        return acc;
+      }, {});
+
+      const categorizedPages = Object.values(categoryPages).map((category) => {
+        return {
+          group: category.group,
+          // icon: category.icon,
+          pages: category.pages,
+        };
+      });
+
+      // Replace the pages array with the new categorizedPages array
+      mint.navigation[index].pages = ["ui/templates", ...categorizedPages];
     }
   });
 

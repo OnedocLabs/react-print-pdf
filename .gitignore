@@ -5,3 +5,5 @@ dist
 .tmp
 
 .env.local
+
+**/previews/**/index.html

@@ -1,0 +1,80 @@
+---
+title: CSS
+icon: css3-alt
+---
+
+Allows adding CSS to the document while securely parsing and escaping it.
+
+NB: While you can add regular CSS with the `<style>` tag, it's recommended to use the `CSS` component to ensure that the CSS is properly escaped, most notably when using URLs or other potentially unsafe content.
+
+## CSS
+
+### Examples
+
+#### Preview
+
+Use a simple CSS print property to set the page size.
+
+<Frame type="glass"><img src="../images/previews/css-d2b998b6/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { CSS } from "@onedoc/react-print";
+
+<CSS>
+  { `@page { size: a4 landscape; }` }
+</CSS>
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+
+#### Load a Google Font
+
+Load a Google Font using the `@import` rule.
+
+<Frame type="glass"><img src="../images/previews/css-cb5afa48/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { CSS } from "@onedoc/react-print";
+
+(
+<React.Fragment>
+  <CSS>
+    { `@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');` }
+  </CSS>
+  <p style={ { fontFamily: "Roboto, sans-serif" } }>
+    This text uses the Roboto Light font.
+  </p>
+</React.Fragment>
+)
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+

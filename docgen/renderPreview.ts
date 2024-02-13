@@ -73,6 +73,9 @@ export async function renderPreview(
     // Create the directory
     fs.mkdirSync(targetFolder, { recursive: true });
 
+    // Write the HTML to a file
+    fs.writeFileSync(path.join(targetFolder, "index.html"), html);
+
     const buffer = Buffer.from(file);
 
     // Save the buffer to a file called id.pdf

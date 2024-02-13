@@ -87,6 +87,7 @@
       "group": "Components",
       "pages": [
         "components/compile",
+        "components/css",
         "components/footnote",
         "components/headings",
         "components/shell",
@@ -97,8 +98,19 @@
       "group": "Templates",
       "pages": [
         "ui/templates",
-        "ui/templates/receipt",
-        "ui/templates/invoice"
+        {
+          "group": "Receipts",
+          "pages": [
+            "ui/templates/receipt"
+          ]
+        },
+        {
+          "group": "Invoices",
+          "pages": [
+            "ui/templates/invoice",
+            "ui/templates/invoice-2"
+          ]
+        }
       ]
     }
   ],
