@@ -1,6 +1,7 @@
 import { DocConfig } from "docgen/types";
 import { readFileSync } from "fs";
 import React from "react";
+import { CSS } from "../CSS/css";
 
 export const compile = async (node: React.ReactElement) => {
   const ReactDOMServer = await import("react-dom/server");
@@ -13,7 +14,7 @@ export const compile = async (node: React.ReactElement) => {
 
   return ReactDOMServer.renderToString(
     <>
-      <style>{css}</style>
+      <CSS>{css}</CSS>
       {node}
     </>
   );

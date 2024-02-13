@@ -17,6 +17,8 @@ import { quickSafeRenderToString } from "./utils.resend";
 import { CorePluginsConfig } from "tailwindcss/types/config";
 import { readFileSync } from "fs";
 
+import { CSS } from "../CSS/css";
+
 const preflightCss = readFileSync(
   require.resolve("tailwindcss/lib/css/preflight.css")
 );
@@ -86,7 +88,7 @@ export const Tailwind = ({
 
   return (
     <>
-      <style>{css}</style>
+      <CSS>{css}</CSS>
       {children}
     </>
   );

@@ -108,7 +108,7 @@
           "group": "Invoices",
           "pages": [
             "ui/templates/invoice",
-            "ui/templates/invoice-2"
+            "ui/templates/invoice-advanced"
           ]
         }
       ]
