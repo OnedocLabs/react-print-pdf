@@ -39,8 +39,6 @@ export const quickSafeRenderToString = (element: React.ReactNode): string => {
     if (typeof type === "function") {
       const isClass = type.prototype && type.prototype.isReactComponent;
 
-      console.log("b");
-
       if (isClass) {
         // If the element is a class component, render it
         const classComponent = type as React.ComponentClass;
