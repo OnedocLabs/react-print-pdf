@@ -132,8 +132,10 @@ const process = async () => {
       .relative(path.join(__dirname, "../docs"), docFile.outputPath)
       .replace(".mdx", "");
 
-    snippet += `<Card title="${docFile.name}" icon="${docFile.config.icon}" href="${href}">
-    ${docFile.config.description}
+    snippet += `<Card title="${docFile.name}" icon="${
+      docFile.config.icon
+    }" href="${href}">
+    ${docFile.config.description.split(".")[0]}.
   </Card>`;
   });
 
