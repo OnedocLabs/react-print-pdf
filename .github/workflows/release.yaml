@@ -34,4 +34,5 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          commit_options: "--no-verify"
           commit_message: "Bump version [skip ci]"
