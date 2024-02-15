@@ -63,9 +63,6 @@ export const Tailwind = ({
     },
   };
 
-  // @ts-ignore
-  console.log(tailwindConfig.theme);
-
   const { css } = postcss([
     tailwindcss({
       ...tailwindConfig,
