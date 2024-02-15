@@ -68,7 +68,7 @@ export const FloatBottom = (props: any) => {
     <div
       {...props}
       style={{
-        "-prince-float": "bottom",
+        PrinceFloat: "bottom",
       }}
     >
       {props.children}

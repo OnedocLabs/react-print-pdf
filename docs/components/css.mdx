@@ -21,9 +21,8 @@ Use a simple CSS print property to set the page size.
 ```jsx template.tsx
 import { CSS } from "@onedoc/react-print";
 
-<CSS>
-  { `@page { size: a4 landscape; }` }
-</CSS>
+<CSS>{`@page { size: a4 landscape; }`}</CSS>;
+
 ```
 ```css base.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
@@ -51,16 +50,15 @@ Load a Google Font using the `@import` rule.
 ```jsx template.tsx
 import { CSS } from "@onedoc/react-print";
 
-(
 <React.Fragment>
   <CSS>
-    { `@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');` }
+    {`@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');`}
   </CSS>
-  <p style={ { fontFamily: "Roboto, sans-serif" } }>
+  <p style={{ fontFamily: "Roboto, sans-serif" }}>
     This text uses the Roboto Light font.
   </p>
-</React.Fragment>
-)
+</React.Fragment>;
+
 ```
 ```css base.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");

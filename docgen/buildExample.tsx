@@ -10,7 +10,7 @@ export const buildExample = async (
 ) => {
   let markdown = ``;
 
-  const snippet = formatSnippet(example.templateString);
+  const snippet = await formatSnippet(example.templateString);
 
   const paths = await renderPreview(
     example.template,
@@ -29,7 +29,11 @@ export const buildExample = async (
 
   markdown += `<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 \`\`\`jsx template.tsx
-import { ${component} } from "@onedoc/react-print";
+import { ${component}${
+    example.imports ? `, ${example.imports.join(", ")}` : ""
+  } } from "@onedoc/react-print";${
+    example.externalImports ? `\n${example.externalImports.join("\n")}` : ""
+  }
 
 ${snippet}
 \`\`\`

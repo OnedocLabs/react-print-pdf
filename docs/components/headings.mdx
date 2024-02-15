@@ -21,14 +21,13 @@ Show the current running header of level 1 in the page header.
 ```jsx template.tsx
 import { RunningH1 } from "@onedoc/react-print";
 
-(
 <React.Fragment>
-  <PageTop style={ { paddingTop: "1rem" } }>
+  <PageTop style={{ paddingTop: "1rem" }}>
     <RunningH1 />
   </PageTop>
   <h1>Heading of level 1</h1>
-</React.Fragment>
-)
+</React.Fragment>;
+
 ```
 ```css base.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");

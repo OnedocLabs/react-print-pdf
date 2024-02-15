@@ -17,14 +17,14 @@ A simple, drop-in way to use Tailwind CSS in your components.
 ```jsx template.tsx
 import { Tailwind } from "@onedoc/react-print";
 
-(
 <Tailwind>
   <div className="bg-gradient-to-tr from-blue-500 to-blue-700 rounded-2xl p-12"></div>
   <p className="py-12 text-slate-800">
-    This is a Tailwind component. All children of this component will have access to the Tailwind CSS classes.
+    This is a Tailwind component. All children of this component will have
+    access to the Tailwind CSS classes.
   </p>
-</Tailwind>
-)
+</Tailwind>;
+
 ```
 ```css base.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
@@ -52,14 +52,24 @@ You can also pass a custom Tailwind config to the Tailwind component.
 ```jsx template.tsx
 import { Tailwind } from "@onedoc/react-print";
 
-(
-<Tailwind config={ { theme: { extend: { colors: { primary: "#6484cf", }, }, }, } }>
+<Tailwind
+  config={{
+    theme: {
+      extend: {
+        colors: {
+          primary: "#6484cf",
+        },
+      },
+    },
+  }}
+>
   <div className="bg-primary p-12 rounded-2xl"></div>
   <p className="py-12 text-slate-800">
-    This is a Tailwind component. All children of this component will have access to the Tailwind CSS classes.
+    This is a Tailwind component. All children of this component will have
+    access to the Tailwind CSS classes.
   </p>
-</Tailwind>
-)
+</Tailwind>;
+
 ```
 ```css base.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");

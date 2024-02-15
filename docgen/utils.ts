@@ -1,8 +1,7 @@
 import * as ts from "typescript";
 import { DocConfig, ExtendedDocConfig } from "./types";
-import * as esformatter from "esformatter";
-import * as esformatterJsx from "esformatter-jsx";
 import { renderToString } from "react-dom/server";
+import * as prettier from "prettier";
 
 export const formatCamelCaseToTitle = (str: string) => {
   // Convert camelCase to Title Case with spaces
@@ -90,8 +89,9 @@ export const mergeTemplateInfo = (
 };
 
 export const formatSnippet = (snippet: string) => {
-  esformatter.register(esformatterJsx);
-  return esformatter.format(snippet, {});
+  return prettier.format(snippet, {
+    parser: "typescript",
+  });
 };
 
 export const bundle = (reactComponent: React.ReactNode, style: string) => {

@@ -20,3 +20,4 @@ export { Footnote } from "./Footnote/footnote";
 export { Tailwind } from "./Tailwind/tailwind";
 export { compile } from "./compile/compile";
 export { CSS } from "./CSS/css";
+export { Markdown } from "./Markdown/markdown";

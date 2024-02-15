@@ -1,0 +1,140 @@
+---
+title: Markdown
+icon: markdown
+---
+
+Render Markdown inside your templates. Provides a simple wrapper around [`markdown-to-jsx`](https://github.com/quantizor/markdown-to-jsx).
+
+Markdown allows you to easily separate content from the layout, making it easier to maintain and update your templates. You can pull in content from a CMS or other sources, and use Markdown to format it.
+
+You can also use custom components and variables to make your Markdown more dynamic. For example, you can replace Markdown components with your own components, or use variables to insert dynamic content.
+
+## Markdown
+
+### Examples
+
+#### Preview
+
+<Frame type="glass"><img src="../images/previews/markdown-2857c791/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { Markdown } from "@onedoc/react-print";
+
+<Markdown>{`# Hello, world!
+
+> This is a blockquote
+
+---
+
+This is a paragraph with a [link](https://google.com)`}</Markdown>;
+
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+
+#### Tailwind
+
+You can wrap the Markdown component in a Tailwind component to apply global styles.
+
+<Frame type="glass"><img src="../images/previews/markdown-f1da43da/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { Markdown, Tailwind } from "@onedoc/react-print";
+
+<Tailwind>
+  <Markdown
+    options={{
+      overrides: {
+        h1: {
+          props: {
+            className: "text-2xl font-bold",
+          },
+        },
+      },
+    }}
+  >{`# Hello, world!
+
+This is a paragraph.`}</Markdown>
+</Tailwind>;
+
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+
+#### Custom Components and Variables
+
+You can leverage the `overrides` prop to replace Markdown components with your own components. This is useful for custom components or even for dynamic content.
+
+<Frame type="glass"><img src="../images/previews/markdown-c91a913e/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { Markdown } from "@onedoc/react-print";
+
+<Markdown
+  options={{
+    overrides: {
+      Title: {
+        component: () => "Non-Disclosure Agreement",
+      },
+      CustomerName: {
+        component: () => "John Doe",
+      },
+      KPI: {
+        component: ({ children }) => (
+          <div style={{ color: "blue", fontSize: "2rem" }}>{children}</div>
+        ),
+      },
+    },
+  }}
+>{`# <Title />
+
+This agreement is signed with <CustomerName />.
+
+<KPI>20/month</KPI>`}</Markdown>;
+
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+

@@ -4,6 +4,8 @@ export interface Example {
   description?: string;
   name?: string;
   template: React.ReactNode;
+  imports?: string[];
+  externalImports?: string[];
 }
 
 export interface EnrichedExample extends Example {
