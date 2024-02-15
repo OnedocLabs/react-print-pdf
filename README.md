@@ -27,11 +27,11 @@ https://github.com/OnedocLabs/react-print-pdf/assets/33000377/1c625983-ab1a-4a55
 
 # Introduction ℹ️
 
-A collection of high-quality, unstyled components for creating beautiful PDFs using React and TypeScript. Forget about docx, latex, or painful outdates libraries. With _react-print_, embrace a new way to create PDFs, designed by and for developers.
+A collection of high-quality, unstyled components for creating beautiful PDFs using React and TypeScript. Forget about docx, latex, or painful outdates libraries. With _react-print-pdf_, embrace a new way to create PDFs, designed by and for developers.
 
 # Why ❓
 
-We believe documents are at the core of communication—invoices, contracts, resumes, brochures, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to _react-print_.
+We believe documents are at the core of communication—invoices, contracts, resumes, brochures, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to _react-print-pdf_.
 
 # Getting started 🚀
 
@@ -101,7 +101,7 @@ A set of standard components to help you build amazing documents without having 
 
 # Integrations 🔗
 
-PDF created with _react-print_ can be generated, hosted (and more) with your preferred document management providers.
+PDF created with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
 
 - [Onedoc](https://app.onedoclabs.com/login) **(our preferred system)**
 - Others _(coming soon..)_
