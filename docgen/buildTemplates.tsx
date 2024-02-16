@@ -89,7 +89,7 @@ category: ${attributes.category || "Uncategorized"}
       markdown += `<Frame type="glass"><img src="${paths.imagePath}" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>\n\n`;
 
       markdown += `\`\`\`jsx
-${formatSnippet(body)}
+${await formatSnippet(body)}
 \`\`\`\n\n`;
 
       return {
