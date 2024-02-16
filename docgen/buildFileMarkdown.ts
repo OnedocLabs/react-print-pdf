@@ -73,8 +73,6 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
       markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
 
       Object.entries(component.props).forEach(([propName, prop]) => {
-        console.log(prop.defaultValue);
-
         markdown += `<ResponseField name="${propName}" type="${safePropType(
           prop.type.name
         )}" required={${prop.required}}>\n\n${
