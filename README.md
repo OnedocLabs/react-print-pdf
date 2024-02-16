@@ -13,17 +13,18 @@
 <a href="https://react.onedoclabs.com">Documentation</a>
 </div>
 
-
 ---
+
 # Demo Highlights 🎥
 
 https://github.com/OnedocLabs/react-print-pdf/assets/33000377/1c625983-ab1a-4a55-b30e-e7bcaf596d92
 
 # Key Features 🎯
-* **Easy to use**: Build your first PDF with react-print-pdf in less than 5 minutes.
-* **Open source**: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
-* **Components & Templates**: Kickstart your next document by using our list of components and template created by Onedoc's Team and the community.
-* **Marketplace**: Share your latest templates and components with the community and contribute to the future of react-print-pdf 
+
+- **Easy to use**: Build your first PDF with react-print-pdf in less than 5 minutes.
+- **Open source**: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
+- **Components & Templates**: Kickstart your next document by using our list of components and template created by Onedoc's Team and the community.
+- **Marketplace**: Share your latest templates and components with the community and contribute to the future of react-print-pdf
 
 # Introduction ℹ️
 
@@ -91,10 +92,7 @@ export const document = ({ props }) => {
 
 A set of standard components to help you build amazing documents without having to deal with the mess of creating complex layouts and maintaining archaic markup. Help us extend this list by actively contributing and adding your favorite components!
 
-- [Footnote](https://github.com/OnedocLabs/react-print/tree/main/src/Footnote)
-- [Shell](https://github.com/OnedocLabs/react-print/tree/main/src/Shell)
-- [Running Header](https://github.com/OnedocLabs/react-print/tree/main/src/RunningHeader)
-- [Tailwind](https://github.com/OnedocLabs/react-print/tree/main/src/Tailwind)
+[Browse all currently supported components →](https://react.onedoclabs.com/introduction#components)
 
 > [!NOTE]
 > Help us extend this list by actively contributing and adding your favorite components!
