@@ -100,9 +100,10 @@ A set of standard components to help you build amazing documents without having 
 
 # Integrations 🔗
 
-PDF created with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
+PDF designed with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
 
-- [Onedoc](https://app.onedoclabs.com/login) **(our preferred system)**
+- [Onedoc](https://app.onedoclabs.com/login) **(our preferred system)** : HTML to PDF, cloud hosting, analytics and more.
+- [Prince XML](https://www.princexml.com/) : simple HTML to PDF tool
 - Others _(coming soon..)_
 
 # Contributing 🫂
