@@ -90,9 +90,9 @@
         "components/css",
         "components/footnote",
         "components/markdown",
-        "components/headings",
         "components/shell",
-        "components/tailwind"
+        "components/tailwind",
+        "components/variables"
       ]
     },
     {

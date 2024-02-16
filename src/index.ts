@@ -7,7 +7,7 @@ export {
   RunningH4,
   RunningH5,
   RunningH6,
-} from "./RunningHeader/headings";
+} from "./Variables/variables";
 export {
   PageBottom,
   PageBreak,
