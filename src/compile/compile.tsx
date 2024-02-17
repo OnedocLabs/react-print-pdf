@@ -24,7 +24,7 @@ export const __docConfig: DocConfig = {
   name: "compile",
   icon: "code",
   description:
-    "Compile a React component to a string with the OneDoc print styles.",
+    "Compile a React component to a string with the Onedoc print styles.",
   components: {
     compile: {
       examples: {},
