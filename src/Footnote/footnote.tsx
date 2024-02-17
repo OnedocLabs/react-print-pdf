@@ -31,7 +31,7 @@ export const __docConfig: DocConfig = {
     Footnote: {
       examples: {
         default: {
-          template: <Footnote>Ceci est un exemple dynamique</Footnote>,
+          template: <Footnote>This is a sample footnote.</Footnote>,
         },
       },
     },

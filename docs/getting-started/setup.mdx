@@ -66,7 +66,7 @@ export const Document = ({ props }) => {
 import { compile } from "@onedoc/react-print";
 import { Document } from "./document";
 
-const html = compile(<Document />);
+const html = await compile(<Document />);
 
 console.log(html);
 ```
