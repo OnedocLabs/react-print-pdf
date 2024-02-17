@@ -24,15 +24,22 @@ https://github.com/OnedocLabs/react-print-pdf/assets/33000377/1c625983-ab1a-4a55
 - **Easy to use**: Build your first PDF with react-print-pdf in less than 5 minutes.
 - **Open source**: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
 - **Components & Templates**: Kickstart your next document by using our list of components and template created by Onedoc's Team and the community.
-- **Marketplace**: Share your latest templates and components with the community and contribute to the future of react-print-pdf
+- **100% Layout's control**: Unlike other solutions, you have complete control over 100% of your layout, including margins, headers, footers, and more.
+- **Integrate dynamic data to your PDF**: Streamline data from your database and integrate it seamlessly into your PDFs.
 
 # Introduction ℹ️
 
 A collection of high-quality, unstyled components for creating beautiful PDFs using React and TypeScript. Forget about docx, latex, or painful outdates libraries. With _react-print-pdf_, embrace a new way to create PDFs, designed by and for developers.
 
-# Why ❓
+# Why❓
 
 We believe documents are at the core of communication—invoices, contracts, resumes, brochures, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to _react-print-pdf_.
+
+# How does it differ from other solutions? 🧐
+Unlike other solutions, _react-print-pdf_ gives you complete control over your documents, allowing you to design complex layouts with features like footnotes, headers, margins, and more. Additionally, it enables you to track and analyze specific parts of your document, and build and update charts using data from your database. And this is just the beginning—our team and the community will continue to develop great features to simplify the PDF generation process.
+
+![Legacy Solution vs. React-print-pdf](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/f9cbb617-20a6-4a22-a03d-056dd6e40df3)
+
 
 # Getting started 🚀
 
@@ -99,9 +106,10 @@ A set of standard components to help you build amazing documents without having 
 
 # Integrations 🔗
 
-PDF created with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
+PDF designed with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
 
-- [Onedoc](https://app.onedoclabs.com/login) **(our preferred system)**
+- [Onedoc](https://app.onedoclabs.com/login) : HTML to PDF, cloud hosting, analytics and more.
+- [Prince XML](https://www.princexml.com/) : simple HTML to PDF tool
 - Others _(coming soon..)_
 
 # Contributing 🫂
