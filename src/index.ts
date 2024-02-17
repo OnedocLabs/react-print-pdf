@@ -7,6 +7,8 @@ export {
   RunningH4,
   RunningH5,
   RunningH6,
+  PageNumber,
+  PagesNumber,
 } from "./Variables/variables";
 export {
   PageBottom,
