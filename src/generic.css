@@ -1,3 +1,8 @@
 .hyphenate {
   hyphens: auto;
 }
+
+input,
+select option {
+  -prince-pdf-form: enable;
+}
