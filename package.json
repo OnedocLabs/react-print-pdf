@@ -27,7 +27,7 @@
     "dev": "(cd ./docs && mintlify dev --watch)",
     "build-components": "npm run build && tsx ./docgen/index.ts",
     "prune-docs": "tsx ./docgen/prune.ts",
-    "build-component-commit": "npm run build-components && npm run prune-docs"
+    "build-components-commit": "npm run build-components && npm run prune-docs"
   },
   "pre-commit": [
     "build-components-commit"
