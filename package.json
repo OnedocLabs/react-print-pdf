@@ -46,6 +46,7 @@
     "acorn-typescript": "^1.4.13",
     "autoprefixer": "^10.4.17",
     "dotenv": "^16.4.1",
+    "esbuild-plugin-inline-import": "^1.0.4",
     "front-matter": "^4.0.2",
     "mintlify": "^4.0.122",
     "pdf2pic": "^3.1.1",
@@ -59,22 +60,9 @@
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },
-  "tsup": {
-    "entry": [
-      "src/index.ts",
-      "src/mdx.ts"
-    ],
-    "splitting": false,
-    "sourcemap": true,
-    "clean": true,
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "dts": true
-  },
   "dependencies": {
     "html-entities": "^2.4.0",
+    "katex": "^0.16.9",
     "markdown-to-jsx": "^7.4.1",
     "postcss": "^8.4.35",
     "postcss-color-functional-notation": "^6.0.4",

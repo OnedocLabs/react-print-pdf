@@ -1,0 +1,72 @@
+---
+title: Latex
+
+---
+
+Render LaTeX formulas right in your React components.
+
+<Note>Rendering LaTeX using KaTeX requires pulling a remote stylesshet hosted by jsdelivr. This is done to prevent the styles from being purged.</Note>
+
+<Tip>You can use `String.raw` to avoid escaping LaTeX backslashes.</Tip>
+
+## Latex
+
+### Examples
+
+#### Preview
+
+<Frame type="glass"><img src="../images/previews/latex-66210846/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { Latex } from "@onedoc/react-print";
+
+<Latex>{String.raw`\frac{1}{2}`}</Latex>;
+
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+
+#### Complex
+
+<Frame type="glass"><img src="../images/previews/latex-d3aa5f82/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
+```jsx template.tsx
+import { Latex } from "@onedoc/react-print";
+
+<Latex>{String.raw`% \f is defined as #1f(#2) using the macro
+\f\relax{x} = \int_{-\infty}^\infty
+    \f\hat\xi\,e^{2 \pi i \xi x}
+    \,d\xi`}</Latex>;
+
+```
+```css base.css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeGroup></div>
+
