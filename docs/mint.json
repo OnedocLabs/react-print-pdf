@@ -112,6 +112,12 @@
           ]
         },
         {
+          "group": "NDA",
+          "pages": [
+            "ui/templates/nda-markdown"
+          ]
+        },
+        {
           "group": "Invoices",
           "pages": [
             "ui/templates/invoice",
