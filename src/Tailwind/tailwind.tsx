@@ -7,7 +7,7 @@ import { DocConfig } from "docgen/types";
 import React from "react";
 import postcss from "postcss";
 import tailwindcss from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
+import defaultTheme from "tailwindcss/defaultTheme.js";
 import type { Config as TailwindConfig } from "tailwindcss";
 // @ts-ignore
 import postcssColorFunctionalNotation from "postcss-color-functional-notation";
