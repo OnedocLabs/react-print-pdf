@@ -21,6 +21,8 @@ export const Latex = ({ children }: { children: string }) => {
 };
 
 export const __docConfig: DocConfig = {
+  name: "LaTeX",
+  icon: "square-root-variable",
   description: `Render LaTeX formulas right in your React components.
 
 <Note>Rendering LaTeX using KaTeX requires pulling a remote stylesshet hosted by jsdelivr. This is done to prevent the styles from being purged.</Note>
