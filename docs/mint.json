@@ -26,6 +26,9 @@
     "posthog": {
       "apiKey": "phc_jHjWg3U3A39knTK6ChWEUHIXMFYZ7rATZOLzhK39dv9",
       "apiHost": "https://eu.posthog.com"
+    },
+    "ga4": {
+      "measurementId": "G-KD443H3TZ3"
     }
   },
   "modeToggle": {
@@ -66,22 +69,15 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": [
-        "introduction",
-        "contributing"
-      ]
+      "pages": ["introduction", "contributing"]
     },
     {
       "group": "Getting Started",
-      "pages": [
-        "getting-started/setup"
-      ]
+      "pages": ["getting-started/setup"]
     },
     {
       "group": "Integrations",
-      "pages": [
-        "integrations/onedoc"
-      ]
+      "pages": ["integrations/onedoc"]
     },
     {
       "group": "Components",
@@ -102,28 +98,19 @@
         "ui/templates",
         {
           "group": "Reports",
-          "pages": [
-            "ui/templates/report-charts"
-          ]
+          "pages": ["ui/templates/report-charts"]
         },
         {
           "group": "Receipts",
-          "pages": [
-            "ui/templates/receipt"
-          ]
+          "pages": ["ui/templates/receipt"]
         },
         {
           "group": "NDA",
-          "pages": [
-            "ui/templates/nda-markdown"
-          ]
+          "pages": ["ui/templates/nda-markdown"]
         },
         {
           "group": "Invoices",
-          "pages": [
-            "ui/templates/invoice",
-            "ui/templates/invoice-advanced"
-          ]
+          "pages": ["ui/templates/invoice", "ui/templates/invoice-advanced"]
         }
       ]
     }
