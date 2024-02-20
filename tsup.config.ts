@@ -8,4 +8,6 @@ export default defineConfig({
   format: ["cjs", "esm"],
   dts: true,
   esbuildPlugins: [],
+  bundle: true,
+  external: ["react", "react-dom", "react/jsx-runtime"],
 });
