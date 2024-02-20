@@ -25,6 +25,10 @@ export const __docConfig: DocConfig = {
   icon: "square-root-variable",
   description: `Render LaTeX formulas right in your React components.
 
+<Warning>
+LaTeX rendering is still in beta. Please report any issues you encounter on our [Discord](https://discord.com/invite/uRJE6e2rgr).
+</Warning>
+
 <Note>Rendering LaTeX using KaTeX requires pulling a remote stylesshet hosted by jsdelivr. This is done to prevent the styles from being purged.</Note>
 
 <Tip>You can use \`String.raw\` to avoid escaping LaTeX backslashes.</Tip>`,
