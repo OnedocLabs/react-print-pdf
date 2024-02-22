@@ -13,7 +13,7 @@ export const PageNumber = ({
   /**
    * The style of the counter.
    */
-  counterStyle: string;
+  counterStyle?: string;
 }) => {
   return (
     <span
@@ -33,7 +33,7 @@ export const PagesNumber = ({
   /**
    * The style of the counter.
    */
-  counterStyle: string;
+  counterStyle?: string;
 }) => {
   return (
     <span
