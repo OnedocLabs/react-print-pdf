@@ -48,7 +48,7 @@ const RunningHeader = (level: number) => {
   return ({ before = "", after = "" }: { before?: string; after?: string }) => {
     return (
       <span
-        className={`--docify-heading-contents --docify-h${level}-contents`}
+        className={`--onedoc-heading-contents --onedoc-h${level}-contents`}
         data-before={before}
         data-after={after}
       />

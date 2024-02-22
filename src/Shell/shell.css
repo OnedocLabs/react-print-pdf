@@ -1,37 +1,37 @@
 @page {
   @top-left {
-    content: flow(--docify-page-top);
+    content: flow(--onedoc-page-top);
     position: relative;
   }
 
   @bottom-left {
-    content: flow(--docify-page-bottom);
+    content: flow(--onedoc-page-bottom);
     position: relative;
   }
 }
 
-.--docify-page-top {
-  -prince-flow: static(--docify-page-top);
+.--onedoc-page-top {
+  -prince-flow: static(--onedoc-page-top);
   width: 100%;
   height: 100%;
 }
 
-.--docify-current-page-top {
-  position: --docify-page-top;
+.--onedoc-current-page-top {
+  position: --onedoc-page-top;
   width: 100%;
   height: 100%;
 }
 
-.--docify-page-bottom {
-  -prince-flow: static(--docify-page-bottom);
+.--onedoc-page-bottom {
+  -prince-flow: static(--onedoc-page-bottom);
   width: 100%;
   height: 100%;
 }
 
-.--docify-page-break {
+.--onedoc-page-break {
   page-break-after: always;
 }
 
-.--docify-no-break {
+.--onedoc-no-break {
   page-break-inside: avoid;
 }

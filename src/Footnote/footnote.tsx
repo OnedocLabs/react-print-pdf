@@ -16,7 +16,7 @@ export const Footnote = ({
 }) => {
   return (
     <span
-      className="--docify-footnote text-left text-xs font-normal"
+      className="--onedoc-footnote text-left text-xs font-normal"
       {...props}
     >
       {children}

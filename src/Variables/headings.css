@@ -1,58 +1,58 @@
 h1 {
-  string-set: docifyH1Contents contents docifyH2Contents "" docifyH3Contents ""
-    docifyH4Contents "" docifyH5Contents "" docifyH6Contents "";
+  string-set: onedocH1Contents contents onedocH2Contents "" onedocH3Contents ""
+    onedocH4Contents "" onedocH5Contents "" onedocH6Contents "";
 }
 
 h2 {
-  string-set: docifyH2Contents contents docifyH3Contents "" docifyH4Contents ""
-    docifyH5Contents "" docifyH6Contents "";
+  string-set: onedocH2Contents contents onedocH3Contents "" onedocH4Contents ""
+    onedocH5Contents "" onedocH6Contents "";
 }
 
 h3 {
-  string-set: docifyH3Contents contents docifyH4Contents "" docifyH5Contents ""
-    docifyH6Contents "";
+  string-set: onedocH3Contents contents onedocH4Contents "" onedocH5Contents ""
+    onedocH6Contents "";
 }
 
 h4 {
-  string-set: docifyH4Contents contents docifyH5Contents "" docifyH6Contents "";
+  string-set: onedocH4Contents contents onedocH5Contents "" onedocH6Contents "";
 }
 
 h5 {
-  string-set: docifyH5Contents contents docifyH6Contents "";
+  string-set: onedocH5Contents contents onedocH6Contents "";
 }
 
 h6 {
-  string-set: docifyH6Contents contents;
+  string-set: onedocH6Contents contents;
 }
 
-.--docify-heading-contents:not(:empty)::before {
+.--onedoc-heading-contents:not(:empty)::before {
   content: attr(data-before);
 }
 
-.--docify-heading-contents:not(:empty)::after {
+.--onedoc-heading-contents:not(:empty)::after {
   content: attr(data-after);
 }
 
-.--docify-h1-contents {
-  content: string(docifyH1Contents);
+.--onedoc-h1-contents {
+  content: string(onedocH1Contents);
 }
 
-.--docify-h2-contents {
-  content: string(docifyH2Contents);
+.--onedoc-h2-contents {
+  content: string(onedocH2Contents);
 }
 
-.--docify-h3-contents {
-  content: string(docifyH3Contents);
+.--onedoc-h3-contents {
+  content: string(onedocH3Contents);
 }
 
-.--docify-h4-contents {
-  content: string(docifyH4Contents);
+.--onedoc-h4-contents {
+  content: string(onedocH4Contents);
 }
 
-.--docify-h5-contents {
-  content: string(docifyH5Contents);
+.--onedoc-h5-contents {
+  content: string(onedocH5Contents);
 }
 
-.--docify-h6-contents {
-  content: string(docifyH6Contents);
+.--onedoc-h6-contents {
+  content: string(onedocH6Contents);
 }
