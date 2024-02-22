@@ -18,8 +18,6 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
     ...Object.keys(docConfig.components),
   ]);
 
-  console.log(componentKeys);
-
   for (const componentName of componentKeys) {
     let component = false as ComponentDoc | false;
 
