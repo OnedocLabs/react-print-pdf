@@ -1,7 +1,6 @@
 import { DocConfig } from "docgen/types";
 import React from "react";
 import { encode } from "html-entities";
-import { Tailwind } from "..";
 const allowedEntities = {
   "&apos;": "'",
   "&quot;": '"',
@@ -46,11 +45,15 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
           ),
         },
         layout: {
-          name:"Layout",
-          description: "You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
-          template:<React.Fragment><CSS>{`@page {size: A4;margin-top:1cm;margin-right:1cm;margin-left:1cm;margin-bottom:1cm;`}</CSS><Tailwind><div className="h-screen w-full border-8 border-gray-950"></div></Tailwind></React.Fragment>
-
-
+          name: "Layout",
+          description:
+            "You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
+          template: (
+            <React.Fragment>
+              <CSS>{`@page {size: A4;margin-top:1cm;margin-right:1cm;margin-left:1cm;margin-bottom:1cm;`}</CSS>
+              <div>Hello world!</div>
+            </React.Fragment>
+          ),
         },
       },
     },

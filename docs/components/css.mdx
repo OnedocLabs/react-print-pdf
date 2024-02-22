@@ -15,7 +15,7 @@ NB: While you can add regular CSS with the `<style>` tag, it's recommended to us
 
 Use a simple CSS print property to set the page size.
 
-<Frame type="glass"><img src="../images/previews/css-cd4af0b1/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="../images/previews/css-66dbe9cd/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
@@ -44,7 +44,7 @@ body {
 
 Load a Google Font using the `@import` rule.
 
-<Frame type="glass"><img src="../images/previews/css-1bcb6b8f/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="../images/previews/css-861ded49/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
@@ -80,7 +80,7 @@ body {
 
 You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).
 
-<Frame type="glass"><img src="../images/previews/css-208322c3/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="../images/previews/css-859f0150/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
@@ -88,9 +88,7 @@ import { CSS } from "@onedoc/react-print";
 
 <React.Fragment>
   <CSS>{`@page {size: A4;margin-top:1cm;margin-right:1cm;margin-left:1cm;margin-bottom:1cm;`}</CSS>
-  <Tailwind>
-    <div className="h-screen w-full border-8 border-gray-950"></div>
-  </Tailwind>
+  <div>Hello world!</div>
 </React.Fragment>;
 
 ```

@@ -94,19 +94,6 @@ export const formatSnippet = (snippet: string) => {
   });
 };
 
-export const bundle = (reactComponent: React.ReactNode, style: string) => {
-  if (!reactComponent) {
-    return "";
-  }
-
-  const html = renderToString(reactComponent as React.ReactElement);
-
-  const parsed = `${style.trim().length ? `<style>${style}</style>` : ""}
-      ${html}`;
-
-  return parsed;
-};
-
 export const safePropType = (str: string) => {
   // Replace all " by ' to avoid conflicts with markdown
   return str.replace(/"/g, "'");

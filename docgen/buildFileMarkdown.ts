@@ -6,7 +6,6 @@ import { formatCamelCaseToTitle, safePropType } from "./utils";
 export const buildFileMarkdown = async (
   docConfig: ExtendedDocConfig,
   componentDocs: ComponentDoc[],
-  style: string,
   outputPath: string
 ) => {
   let markdown = `---
@@ -14,18 +13,33 @@ title: ${docConfig.name}
 ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
 ---\n\n${docConfig.description}\n\n`;
 
-  for (const component of componentDocs) {
+  const componentKeys = new Set([
+    ...componentDocs.map((component) => component.displayName),
+    ...Object.keys(docConfig.components),
+  ]);
+
+  console.log(componentKeys);
+
+  for (const componentName of componentKeys) {
+    let component = false as ComponentDoc | false;
+
+    componentDocs.forEach((exportedComponent) => {
+      if (exportedComponent.displayName === componentName) {
+        component = exportedComponent as ComponentDoc;
+      }
+    });
+
     let examples: {
       [key: string]: EnrichedExample;
     } = {};
 
     try {
-      examples = docConfig.components[component.displayName].examples || {};
+      examples = docConfig.components[componentName].examples || {};
     } catch (e) {}
 
-    markdown += `## ${component.displayName}\n\n`;
+    markdown += `## ${componentName}\n\n`;
 
-    if (component.description) {
+    if (component && component.description) {
       markdown += `${component.description}\n\n`;
     }
 
@@ -37,9 +51,9 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
 
         const { markdown: exampleMarkdown } = await buildExample(
           examples.default,
-          component.displayName,
-          style,
-          outputPath
+          componentName,
+          outputPath,
+          examples.default.compileOptions
         );
 
         markdown += exampleMarkdown;
@@ -57,19 +71,23 @@ ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
 
           const { markdown: exampleMarkdown } = await buildExample(
             example,
-            component.displayName,
-            style,
-            outputPath
+            componentName,
+            outputPath,
+            example.compileOptions
           );
 
           markdown += exampleMarkdown;
         }
       }
     } else {
-      markdown += `\`\`\`jsx\nimport { ${component.displayName} } from "@onedoc/react-print";\n\`\`\`\n\n`;
+      markdown += `\`\`\`jsx\nimport { ${componentName} } from "@onedoc/react-print";\n\`\`\`\n\n`;
     }
 
-    if (component.props && Object.keys(component.props).length > 0) {
+    if (
+      component &&
+      component.props &&
+      Object.keys(component.props).length > 0
+    ) {
       markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
 
       Object.entries(component.props).forEach(([propName, prop]) => {

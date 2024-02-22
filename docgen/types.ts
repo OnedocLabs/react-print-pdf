@@ -1,9 +1,11 @@
 import React from "react";
+import type { CompileOptions } from "../src/compile/compile";
 
 export interface Example {
   description?: string;
   name?: string;
-  template: React.ReactNode;
+  template: React.ReactElement;
+  compileOptions?: CompileOptions;
   imports?: string[];
   externalImports?: string[];
 }

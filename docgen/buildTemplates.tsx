@@ -73,7 +73,6 @@ export async function buildTemplates() {
           " "
         )} ${basename(outPath, ".js")}`,
         docLocation,
-        "",
         false
       );
 

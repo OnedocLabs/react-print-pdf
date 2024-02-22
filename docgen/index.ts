@@ -86,12 +86,7 @@ const process = async () => {
           `../docs/components/${path.basename(filePath, ".tsx")}.mdx`
         );
 
-        const markdown = await buildFileMarkdown(
-          docConfig,
-          types,
-          fs.readFileSync(path.join(__dirname, "../dist/index.css"), "utf-8"),
-          outputPath
-        );
+        const markdown = await buildFileMarkdown(docConfig, types, outputPath);
 
         return {
           name: docConfig.name,

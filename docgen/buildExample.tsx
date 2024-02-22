@@ -1,12 +1,13 @@
 import { EnrichedExample } from "./types";
 import { formatSnippet } from "./utils";
 import { renderPreview, baseCss } from "./renderPreview";
+import type { CompileOptions } from "../src/compile/compile";
 
 export const buildExample = async (
   example: EnrichedExample,
   component: string,
-  style: string,
-  outputPath: string
+  outputPath: string,
+  compileOptions?: CompileOptions
 ) => {
   let markdown = ``;
 
@@ -16,7 +17,8 @@ export const buildExample = async (
     example.template,
     component,
     outputPath,
-    style
+    true,
+    compileOptions
   );
 
   if (example.description) {
