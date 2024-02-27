@@ -106,6 +106,7 @@
         {
           "group": "Reports",
           "pages": [
+            "ui/templates/scientific-report",
             "ui/templates/report-charts"
           ]
         },
