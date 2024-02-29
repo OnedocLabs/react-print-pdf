@@ -50,7 +50,7 @@ Get the _react-print_ component library.
 ### With npm
 
 ```sh npm
-npm install -s @onedoc/react-print
+npm install @onedoc/react-print
 ```
 
 ### With yarn
