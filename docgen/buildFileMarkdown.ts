@@ -11,6 +11,7 @@ export const buildFileMarkdown = async (
   let markdown = `---
 title: ${docConfig.name}
 ${docConfig.icon ? `icon: ${docConfig.icon}` : ""}
+${docConfig.description ? `description: ${docConfig.description}` : ""}
 ---\n\n${docConfig.description}\n\n`;
 
   const componentKeys = new Set([
