@@ -13,6 +13,15 @@
 <a href="https://react.onedoclabs.com">Documentation</a>
 </div>
 
+<div class="title-block" style="text-align: center;" align="center">
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/Onedoclabs/react-print)](https://github.com/OnedocLabs/react-print)
+[![Discord](https://img.shields.io/discord/1182321379081736192?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/uRJE6e2rgr)
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Onedoclabs)](https://twitter.com/Onedoclabs)
+[![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/onedoc)
+
+
+</div>
 ---
 
 # Demo Highlights 🎥
@@ -153,6 +162,8 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 [![GitHub Repo stars](https://img.shields.io/github/stars/Onedoclabs/react-print)](https://github.com/OnedocLabs/react-print)
 [![Discord](https://img.shields.io/discord/1182321379081736192?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/uRJE6e2rgr)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Onedoclabs)](https://twitter.com/Onedoclabs)
+[![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/onedoc)
+
 
 </div>
 
