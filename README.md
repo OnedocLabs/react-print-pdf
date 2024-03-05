@@ -13,6 +13,8 @@
 <a href="https://react.onedoclabs.com">Documentation</a>
 </div>
 
+<br/>
+
 <div class="title-block" style="text-align: center;" align="center">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Onedoclabs/react-print)](https://github.com/OnedocLabs/react-print)
@@ -22,6 +24,7 @@
 
 
 </div>
+
 ---
 
 # Demo Highlights 🎥
