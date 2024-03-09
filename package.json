@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "tsup --external @onedoc/react-print --clean && tsup --external @onedoc/react-print",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "dev": "(cd ./docs && mintlify dev --watch)",
     "build-components": "npm run build && tsx ./docgen/index.ts",
     "prune-docs": "tsx ./docgen/prune.ts",
@@ -59,7 +59,8 @@
     "remark-frontmatter": "^5.0.0",
     "tsup": "^8.0.1",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.3.1"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
