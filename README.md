@@ -1,4 +1,4 @@
-![React email cover](https://pbs.twimg.com/profile_banners/1733139456645795840/1705969228/1500x500)
+![React email cover](docs/images/react-email-cover.avif)
 
 <div align="center"><strong>React Print</strong></div>
 <div align="center">The new way to build documents.<br />High-quality, unstyled components for creating PDFs.</div>
@@ -50,7 +50,7 @@ We believe documents are at the core of communication—invoices, contracts, res
 
 Unlike other solutions, _react-print-pdf_ gives you complete control over your documents, allowing you to design complex layouts with features like footnotes, headers, margins, and more. Additionally, it enables you to track and analyze specific parts of your document, and build and update charts using data from your database. And this is just the beginning—our team and the community will continue to develop great features to simplify the PDF generation process.
 
-![Legacy Solution vs. React-print-pdf](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/f9cbb617-20a6-4a22-a03d-056dd6e40df3)
+![Legacy Solution vs. React-print-pdf](docs/images/legacy-vs-react-print.avif)
 
 # Getting started 🚀
 
