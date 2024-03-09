@@ -22,7 +22,6 @@
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Onedoclabs)](https://twitter.com/Onedoclabs)
 [![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/onedoc)
 
-
 </div>
 
 ---
@@ -48,10 +47,10 @@ A collection of high-quality, unstyled components for creating beautiful PDFs us
 We believe documents are at the core of communication—invoices, contracts, resumes, brochures, etc. They are the primary method for exchanging information with others professionally. So, why do we continue to use decades-old technology to create them? We believe you deserve better. Document production needs to be modernized. Start today and create your next PDF the same way you build a web app. And yes, this includes automating data integration into your documents. Say hello to _react-print-pdf_.
 
 # How does it differ from other solutions? 🧐
+
 Unlike other solutions, _react-print-pdf_ gives you complete control over your documents, allowing you to design complex layouts with features like footnotes, headers, margins, and more. Additionally, it enables you to track and analyze specific parts of your document, and build and update charts using data from your database. And this is just the beginning—our team and the community will continue to develop great features to simplify the PDF generation process.
 
 ![Legacy Solution vs. React-print-pdf](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/f9cbb617-20a6-4a22-a03d-056dd6e40df3)
-
 
 # Getting started 🚀
 
@@ -144,6 +143,10 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 
 # Join the movement ! 🚀
 
+## Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/1cdb5f15e29e4e5a9388c982a039eaa97a52fdf9.svg "Repobeats analytics image")
+
 ## Contributors ✨
 
 <a href="https://github.com/onedoclabs/react-print-pdf/graphs/contributors">
@@ -166,7 +169,6 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 [![Discord](https://img.shields.io/discord/1182321379081736192?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/uRJE6e2rgr)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Onedoclabs)](https://twitter.com/Onedoclabs)
 [![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/onedoc)
-
 
 </div>
 
