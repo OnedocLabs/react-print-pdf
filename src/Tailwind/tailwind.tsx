@@ -15,13 +15,11 @@ import { merge } from "ts-deepmerge";
 
 import { quickSafeRenderToString } from "./utils.resend";
 import { CorePluginsConfig } from "tailwindcss/types/config";
-import { readFileSync } from "fs";
 
 import { CSS } from "../CSS/css";
 
-const preflightCss = readFileSync(
-  require.resolve("tailwindcss/lib/css/preflight.css")
-);
+// @ts-ignore
+import preflightCss from "../../node_modules/tailwindcss/lib/css/preflight.css?raw";
 
 export const Tailwind = ({
   children,
@@ -76,7 +74,7 @@ export const Tailwind = ({
         @tailwind components;
         @tailwind utilities;
 
-        ${preflightCss.toString()}
+        ${preflightCss}
       `,
     {
       from: undefined,

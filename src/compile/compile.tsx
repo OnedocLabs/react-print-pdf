@@ -1,8 +1,11 @@
 import { DocConfig } from "docgen/types";
-import { readFileSync } from "fs";
 import React from "react";
+import { Button, ChakraProvider } from "@chakra-ui/react";
+
+// @ts-ignore
+import onedocStyles from "../../dist/index.css?raw";
+
 import { CSS } from "../CSS/css";
-import { Button, ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 export interface CompileOptions {
   /**
@@ -24,15 +27,9 @@ export const compile = async (
 
   const ReactDOMServer = await import("react-dom/server");
 
-  // Dynamically import the css file at @onedoc/react-print/index.css
-  const css = readFileSync(
-    require.resolve("@onedoc/react-print/dist/index.css"),
-    "utf-8"
-  );
-
   let Element = (
     <>
-      <CSS>{css}</CSS>
+      <CSS>{onedocStyles}</CSS>
       {node}
     </>
   );

@@ -7,6 +7,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import frontmatter from "front-matter";
 import { promises as fs } from "fs";
 import { formatCamelCaseToTitle, formatSnippet } from "./utils";
+import { RawPlugin } from "../build/raw";
 
 const tmpDir = join(__dirname, "../.tmp");
 
@@ -31,6 +32,12 @@ export async function buildTemplates() {
         )}/${basename(template)}`
       );
 
+      console.log("here2", template);
+      console.log("here2", template);
+      console.log("here2", template);
+      console.log("here2", template);
+      console.log("here2", template);
+
       await build({
         entry: [template],
         esbuildPlugins: [
@@ -38,6 +45,7 @@ export async function buildTemplates() {
             remarkPlugins: [remarkFrontmatter],
             providerImportSource: "@onedoc/react-print/mdx",
           }),
+          RawPlugin(),
         ],
         dts: false,
         outDir: dirname(outPath),

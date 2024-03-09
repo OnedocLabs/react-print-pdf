@@ -11,6 +11,7 @@ import {
 } from "./utils";
 import { buildFileMarkdown } from "./buildFileMarkdown";
 import { buildTemplateList, buildTemplates } from "./buildTemplates";
+import { RawPlugin } from "../build/raw";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");
@@ -52,6 +53,12 @@ const process = async () => {
           path.basename(relativePath, ".tsx") + ".js"
         );
 
+        console.log("here", entrypoint);
+        console.log("here", entrypoint);
+        console.log("here", entrypoint);
+        console.log("here", entrypoint);
+        console.log("here", entrypoint);
+
         await build({
           entry: [filePath],
           dts: false,
@@ -62,6 +69,7 @@ const process = async () => {
           bundle: true,
           config: false,
           clean: true,
+          esbuildPlugins: [RawPlugin()],
         });
 
         const elements = await import(entrypoint);

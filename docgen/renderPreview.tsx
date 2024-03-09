@@ -6,8 +6,7 @@ import * as path from "path";
 import * as fs from "fs";
 import { fromBuffer } from "pdf2pic";
 import { glob } from "glob";
-import { type CompileOptions, compile } from "../src/compile/compile";
-import { CSS } from "../src/CSS/css";
+import { compile, CompileOptions } from "../dist";
 import React from "react";
 
 config({ path: ".env.local" });
