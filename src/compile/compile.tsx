@@ -81,6 +81,8 @@ export const __docConfig: DocConfig = {
     "Compile a React component to a string with the Onedoc print styles.",
   components: {
     compile: {
+      server: true,
+      client: true,
       examples: {
         emotion: {
           description: `Pass \`{ emotion: true }\` as the second compile option to merge and extract critical CSS using Emotion. Some libraries such as Chakra UI require this option to work correctly.

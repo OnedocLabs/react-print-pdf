@@ -2,7 +2,7 @@ import { defineConfig } from "tsup";
 import { RawPlugin } from "./build/raw";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/mdx.ts"],
+  entry: ["src/index.ts", "src/mdx.ts", "src/server.ts", "src/client.ts"],
   splitting: false,
   sourcemap: true,
   clean: false,

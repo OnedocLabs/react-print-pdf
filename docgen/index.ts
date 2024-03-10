@@ -53,12 +53,6 @@ const process = async () => {
           path.basename(relativePath, ".tsx") + ".js"
         );
 
-        console.log("here", entrypoint);
-        console.log("here", entrypoint);
-        console.log("here", entrypoint);
-        console.log("here", entrypoint);
-        console.log("here", entrypoint);
-
         await build({
           entry: [filePath],
           dts: false,

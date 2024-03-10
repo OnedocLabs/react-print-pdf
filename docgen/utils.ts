@@ -1,6 +1,5 @@
 import * as ts from "typescript";
 import { DocConfig, ExtendedDocConfig } from "./types";
-import { renderToString } from "react-dom/server";
 import * as prettier from "prettier";
 
 export const formatCamelCaseToTitle = (str: string) => {
@@ -32,11 +31,15 @@ const extractTemplates = (node) => {
   Object.entries(components).forEach(([componentName, value]) => {
     templates[componentName] = {};
 
-    const examples = listProperties(
-      listProperties(value as ts.ObjectLiteralExpression)[
-        "examples"
-      ] as ts.ObjectLiteralExpression
-    );
+    let examples = {};
+
+    try {
+      examples = listProperties(
+        listProperties(value as ts.ObjectLiteralExpression)[
+          "examples"
+        ] as ts.ObjectLiteralExpression
+      );
+    } catch (e) {}
 
     Object.entries(examples).forEach(([exampleName, value]) => {
       const template = listProperties(value as ts.ObjectLiteralExpression)[
@@ -79,7 +82,7 @@ export const mergeTemplateInfo = (
   templates: any
 ): ExtendedDocConfig => {
   Object.entries(docInfo.components).forEach(([componentName, value]) => {
-    Object.entries(value.examples).forEach(([exampleName, example]) => {
+    Object.entries(value.examples || {}).forEach(([exampleName, example]) => {
       // @ts-ignore
       example.templateString = templates[componentName][exampleName];
     });

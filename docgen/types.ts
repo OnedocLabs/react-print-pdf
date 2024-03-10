@@ -14,16 +14,20 @@ export interface EnrichedExample extends Example {
   templateString: string;
 }
 
+export interface ConfigComponentDoc<T = Example> {
+  server: boolean;
+  client: boolean;
+  examples?: {
+    [key: string]: T;
+  };
+}
+
 export interface DocConfig<T = Example> {
   name?: string;
   icon?: string;
   description: string;
   components: {
-    [componentName: string]: {
-      examples: {
-        [key: string]: T;
-      };
-    };
+    [componentName: string]: ConfigComponentDoc<T>;
   };
 }
 

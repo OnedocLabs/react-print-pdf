@@ -2,7 +2,7 @@ import React from "react";
 import "./headings.css";
 import "./variables.css";
 import { DocConfig } from "../../docgen/types";
-import { PageTop } from "../Shell/shell";
+import { PageTop } from "../shell/shell";
 
 /**
  * Returns the current page number.
@@ -93,6 +93,8 @@ export const __docConfig: DocConfig = {
     "Display dynamic values based on your document, such as page numbers and running headers.",
   components: {
     PageNumber: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: <PageNumber counterStyle="decimal" />,
@@ -105,6 +107,8 @@ export const __docConfig: DocConfig = {
       },
     },
     PagesNumber: {
+      server: true,
+      client: true,
       examples: {
         default: {
           imports: ["PageNumber"],
@@ -119,6 +123,8 @@ export const __docConfig: DocConfig = {
       },
     },
     RunningH1: {
+      server: true,
+      client: true,
       examples: {
         default: {
           description:
@@ -135,19 +141,24 @@ export const __docConfig: DocConfig = {
       },
     },
     RunningH2: {
-      examples: {},
+      server: true,
+      client: true,
     },
     RunningH3: {
-      examples: {},
+      server: true,
+      client: true,
     },
     RunningH4: {
-      examples: {},
+      server: true,
+      client: true,
     },
     RunningH5: {
-      examples: {},
+      server: true,
+      client: true,
     },
     RunningH6: {
-      examples: {},
+      server: true,
+      client: true,
     },
   },
 };

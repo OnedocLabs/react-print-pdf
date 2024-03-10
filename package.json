@@ -11,6 +11,16 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
+    "./client": {
+      "require": "./dist/client/index.js",
+      "import": "./dist/client/index.mjs",
+      "types": "./dist/client/index.d.ts"
+    },
+    "./server": {
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.mjs",
+      "types": "./dist/server/index.d.ts"
+    },
     "./mdx": {
       "require": "./dist/mdx.js",
       "import": "./dist/mdx.mjs",

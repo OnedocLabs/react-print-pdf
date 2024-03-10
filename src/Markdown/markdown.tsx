@@ -1,7 +1,6 @@
 import { DocConfig } from "docgen/types";
 import MarkdownJSX from "markdown-to-jsx";
 import React from "react";
-import { Tailwind } from "..";
 
 export const Markdown = MarkdownJSX;
 
@@ -14,6 +13,8 @@ You can also use custom components and variables to make your Markdown more dyna
   icon: "markdown",
   components: {
     Markdown: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: (
@@ -24,28 +25,6 @@ You can also use custom components and variables to make your Markdown more dyna
 ---
 
 This is a paragraph with a [link](https://google.com)`}</Markdown>
-          ),
-        },
-        tailwind: {
-          imports: ["Tailwind"],
-          description:
-            "You can wrap the Markdown component in a Tailwind component to apply global styles.",
-          template: (
-            <Tailwind>
-              <Markdown
-                options={{
-                  overrides: {
-                    h1: {
-                      props: {
-                        className: "text-2xl font-bold",
-                      },
-                    },
-                  },
-                }}
-              >{`# Hello, world!
-
-This is a paragraph.`}</Markdown>
-            </Tailwind>
           ),
         },
         customComponent: {

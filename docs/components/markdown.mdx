@@ -8,23 +8,25 @@ Markdown allows you to easily separate content from the layout, making it easier
 You can also use custom components and variables to make your Markdown more dynamic. For example, you can replace Markdown components with your own components, or use variables to insert dynamic content."
 ---
 
-Render Markdown inside your templates. Provides a simple wrapper around [`markdown-to-jsx`](https://github.com/quantizor/markdown-to-jsx).
-
-Markdown allows you to easily separate content from the layout, making it easier to maintain and update your templates. You can pull in content from a CMS or other sources, and use Markdown to format it.
-
-You can also use custom components and variables to make your Markdown more dynamic. For example, you can replace Markdown components with your own components, or use variables to insert dynamic content.
-
 ## Markdown
+
+Support
+
+<div style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "0.5rem",
+  }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
 
 ### Examples
 
 #### Preview
 
-<Frame type="glass"><img src="../images/previews/markdown-e3b6d739/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="../images/previews/markdown-c8d0ecd4/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { Markdown } from "@onedoc/react-print";
+import { Markdown } from "@onedoc/react-print/server";
 
 <Markdown>{`# Hello, world!
 
@@ -51,58 +53,15 @@ body {
 ```
 </CodeGroup></div>
 
-#### Tailwind
-
-You can wrap the Markdown component in a Tailwind component to apply global styles.
-
-<Frame type="glass"><img src="../images/previews/markdown-b8809f53/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
-
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
-import { Markdown, Tailwind } from "@onedoc/react-print";
-
-<Tailwind>
-  <Markdown
-    options={{
-      overrides: {
-        h1: {
-          props: {
-            className: "text-2xl font-bold",
-          },
-        },
-      },
-    }}
-  >{`# Hello, world!
-
-This is a paragraph.`}</Markdown>
-</Tailwind>;
-
-```
-```css base.css
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-
-html,
-body {
-  font-size: 28px;
-  font-family: "Inter", sans-serif;
-}
-
-@page {
-  size: A4;
-}
-
-```
-</CodeGroup></div>
-
 #### Custom Components and Variables
 
 You can leverage the `overrides` prop to replace Markdown components with your own components. This is useful for custom components or even for dynamic content.
 
-<Frame type="glass"><img src="../images/previews/markdown-4af446de/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="../images/previews/markdown-882cc486/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { Markdown } from "@onedoc/react-print";
+import { Markdown } from "@onedoc/react-print/server";
 
 <Markdown
   options={{

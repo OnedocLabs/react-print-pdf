@@ -92,9 +92,15 @@ export const Tailwind = ({
 export const __docConfig: DocConfig = {
   name: "Tailwind",
   icon: "wind",
-  description: `A simple, drop-in way to use Tailwind CSS in your components.`,
+  description: `A simple, drop-in way to use Tailwind CSS in your components.
+
+<Warning>
+Tailwind is only available for server-side rendering. This means the component will not work in frontend projects.
+</Warning>`,
   components: {
     Tailwind: {
+      client: false,
+      server: true,
       examples: {
         default: {
           template: (

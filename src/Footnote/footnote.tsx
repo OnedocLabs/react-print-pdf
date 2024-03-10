@@ -29,6 +29,8 @@ export const __docConfig: DocConfig = {
   description: "Create automatically numbered footnotes.",
   components: {
     Footnote: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: <Footnote>This is a sample footnote.</Footnote>,

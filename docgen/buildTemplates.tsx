@@ -18,6 +18,7 @@ export async function buildTemplates() {
 
   return await Promise.all(
     templates.map(async (template) => {
+      console.log("Building for template ", template);
       const outPath =
         join(
           tmpDir,
@@ -31,12 +32,6 @@ export async function buildTemplates() {
           relative(join(__dirname, "../src"), template)
         )}/${basename(template)}`
       );
-
-      console.log("here2", template);
-      console.log("here2", template);
-      console.log("here2", template);
-      console.log("here2", template);
-      console.log("here2", template);
 
       await build({
         entry: [template],

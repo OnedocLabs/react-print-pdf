@@ -34,6 +34,8 @@ LaTeX rendering is still in beta. Please report any issues you encounter on our 
 <Tip>You can use \`String.raw\` to avoid escaping LaTeX backslashes.</Tip>`,
   components: {
     Latex: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: <Latex>{String.raw`\frac{1}{2}`}</Latex>,

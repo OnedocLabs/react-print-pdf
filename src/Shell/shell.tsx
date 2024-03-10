@@ -82,6 +82,8 @@ export const __docConfig: DocConfig = {
   description: "Display content in other page regions.",
   components: {
     PageTop: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: <PageTop style={{ backgroundColor: "#bfdbfe" }} />,
@@ -89,6 +91,8 @@ export const __docConfig: DocConfig = {
       },
     },
     PageBottom: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: <PageBottom style={{ backgroundColor: "#bfdbfe" }} />,
@@ -96,6 +100,8 @@ export const __docConfig: DocConfig = {
       },
     },
     FloatBottom: {
+      server: true,
+      client: true,
       examples: {
         default: {
           template: <FloatBottom>Here are some floated contents</FloatBottom>,

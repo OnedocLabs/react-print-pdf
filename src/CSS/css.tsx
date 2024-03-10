@@ -25,6 +25,8 @@ export const __docConfig: DocConfig = {
 NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to use the \`CSS\` component to ensure that the CSS is properly escaped, most notably when using URLs or other potentially unsafe content.`,
   components: {
     CSS: {
+      server: true,
+      client: true,
       examples: {
         default: {
           description: "Use a simple CSS print property to set the page size.",

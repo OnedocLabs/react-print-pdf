@@ -130,6 +130,12 @@
           ]
         }
       ]
+    },
+    {
+      "group": "Troubleshooting",
+      "pages": [
+        "troubleshooting/faq"
+      ]
     }
   ],
   "footerSocials": {
