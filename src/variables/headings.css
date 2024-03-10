@@ -1,0 +1,58 @@
+h1 {
+  string-set: onedocH1Contents contents onedocH2Contents "" onedocH3Contents ""
+    onedocH4Contents "" onedocH5Contents "" onedocH6Contents "";
+}
+
+h2 {
+  string-set: onedocH2Contents contents onedocH3Contents "" onedocH4Contents ""
+    onedocH5Contents "" onedocH6Contents "";
+}
+
+h3 {
+  string-set: onedocH3Contents contents onedocH4Contents "" onedocH5Contents ""
+    onedocH6Contents "";
+}
+
+h4 {
+  string-set: onedocH4Contents contents onedocH5Contents "" onedocH6Contents "";
+}
+
+h5 {
+  string-set: onedocH5Contents contents onedocH6Contents "";
+}
+
+h6 {
+  string-set: onedocH6Contents contents;
+}
+
+.--onedoc-heading-contents:not(:empty)::before {
+  content: attr(data-before);
+}
+
+.--onedoc-heading-contents:not(:empty)::after {
+  content: attr(data-after);
+}
+
+.--onedoc-h1-contents {
+  content: string(onedocH1Contents);
+}
+
+.--onedoc-h2-contents {
+  content: string(onedocH2Contents);
+}
+
+.--onedoc-h3-contents {
+  content: string(onedocH3Contents);
+}
+
+.--onedoc-h4-contents {
+  content: string(onedocH4Contents);
+}
+
+.--onedoc-h5-contents {
+  content: string(onedocH5Contents);
+}
+
+.--onedoc-h6-contents {
+  content: string(onedocH6Contents);
+}
