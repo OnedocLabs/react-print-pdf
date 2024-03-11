@@ -28,7 +28,7 @@
 
 # Demo Highlights 🎥
 
-https://github.com/OnedocLabs/react-print-pdf/assets/33000377/1c625983-ab1a-4a55-b30e-e7bcaf596d92
+https://github.com/OnedocLabs/react-print-pdf/assets/33000377/0d8815a7-e858-4541-ba13-325d56f26c69
 
 # Key Features 🎯
 
