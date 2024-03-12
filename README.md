@@ -40,7 +40,7 @@ https://github.com/OnedocLabs/react-print-pdf/assets/33000377/0d8815a7-e858-4541
 
 # Introduction ℹ️
 
-A collection of high-quality, unstyled components for creating beautiful PDFs using React and TypeScript. Forget about docx, latex, or painful outdates libraries. With _react-print-pdf_, embrace a new way to create PDFs, designed by and for developers.
+A collection of high-quality, unstyled components for creating beautiful PDFs using React and TypeScript. Forget about docx, latex, or painful outdated libraries. With _react-print-pdf_, embrace a new way to create PDFs, designed by and for developers.
 
 # Why❓
 
