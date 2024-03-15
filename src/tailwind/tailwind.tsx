@@ -16,7 +16,7 @@ import { merge } from "ts-deepmerge";
 import { quickSafeRenderToString } from "./utils.resend";
 import { CorePluginsConfig } from "tailwindcss/types/config";
 
-import { CSS } from "../CSS/css";
+import { CSS } from "../css/css";
 
 // @ts-ignore
 import preflightCss from "../../node_modules/tailwindcss/lib/css/preflight.css?raw";

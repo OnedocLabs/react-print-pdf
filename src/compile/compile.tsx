@@ -5,7 +5,7 @@ import { Button, ChakraProvider } from "@chakra-ui/react";
 // @ts-ignore
 import onedocStyles from "../../dist/index.css?raw";
 
-import { CSS } from "../CSS/css";
+import { CSS } from "../css/css";
 
 export interface CompileOptions {
   /**

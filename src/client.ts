@@ -20,6 +20,6 @@ export {
 } from "./shell/shell";
 export { Footnote } from "./footnote/footnote";
 export { compile, CompileOptions } from "./compile/compile";
-export { CSS } from "./CSS/css";
+export { CSS } from "./css/css";
 export { Markdown } from "./markdown/markdown";
 export { Latex } from "./latex/latex";
