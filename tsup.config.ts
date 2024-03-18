@@ -1,5 +1,6 @@
 import { defineConfig } from "tsup";
 import { RawPlugin } from "./build/raw";
+import { commonjs } from "@hyrious/esbuild-plugin-commonjs";
 
 export default defineConfig({
   entry: ["src/index.ts", "src/mdx.ts", "src/server.ts", "src/client.ts"],
@@ -8,6 +9,6 @@ export default defineConfig({
   clean: false,
   format: ["cjs", "esm"],
   dts: true,
-  esbuildPlugins: [RawPlugin()],
+  esbuildPlugins: [RawPlugin(), commonjs()],
   bundle: true,
 });

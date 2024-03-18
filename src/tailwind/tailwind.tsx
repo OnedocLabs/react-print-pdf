@@ -5,21 +5,19 @@
 
 import { DocConfig } from "docgen/types";
 import React from "react";
-import postcss from "postcss";
-import tailwindcss from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme.js";
-import type { Config as TailwindConfig } from "tailwindcss";
+import postcss, { Processor } from "postcss";
+// import type { Config as TailwindConfig } from "tailwindcss";
 // @ts-ignore
 import postcssColorFunctionalNotation from "postcss-color-functional-notation";
-import { merge } from "ts-deepmerge";
 
 import { quickSafeRenderToString } from "./utils.resend";
-import { CorePluginsConfig } from "tailwindcss/types/config";
+import type { CorePluginsConfig } from "tailwindcss/types/config";
 
 import { CSS } from "../css/css";
 
 // @ts-ignore
 import preflightCss from "../../node_modules/tailwindcss/lib/css/preflight.css?raw";
+import { createTailwindcssPlugin } from "@mhsdesign/jit-browser-tailwindcss";
 
 export const Tailwind = ({
   children,
@@ -35,36 +33,24 @@ export const Tailwind = ({
    *
    * NB: The `content` option is automatically set to the children of the Tailwind component.
    */
-  config?: Omit<TailwindConfig, "content">;
+  config?: any; // Omit<TailwindConfig, "content">;
 }) => {
   const markup = quickSafeRenderToString(children);
 
   const corePlugins = config?.corePlugins as CorePluginsConfig;
 
-  // TODO: understand why this is necessary when using font-sans. Probably some misconfigured serif font in Prince.
-  let fontSans = config?.theme?.fontFamily?.sans ?? [
-    "arial",
-    ...defaultTheme.fontFamily.sans,
-  ];
-
   const tailwindConfig = {
-    ...merge(config || {}, {
-      theme: {
-        fontFamily: {
-          sans: fontSans,
-        },
-      },
-    }),
+    ...config,
     corePlugins: {
-      preflight: false,
       ...corePlugins,
+      preflight: false,
     },
   };
 
   const { css } = postcss([
-    tailwindcss({
+    createTailwindcssPlugin({
       ...tailwindConfig,
-      content: [{ raw: markup, extension: "html" }],
+      content: [{ content: markup, extension: "html" }],
     }),
     // postcssCssVariables,
     postcssColorFunctionalNotation,
@@ -95,11 +81,11 @@ export const __docConfig: DocConfig = {
   description: `A simple, drop-in way to use Tailwind CSS in your components.
 
 <Warning>
-Tailwind is only available for server-side rendering. This means the component will not work in frontend projects.
+The supported Tailwind version is 3.3.2 due to changes in the PostCSS plugin synchronicity.
 </Warning>`,
   components: {
     Tailwind: {
-      client: false,
+      client: true,
       server: true,
       examples: {
         default: {
