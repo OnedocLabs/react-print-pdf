@@ -3,3 +3,8 @@ node_modules
 tsconfig.json
 docs
 src/ui
+docgen
+tests
+build
+tailwind.config.ts
+tsup.config.ts

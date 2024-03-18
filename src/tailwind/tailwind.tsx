@@ -49,7 +49,7 @@ export const Tailwind = ({
 
   const { css } = postcss([
     createTailwindcssPlugin({
-      ...tailwindConfig,
+      tailwindConfig,
       content: [{ content: markup, extension: "html" }],
     }),
     // postcssCssVariables,
