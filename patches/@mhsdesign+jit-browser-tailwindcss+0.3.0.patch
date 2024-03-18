@@ -1,5 +1,5 @@
 diff --git a/node_modules/@mhsdesign/jit-browser-tailwindcss/package.json b/node_modules/@mhsdesign/jit-browser-tailwindcss/package.json
-index 1bc9e7b..4c55725 100644
+index 1bc9e7b..01067a3 100644
 --- a/node_modules/@mhsdesign/jit-browser-tailwindcss/package.json
 +++ b/node_modules/@mhsdesign/jit-browser-tailwindcss/package.json
 @@ -11,6 +11,13 @@
@@ -8,8 +8,8 @@ index 1bc9e7b..4c55725 100644
    ],
 +  "exports": {
 +    ".": {
-+      "import": "./dist/module.esm.js",
-+      "require": "./dist/module.esm.js"
++      "require": "./dist/module.esm.js",
++      "import": "./dist/module.esm.js"
 +    },
 +    "./dist/*": "./dist/*"
 +  },
