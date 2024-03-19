@@ -8,3 +8,4 @@ tests
 build
 tailwind.config.ts
 tsup.config.ts
+dist/mdx.*
