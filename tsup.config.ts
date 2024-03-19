@@ -9,7 +9,7 @@ export default defineConfig({
   sourcemap: true,
   clean: false,
   format: ["cjs", "esm"],
-  platform: "neutral",
+  platform: "browser",
   dts: true,
   esbuildOptions: (options) => {
     options.inject = ["node-stdlib-browser/helpers/esbuild/shim"];

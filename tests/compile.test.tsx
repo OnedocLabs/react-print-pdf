@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { Tailwind, compile } from "../dist";
+import { Tailwind, compile } from "../dist/index.mjs";
 import React from "react";
 
 test("loads in frontend app", async () => {

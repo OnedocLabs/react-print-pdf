@@ -7,3 +7,5 @@ dist
 .env.local
 
 **/previews/**/index.html
+
+pack
