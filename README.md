@@ -155,7 +155,7 @@ Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
 
 ## Star History 🌟
 
-<a href="https://star-history.com/#Onedoclabs/react-print&Date">
+<a href="https://star-history.com/#Onedoclabs/react-print-pdf&Date">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Onedoclabs/react-print&type=Date&theme=dark" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Onedoclabs/react-print&type=Date" />
