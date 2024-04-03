@@ -22,5 +22,6 @@ export default defineConfig({
     };
   },
   esbuildPlugins: [RawPlugin(), plugin(stdLibBrowser)],
+  external: ["react", "react-dom"],
   bundle: true,
 });

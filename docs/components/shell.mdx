@@ -26,7 +26,7 @@ This component should be placed as early as possible in the document and will ap
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { PageTop } from "@onedoc/react-print/server";
+import { PageTop } from "@onedoc/react-print";
 
 <PageTop style={{ backgroundColor: "#bfdbfe" }} />;
 
@@ -62,7 +62,7 @@ Displays content in the top of the current page.
 This component will override the content of the `PageTop` component for the current page.
 
 ```jsx
-import { CurrentPageTop } from "@onedoc/react-print/server";
+import { CurrentPageTop } from "@onedoc/react-print";
 ```
 
 ## PageBottom
@@ -85,7 +85,7 @@ Displays content in the bottom of all the pages.
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { PageBottom } from "@onedoc/react-print/server";
+import { PageBottom } from "@onedoc/react-print";
 
 <PageBottom style={{ backgroundColor: "#bfdbfe" }} />;
 
@@ -119,7 +119,7 @@ Support
 Forces a page break.
 
 ```jsx
-import { PageBreak } from "@onedoc/react-print/server";
+import { PageBreak } from "@onedoc/react-print";
 ```
 
 ## NoBreak
@@ -135,7 +135,7 @@ Support
 Prevents a page break. Wrap this component around content that should not be broken across pages.
 
 ```jsx
-import { NoBreak } from "@onedoc/react-print/server";
+import { NoBreak } from "@onedoc/react-print";
 ```
 
 ## FloatBottom
@@ -158,7 +158,7 @@ Floats the content to the bottom of the page.
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { FloatBottom } from "@onedoc/react-print/server";
+import { FloatBottom } from "@onedoc/react-print";
 
 <FloatBottom>Here are some floated contents</FloatBottom>;
 
