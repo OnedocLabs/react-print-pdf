@@ -1,0 +1,87 @@
+instances:
+  - url: https://fileforge.docs.buildwithfern.com
+title: Fileforge
+tabs:
+  welcome:
+    display-name: Welcome
+  react-print:
+    display-name: react-print
+    icon: fa-brands fa-react
+  API:
+    display-name: API Reference
+    icon: fa-solid fa-bolt
+  SDK:
+    display-name: SDK Reference
+    icon: fa-solid fa-code
+navigation:
+  - tab: welcome
+    layout:
+      - section: Get Started
+        contents:
+          - page: Welcome
+            path: ./pages/overview/introduction.mdx
+            slug: welcome
+  - tab: react-print
+    layout:
+      - section: Getting Started
+        contents:
+          - page: Getting Started
+            path: ./pages/react-print/introduction.mdx
+            slug: react-print
+      - section: Components
+        contents:
+          - page: Compile
+            path: ../react-print-pdf/docs/components/compile.mdx
+            slug: compile
+          - page: Css
+            path: ../react-print-pdf/docs/components/css.mdx
+            slug: css
+          - page: Footnote
+            path: ../react-print-pdf/docs/components/footnote.mdx
+            slug: footnote
+          - page: Latex
+            path: ../react-print-pdf/docs/components/latex.mdx
+            slug: latex
+          - page: Markdown
+            path: ../react-print-pdf/docs/components/markdown.mdx
+            slug: markdown
+          - page: Shell
+            path: ../react-print-pdf/docs/components/shell.mdx
+            slug: shell
+          - page: Tailwind
+            path: ../react-print-pdf/docs/components/tailwind.mdx
+            slug: tailwind
+          - page: Variables
+            path: ../react-print-pdf/docs/components/variables.mdx
+            slug: variables
+  - tab: API
+    layout:
+      - section: Introduction
+        contents:
+          - page: Getting started
+            path: ./pages/api-reference/introduction.mdx
+            slug: api-reference
+      - api: API Reference
+  - tab: SDK
+    layout:
+      - section: Getting Started
+        contents:
+          - page: Getting Started
+            path: ./pages/sdk-reference/introduction.mdx
+            slug: sdk-reference
+colors:
+  accentPrimary:
+    dark: '#1d6100'
+  background:
+    dark: '#000000'
+logo:
+  dark: ./assets/logo-white.svg
+layout:
+  searchbar-placement: header
+navbar-links:
+  - type: minimal
+    text: Support
+    url: mailto:contact@onedoclabs.com
+  - type: outlined
+    text: Get Started
+    url: https://app.onedoclabs.com/login

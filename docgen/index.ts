@@ -3,6 +3,7 @@ import * as path from "path";
 import * as fs from "fs";
 import { build } from "tsup";
 import * as docgen from "react-docgen-typescript";
+import * as yaml from "js-yaml";
 import { DocConfig } from "./types";
 import {
   formatCamelCaseToTitle,
@@ -217,6 +218,36 @@ const process = async () => {
   });
 
   fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
+  
+  // genreating the docs.yml file with dynamic content for components
+  const docYMLFile = path.join(__dirname, "../docs/docs.yml");
+
+  // Load and parse the YAML file
+  const docsYml:any = yaml.load(fs.readFileSync(__dirname+'/docs.yml', 'utf8'));
+  // Get the Components section
+  const componentsSection = docsYml.navigation.find(section => section.tab === 'react-print').layout.find(section => section.section === 'Components');
+
+  // Get all mdx files in the components directory
+  const mdxFiles = fs.readdirSync(docsPath).filter(file => path.extname(file) === '.mdx');
+
+  // Add each mdx file to the contents
+  mdxFiles.forEach(file => {
+    const slug = path.basename(file, '.mdx');
+    componentsSection.contents.push({
+      page: slug.charAt(0).toUpperCase() + slug.slice(1),
+      path: `../react-print-pdf/docs/components/${file}`,
+      slug: slug
+    });
+  });
+
+  // Convert the updated object back into YAML
+  const updatedYaml = yaml.dump(docsYml);
+
+  // Write the updated YAML back to the file
+  fs.writeFileSync(docYMLFile, updatedYaml, 'utf8');
+
+  
+
 };
 
 process();

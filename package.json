@@ -88,6 +88,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/server": "^11.11.0",
     "html-entities": "^2.4.0",
+    "js-yaml": "^4.1.0",
     "katex": "^0.16.9",
     "markdown-to-jsx": "^7.4.1",
     "react": "^18.2.0",

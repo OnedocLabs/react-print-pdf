@@ -1,0 +1,65 @@
+instances:
+  - url: https://fileforge.docs.buildwithfern.com
+title: Fileforge
+tabs:
+  welcome:
+      display-name: Welcome
+  react-print:
+    display-name: react-print
+    icon: "fa-brands fa-react"
+  API:
+    display-name: API Reference
+    icon: "fa-solid fa-bolt"
+  SDK:
+    display-name: SDK Reference
+    icon: "fa-solid fa-code"
+navigation:
+  - tab: welcome
+    layout:
+      - section: Get Started
+        contents: 
+          - page: Welcome
+            path: ./pages/overview/introduction.mdx
+            slug: welcome
+  - tab: react-print
+    layout:
+      - section: Getting Started
+        contents:
+          - page: Getting Started
+            path: ./pages/react-print/introduction.mdx
+            slug: react-print
+      - section: Components
+        contents: []
+
+  - tab: API
+    layout:
+      - section: Introduction
+        contents:
+          - page: Getting started
+            path: ./pages/api-reference/introduction.mdx
+            slug: api-reference 
+      - api: API Reference
+  - tab: SDK
+    layout:
+      - section: Getting Started
+        contents:
+          - page: Getting Started
+            path: ./pages/sdk-reference/introduction.mdx
+            slug: sdk-reference 
+colors:
+  accentPrimary: 
+    dark: '#1d6100'
+  background: 
+    dark: '#000000'
+logo: 
+  dark: ./assets/logo-white.svg
+layout:
+  searchbar-placement: header
+navbar-links:
+  - type: minimal
+    text: Support
+    url: mailto:contact@onedoclabs.com
+  - type: outlined
+    text: Get Started
+    url: https://app.onedoclabs.com/login
+
