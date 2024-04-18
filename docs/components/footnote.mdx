@@ -22,14 +22,17 @@ Creates an automatically numbered footnote. This will remove the footnote conten
 
 <Frame type="glass"><img src="../images/previews/footnote-fb378308/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Footnote } from "@onedoc/react-print";
 
 <Footnote>This is a sample footnote.</Footnote>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -43,7 +46,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 ### API
 

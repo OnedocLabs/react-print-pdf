@@ -24,8 +24,9 @@ Support
 
 <Frame type="glass"><img src="../images/previews/markdown-c8d0ecd4/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Markdown } from "@onedoc/react-print";
 
 <Markdown>{`# Hello, world!
@@ -37,7 +38,9 @@ import { Markdown } from "@onedoc/react-print";
 This is a paragraph with a [link](https://google.com)`}</Markdown>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -51,7 +54,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 #### Custom Components and Variables
 
@@ -59,8 +63,9 @@ You can leverage the `overrides` prop to replace Markdown components with your o
 
 <Frame type="glass"><img src="../images/previews/markdown-882cc486/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Markdown } from "@onedoc/react-print";
 
 <Markdown
@@ -86,7 +91,9 @@ This agreement is signed with <CustomerName />.
 <KPI>20/month</KPI>`}</Markdown>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -100,5 +107,6 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 

@@ -24,14 +24,17 @@ Use a simple CSS print property to set the page size.
 
 <Frame type="glass"><img src="../images/previews/css-b26814a3/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { CSS } from "@onedoc/react-print";
 
 <CSS>{`@page { size: a4 landscape; }`}</CSS>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -45,7 +48,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 #### Load a Google Font
 
@@ -53,8 +57,9 @@ Load a Google Font using the `@import` rule.
 
 <Frame type="glass"><img src="../images/previews/css-393a92da/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { CSS } from "@onedoc/react-print";
 
 <React.Fragment>
@@ -67,7 +72,9 @@ import { CSS } from "@onedoc/react-print";
 </React.Fragment>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -81,7 +88,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 #### Layout
 
@@ -89,8 +97,9 @@ You can use the `@page` at-rule in CSS to manage all aspects of printed pages. M
 
 <Frame type="glass"><img src="../images/previews/css-83e5c15a/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { CSS } from "@onedoc/react-print";
 
 <React.Fragment>
@@ -99,7 +108,9 @@ import { CSS } from "@onedoc/react-print";
 </React.Fragment>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -113,5 +124,6 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 

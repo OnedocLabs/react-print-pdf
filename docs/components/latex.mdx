@@ -28,14 +28,17 @@ Support
 
 <Frame type="glass"><img src="../images/previews/latex-83ad6403/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Latex } from "@onedoc/react-print";
 
 <Latex>{String.raw`\frac{1}{2}`}</Latex>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -49,14 +52,16 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 #### Complex
 
 <Frame type="glass"><img src="../images/previews/latex-7a00ed36/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Latex } from "@onedoc/react-print";
 
 <Latex>{String.raw`% \f is defined as #1f(#2) using the macro
@@ -65,7 +70,9 @@ import { Latex } from "@onedoc/react-print";
     \,d\xi`}</Latex>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -79,5 +86,6 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 

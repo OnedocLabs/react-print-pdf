@@ -22,14 +22,17 @@ Returns the current page number.
 
 <Frame type="glass"><img src="../images/previews/pagenumber-cc94f6f7/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { PageNumber } from "@onedoc/react-print";
 
 <PageNumber counterStyle="decimal" />;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -43,7 +46,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 #### Custom Style
 
@@ -51,14 +55,17 @@ You can use a custom CSS counter-style, by passing a known name or a custom coun
 
 <Frame type="glass"><img src="../images/previews/pagenumber-7e3be4c3/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { PageNumber } from "@onedoc/react-print";
 
 <PageNumber counterStyle="lower-roman" />;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -72,7 +79,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 ### API
 
@@ -104,8 +112,9 @@ Returns the total number of pages.
 
 <Frame type="glass"><img src="../images/previews/pagesnumber-a7d845b5/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { PagesNumber, PageNumber } from "@onedoc/react-print";
 
 <>
@@ -115,7 +124,9 @@ import { PagesNumber, PageNumber } from "@onedoc/react-print";
 </>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -129,7 +140,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 ### API
 
@@ -163,8 +175,9 @@ Show the current running header of level 1 in the page header. All running heade
 
 <Frame type="glass"><img src="../images/previews/runningh1-b41bbc29/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { RunningH1 } from "@onedoc/react-print";
 
 <React.Fragment>
@@ -175,7 +188,9 @@ import { RunningH1 } from "@onedoc/react-print";
 </React.Fragment>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -189,7 +204,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
 ## RunningH2
 

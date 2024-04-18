@@ -26,8 +26,9 @@ const html = await compile(<Component />, { emotion: true });
 
 <Frame type="glass"><img src="../images/previews/compile-1badee62/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { compile } from "@onedoc/react-print";
 import { Button, ChakraProvider, extendTheme } from "@chakra-ui/react";
 
@@ -38,7 +39,9 @@ import { Button, ChakraProvider, extendTheme } from "@chakra-ui/react";
 </>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -52,5 +55,6 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 
