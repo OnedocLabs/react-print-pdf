@@ -29,8 +29,9 @@ export const buildExample = async (
 
   // Check if the folder docs/previews contain the image
 
-  markdown += `<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-\`\`\`jsx template.tsx
+  markdown += `<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+\`\`\`jsx
 import { ${component}${
     example.imports ? `, ${example.imports.join(", ")}` : ""
   } } from "@onedoc/react-print";${
@@ -39,10 +40,13 @@ import { ${component}${
 
 ${snippet}
 \`\`\`
-\`\`\`css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+\`\`\`css
 ${baseCss}
 \`\`\`
-</CodeGroup></div>\n\n`;
+</CodeBlock>
+</CodeBlocks></div>\n\n`;
 
   // markdown += `<a href="${pdfPath}">Download the PDF example ↓</a>\n\n`;
 
