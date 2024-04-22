@@ -26,13 +26,13 @@ navigation:
       - section: Welcome
         contents: 
           - page: Getting Started
-            path: ./introduction.mdx
+            path: ../react-print-pdf/docs/introduction.mdx
             slug: welcome
             icon: "fa-solid fa-hand-wave"
       - section: Contributing
         contents: 
           - page: Contributing
-            path: ./contributing.mdx
+            path: ../react-print-pdf/docs/contributing.mdx
             slug: contributing
             icon: "fa-solid fa-pull-request"
       - section: Components
