@@ -1,14 +1,42 @@
 ---
 title: Tailwind
-icon: wind
-description: "A simple, drop-in way to use Tailwind CSS in your components.
 
-<Warning>
-The supported Tailwind version is 3.3.2 due to changes in the PostCSS plugin synchronicity.
-</Warning>"
+
 ---
 
 ## Tailwind
+
+Support
+
+<div style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "0.5rem",
+  }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
+
+```jsx
+import { Tailwind } from "@onedoc/react-print";
+```
+
+### API
+
+<ResponseField name="Props">
+<Expandable defaultOpen={true} title="Show available props">
+<ResponseField name="children" type="React.ReactNode" required={true}>
+
+The children of the Tailwind component. Components will have access to the Tailwind CSS classes.
+
+</ResponseField>
+<ResponseField name="config" type="any" required={false}>
+
+A custom Tailwind config to use for this component.
+See all available options at https://tailwindcss.com/docs/configuration
+
+NB: The `content` option is automatically set to the children of the Tailwind component.
+
+</ResponseField>
+</Expandable></ResponseField>
+## 0
 
 Support
 
@@ -22,12 +50,12 @@ Support
 
 #### Preview
 
-<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/tailwind-d34cd362/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/0-d34cd362/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { Tailwind } from "@onedoc/react-print";
+import { 0 } from "@onedoc/react-print";
 
 <Tailwind>
   <div className="bg-gradient-to-tr from-blue-500 to-blue-700 rounded-2xl p-12"></div>
@@ -61,12 +89,12 @@ body {
 
 You can also pass a custom Tailwind config to the Tailwind component.
 
-<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/tailwind-841def4d/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/0-841def4d/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { Tailwind } from "@onedoc/react-print";
+import { 0 } from "@onedoc/react-print";
 
 <Tailwind
   config={{
@@ -106,21 +134,3 @@ body {
 </CodeBlock>
 </CodeBlocks></div>
 
-### API
-
-<ResponseField name="Props">
-<Expandable defaultOpen={true} title="Show available props">
-<ResponseField name="children" type="React.ReactNode" required={true}>
-
-The children of the Tailwind component. Components will have access to the Tailwind CSS classes.
-
-</ResponseField>
-<ResponseField name="config" type="any" required={false}>
-
-A custom Tailwind config to use for this component.
-See all available options at https://tailwindcss.com/docs/configuration
-
-NB: The `content` option is automatically set to the children of the Tailwind component.
-
-</ResponseField>
-</Expandable></ResponseField>

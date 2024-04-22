@@ -13,6 +13,9 @@ import {
 import { buildFileMarkdown } from "./buildFileMarkdown";
 import { buildTemplateList, buildTemplates } from "./buildTemplates";
 import { RawPlugin } from "../build/raw";
+import { TabPanel } from "@chakra-ui/react";
+import { Component } from "react";
+import { check, doc } from "prettier";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");
@@ -23,7 +26,11 @@ const options: docgen.ParserOptions = {
     skipPropsWithoutDoc: true,
   },
 };
+
 type docFolder = {
+  icon: string;
+  name: string;
+  description: string;
   outputPath: string;
   files: docFile[];
 }
@@ -74,9 +81,6 @@ const process = async () => {
         const elements = await import(entrypoint);
 
         const types = docgen.parse(filePath, options);
-        
-        console.log(types)
-        console.log(filePath)
 
         let docConfig = Object.assign(
           {
@@ -88,82 +92,107 @@ const process = async () => {
         );
 
         const templates = getTemplateContents(filePath);
-        console.log(templates)
 
         docConfig = mergeTemplateInfo(docConfig, templates);
-
-        const docFiles:docFile[] = [];
 
         const folderOutputPath:string = path.join(
           __dirname,
           `../docs/components/${path.basename(filePath, ".tsx")}`
         );
-        
-        await types.forEach(async (e) => {
 
+        let docFiles: docFile[] = [];
+
+        for (const [componentName, value] of Object.entries(docConfig.components)) {
+
+          const componentDocConfig = Object.assign(
+            {
+              name: componentName,
+              description: "",
+              components: [value],
+            }
+          );
+
+          const outputPath = `${folderOutputPath}/${componentName.toLocaleLowerCase()}.mdx`;
+
+          const componentType = types.filter(e=>e.displayName === componentName);
           
-          const outputPath = folderOutputPath+"/"+e.displayName.toLocaleLowerCase()+".mdx";
-          const markdown = await buildFileMarkdown(docConfig, [e], outputPath);
-          
-          docFiles.push({
-            name: e.displayName,
-            baseName: path.basename(filePath, ".tsx"),
-            path: path
-              .relative(path.join(__dirname, "../src"), filePath)
-              .toLowerCase(),
+          const markdown = await buildFileMarkdown(componentDocConfig, componentType, outputPath);
+
+          docFiles.push(
+            {
+              name: componentDocConfig.name,
+              baseName: path.basename(filePath, ".tsx"),
+              path: path
+                .relative(path.join(__dirname, "../src"), filePath)
+                .toLowerCase(),
               outputPath,
-            markdown,
-            config: docConfig,
-          });
+              markdown,
+              config: componentDocConfig,
+            }
+          )
 
-        });
-      
+        }
+
         return {
+          icon: docConfig.icon,
+          name: docConfig.name,
+          description: docConfig.description,
           outputPath: folderOutputPath,
           files: docFiles
-        };
-      })
+        };;
+        })
     )
   ).filter(Boolean) as docFolder[];
 
-  console.log(docs);
-  // docs.forEach((docFolder) => {
-  //   console.log(docFolder.files)
-    
-  // })
+  // console.log(docs)
+  // console.log(docs.length)
+  // docs[0].files.forEach(e=>{
+  //    console.log(e)
+  // }) 
 
   // Check if the directory exists, if not, create it
-  if (!fs.existsSync(docsPath)) {
-    fs.mkdirSync(docsPath, { recursive: true });
-  } else {
-    fs.rmSync(docsPath, { recursive: true });
-    fs.mkdirSync(docsPath, { recursive: true });
+  function checkDirectorySync(directory: string, remove: boolean = true) {
+    if (!fs.existsSync(directory)) {
+      fs.mkdirSync(directory, { recursive: true });
+    } else {
+      if(remove){
+        fs.rmSync(directory, { recursive: true });
+      }
+      fs.mkdirSync(directory, { recursive: true });
+    }
   }
 
+  checkDirectorySync(docsPath);
+  
   const sortedDocs = docs.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
 
   sortedDocs.forEach((docFile) => {
-    fs.writeFileSync(docFile.outputPath, docFile.markdown);
+    docFile.files.forEach((file)=>{
+
+      checkDirectorySync(docFile.outputPath, false);
+
+      fs.writeFileSync(file.outputPath, file.markdown);
+    })
   });
 
   // Build the card groups
-  let snippet = `<CardGroup>`;
+  let snippet = `<Cards>`;
 
-  sortedDocs.forEach((docFile) => {
+  sortedDocs.forEach((docFolder) => {
     const href = path
-      .relative(path.join(__dirname, "../docs"), docFile.outputPath)
+      .relative(path.join(__dirname, "../docs"), docFolder.outputPath)
       .replace(".mdx", "");
 
-    snippet += `<Card title="${docFile.name}" icon="${
-      docFile.config.icon
+    snippet += `<Card title="${docFolder.name}" icon="${
+      docFolder.icon
     }" href="${href}">
-    ${docFile.config.description.split(".")[0]}.
+    ${docFolder.description.split(".")[0]}.
   </Card>`;
   });
 
-  snippet += `</CardGroup>`;
+  snippet += `</Cards>`;
 
   fs.writeFileSync(
     path.join(__dirname, "../docs/snippets/components.mdx"),
