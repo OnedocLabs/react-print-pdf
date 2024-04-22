@@ -16,6 +16,7 @@ import { RawPlugin } from "../build/raw";
 import { TabPanel } from "@chakra-ui/react";
 import { Component } from "react";
 import { check, doc } from "prettier";
+import { replaceInFile } from "./pageBuilder/buildIntroduction";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");
@@ -144,12 +145,6 @@ const process = async () => {
     )
   ).filter(Boolean) as docFolder[];
 
-  // console.log(docs)
-  // console.log(docs.length)
-  // docs[0].files.forEach(e=>{
-  //    console.log(e)
-  // }) 
-
   // Check if the directory exists, if not, create it
   function checkDirectorySync(directory: string, remove: boolean = true) {
     if (!fs.existsSync(directory)) {
@@ -194,8 +189,12 @@ const process = async () => {
 
   snippet += `</Cards>`;
 
+  const snippetsPath = path.join(__dirname, "../docs/snippets");
+
+  checkDirectorySync(snippetsPath);
+
   fs.writeFileSync(
-    path.join(__dirname, "../docs/snippets/components.mdx"),
+    snippetsPath+"/components.mdx",
     snippet
   );
 
@@ -207,7 +206,7 @@ const process = async () => {
     if (!fs.existsSync(dirname)) {
       fs.mkdirSync(dirname, { recursive: true });
     }
-
+    console.log(template.outputPath)
     fs.writeFileSync(template.outputPath, template.markdown);
   });
 
@@ -274,7 +273,14 @@ const process = async () => {
   });
 
   fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
-  
+
+  //-------------------------------------------------------------------------------- GENERATE introduction.mdx FILE for Fern --------------------------------------------------------------------------------
+
+  const introductionPath = path.join(__dirname, "../docs/introduction.mdx");
+
+  replaceInFile(introductionPath, "<Components />", snippet); //TODO: fix the relative component import in Fern to avoid this
+
+
   //-------------------------------------------------------------------------------- GENERATE DOCS.YML FILE for Fern --------------------------------------------------------------------------------
   // genreating the docs.yml file with dynamic content for components
   const docYMLFile = path.join(__dirname, "../docs/docs.yml");

@@ -23,11 +23,18 @@ navigation:
             slug: welcome
   - tab: react-print
     layout:
-      - section: Getting Started
+      - section: Welcome
         contents:
           - page: Getting Started
-            path: ./pages/react-print/introduction.mdx
-            slug: react-print
+            path: ./introduction.mdx
+            slug: welcome
+            icon: fa-solid fa-hand-wave
+      - section: Contributing
+        contents:
+          - page: Contributing
+            path: ./contributing.mdx
+            slug: contributing
+            icon: fa-solid fa-pull-request
       - section: Components
         contents:
           - section: Compile
