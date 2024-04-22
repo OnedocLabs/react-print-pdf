@@ -77,7 +77,7 @@ export const Tailwind = ({
 
 export const __docConfig: DocConfig = {
   name: "Tailwind",
-  icon: "wind",
+  icon: "fa-solid fa-wind",
   description: `A simple, drop-in way to use Tailwind CSS in your components.
 
 <Warning>

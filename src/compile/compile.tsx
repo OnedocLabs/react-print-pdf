@@ -78,7 +78,7 @@ export const compile = async (
 
 export const __docConfig: DocConfig = {
   name: "compile",
-  icon: "code",
+  icon: "fa-solid fa-code",
   description:
     "Compile a React component to a string with the Onedoc print styles.",
   components: {

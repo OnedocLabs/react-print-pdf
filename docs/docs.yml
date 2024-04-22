@@ -30,32 +30,37 @@ navigation:
             slug: react-print
       - section: Components
         contents:
-          - section: compile
+          - section: Compile
             contents:
               - page: Compile
                 path: ../react-print-pdf/docs/components/compile/compile.mdx
                 slug: compile
-          - section: css
+            icon: fa-solid fa-code
+          - section: Css
             contents:
               - page: Css
                 path: ../react-print-pdf/docs/components/css/css.mdx
                 slug: css
-          - section: footnote
+            icon: fa-brands fa-css3-alt
+          - section: Footnote
             contents:
               - page: Footnote
                 path: ../react-print-pdf/docs/components/footnote/footnote.mdx
                 slug: footnote
-          - section: latex
+            icon: fa-solid fa-info
+          - section: Latex
             contents:
               - page: Latex
                 path: ../react-print-pdf/docs/components/latex/latex.mdx
                 slug: latex
-          - section: markdown
+            icon: fa-solid fa-square-root-variable
+          - section: Markdown
             contents:
               - page: Markdown
                 path: ../react-print-pdf/docs/components/markdown/markdown.mdx
                 slug: markdown
-          - section: shell
+            icon: fa-brands fa-markdown
+          - section: Shell
             contents:
               - page: Floatbottom
                 path: ../react-print-pdf/docs/components/shell/floatbottom.mdx
@@ -66,12 +71,14 @@ navigation:
               - page: Pagetop
                 path: ../react-print-pdf/docs/components/shell/pagetop.mdx
                 slug: pagetop
-          - section: tailwind
+            icon: fa-solid fa-border-all
+          - section: Tailwind
             contents:
               - page: Tailwind
                 path: ../react-print-pdf/docs/components/tailwind/tailwind.mdx
                 slug: tailwind
-          - section: variables
+            icon: fa-solid fa-wind
+          - section: Variables
             contents:
               - page: Pagenumber
                 path: ../react-print-pdf/docs/components/variables/pagenumber.mdx
@@ -97,6 +104,7 @@ navigation:
               - page: Runningh6
                 path: ../react-print-pdf/docs/components/variables/runningh6.mdx
                 slug: runningh6
+            icon: fa-solid fa-subscript
   - tab: API
     layout:
       - section: Introduction

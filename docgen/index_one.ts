@@ -288,9 +288,11 @@ const process = async () => {
 
   subdirs.forEach(subdir => {
   // Create a new section for the subdirectory
+  
   const newSection = {
-    section: subdir,
-    contents: []
+    section:  subdir.charAt(0).toUpperCase() + subdir.slice(1),
+    contents: [],
+    icon: sortedDocs.find(df => df.name.toLocaleLowerCase() === subdir.toLocaleLowerCase())!.icon
   };
 
   // Get all mdx files in the subdirectory
@@ -318,7 +320,6 @@ const process = async () => {
   fs.writeFileSync(docYMLFile, updatedYaml, 'utf8');
 
   
-
 };
 
 process();
