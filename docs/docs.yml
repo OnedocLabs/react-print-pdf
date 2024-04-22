@@ -29,7 +29,74 @@ navigation:
             path: ./pages/react-print/introduction.mdx
             slug: react-print
       - section: Components
-        contents: []
+        contents:
+          - section: compile
+            contents:
+              - page: Compile
+                path: ../react-print-pdf/docs/components/compile/compile.mdx
+                slug: compile
+          - section: css
+            contents:
+              - page: Css
+                path: ../react-print-pdf/docs/components/css/css.mdx
+                slug: css
+          - section: footnote
+            contents:
+              - page: Footnote
+                path: ../react-print-pdf/docs/components/footnote/footnote.mdx
+                slug: footnote
+          - section: latex
+            contents:
+              - page: Latex
+                path: ../react-print-pdf/docs/components/latex/latex.mdx
+                slug: latex
+          - section: markdown
+            contents:
+              - page: Markdown
+                path: ../react-print-pdf/docs/components/markdown/markdown.mdx
+                slug: markdown
+          - section: shell
+            contents:
+              - page: Floatbottom
+                path: ../react-print-pdf/docs/components/shell/floatbottom.mdx
+                slug: floatbottom
+              - page: Pagebottom
+                path: ../react-print-pdf/docs/components/shell/pagebottom.mdx
+                slug: pagebottom
+              - page: Pagetop
+                path: ../react-print-pdf/docs/components/shell/pagetop.mdx
+                slug: pagetop
+          - section: tailwind
+            contents:
+              - page: Tailwind
+                path: ../react-print-pdf/docs/components/tailwind/tailwind.mdx
+                slug: tailwind
+          - section: variables
+            contents:
+              - page: Pagenumber
+                path: ../react-print-pdf/docs/components/variables/pagenumber.mdx
+                slug: pagenumber
+              - page: Pagesnumber
+                path: ../react-print-pdf/docs/components/variables/pagesnumber.mdx
+                slug: pagesnumber
+              - page: Runningh1
+                path: ../react-print-pdf/docs/components/variables/runningh1.mdx
+                slug: runningh1
+              - page: Runningh2
+                path: ../react-print-pdf/docs/components/variables/runningh2.mdx
+                slug: runningh2
+              - page: Runningh3
+                path: ../react-print-pdf/docs/components/variables/runningh3.mdx
+                slug: runningh3
+              - page: Runningh4
+                path: ../react-print-pdf/docs/components/variables/runningh4.mdx
+                slug: runningh4
+              - page: Runningh5
+                path: ../react-print-pdf/docs/components/variables/runningh5.mdx
+                slug: runningh5
+              - page: Runningh6
+                path: ../react-print-pdf/docs/components/variables/runningh6.mdx
+                slug: runningh6
   - tab: API
     layout:
       - section: Introduction

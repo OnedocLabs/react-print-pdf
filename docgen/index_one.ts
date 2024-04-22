@@ -275,6 +275,7 @@ const process = async () => {
 
   fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
   
+  //-------------------------------------------------------------------------------- GENERATE DOCS.YML FILE for Fern --------------------------------------------------------------------------------
   // genreating the docs.yml file with dynamic content for components
   const docYMLFile = path.join(__dirname, "../docs/docs.yml");
 
@@ -283,18 +284,32 @@ const process = async () => {
   // Get the Components section
   const componentsSection = docsYml.navigation.find(section => section.tab === 'react-print').layout.find(section => section.section === 'Components');
 
-  // Get all mdx files in the components directory
-  const mdxFiles = fs.readdirSync(docsPath).filter(file => path.extname(file) === '.mdx');
+  const subdirs = fs.readdirSync(docsPath, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
-  // Add each mdx file to the contents
+  subdirs.forEach(subdir => {
+  // Create a new section for the subdirectory
+  const newSection = {
+    section: subdir,
+    contents: []
+  };
+
+  // Get all mdx files in the subdirectory
+  const mdxFiles = fs.readdirSync(path.join(docsPath, subdir)).filter(file => path.extname(file) === '.mdx');
+
+  // Add each mdx file to the new section
   mdxFiles.forEach(file => {
     const slug = path.basename(file, '.mdx');
-    componentsSection.contents.push({
-      page: slug.charAt(0).toUpperCase() + slug.slice(1),
-      path: `../react-print-pdf/docs/components/${file}`,
-      slug: slug
-    });
+    newSection.contents.push(
+      {
+        page: slug.charAt(0).toUpperCase() + slug.slice(1),
+        path: `../react-print-pdf/docs/components/${subdir}/${file}`,
+        slug: slug
+      });
   });
+
+  // Add the new section to componentsSection.contents
+  componentsSection.contents.push(newSection);
+});
 
   // Convert the updated object back into YAML
   const updatedYaml = yaml.dump(docsYml);
