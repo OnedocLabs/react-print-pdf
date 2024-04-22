@@ -30,7 +30,7 @@ navigation:
             slug: welcome
             icon: "fa-solid fa-hand-wave"
           - page: Setup
-            path: ../react-print-pdf/docs/getting_started/setup.mdx
+            path: ../react-print-pdf/docs/getting-started/setup.mdx
             slug: setup
             icon: "fa-solid fa-hammer"
       - section: Contributing
