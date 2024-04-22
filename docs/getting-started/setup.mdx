@@ -2,7 +2,7 @@
 title: "Setup"
 sidebarTitle: "Setup"
 description: "Create a brand-new folder with packages powered by React Print."
-icon: "hammer"
+icon: "fa-solid fa-hammer"
 ---
 
 ## 1. Create directory
@@ -19,21 +19,21 @@ npm init -y
 
 Get the react-print package locally
 
-<CodeGroup>
+<CodeBlocks>
 
-```sh npm
+```sh title="npm"
 npm install @onedoc/react-print
 ```
 
-```sh yarn
+```sh title="yarn"
 yarn add @onedoc/react-print
 ```
 
-```sh pnpm
+```sh title="pnpm"
 pnpm add @onedoc/react-print
 ```
 
-</CodeGroup>
+</CodeBlocks>
 
 ## 3. Create your first PDF Component
 
@@ -71,9 +71,9 @@ const html = await compile(<Document />);
 console.log(html);
 ```
 
-## 5. Generate your document with Onedoc
+## 5. Generate your document with FileForge
 
-It's now time to generate your PDF from your component. We recommend using [Onedoc](/integrations/onedoc) as react-print has beem build especially to work witht his software. However, feel free to use any integrations that suits you the best.
+It's now time to generate your PDF from your component. We recommend using [FileForge](/integrations/onedoc) as react-print has beem build especially to work witht his software. However, feel free to use any integrations that suits you the best.
 
 [How to generate my PDF from my react-print component](/integrations/onedoc)
 
@@ -81,9 +81,9 @@ It's now time to generate your PDF from your component. We recommend using [Oned
 
 Try to modify your PDF by using our different pre-built components.
 
-<CardGroup>
-  <Card title="Headings" icon='up' href="/components/headings">
-    A React component to help build running heads.
+<Cards>
+  <Card title="Compile" icon='up' href="/react-print/components/compile">
+    A React component to help compile your React code for PDF rendering.
   </Card>
 
 {" "}
@@ -95,4 +95,4 @@ Try to modify your PDF by using our different pre-built components.
   <Card title="Shell" icon='table-layout' href="/components/button">
     A suite of React components for structured document layout management.
   </Card>
-</CardGroup>
+</Cards>
