@@ -29,12 +29,16 @@ navigation:
             path: ../react-print-pdf/docs/introduction.mdx
             slug: welcome
             icon: "fa-solid fa-hand-wave"
+          - page: Setup
+            path: ../react-print-pdf/docs/getting_started/setup.mdx
+            slug: setup
+            icon: "fa-solid fa-hammer"
       - section: Contributing
         contents: 
           - page: Contributing
             path: ../react-print-pdf/docs/contributing.mdx
             slug: contributing
-            icon: "fa-solid fa-pull-request"
+            icon: "fa-solid fa-code-pull-request"
       - section: Components
         contents: []
   - tab: API
