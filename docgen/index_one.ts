@@ -109,14 +109,14 @@ const process = async () => {
             {
               name: componentName,
               description: "",
-              components: [value],
+              components: {[componentName]: value},
             }
           );
 
           const outputPath = `${folderOutputPath}/${componentName.toLocaleLowerCase()}.mdx`;
 
           const componentType = types.filter(e=>e.displayName === componentName);
-          
+
           const markdown = await buildFileMarkdown(componentDocConfig, componentType, outputPath);
 
           docFiles.push(
@@ -205,7 +205,7 @@ const process = async () => {
     if (!fs.existsSync(dirname)) {
       fs.mkdirSync(dirname, { recursive: true });
     }
-    console.log(template.outputPath)
+
     fs.writeFileSync(template.outputPath, template.markdown);
   });
 

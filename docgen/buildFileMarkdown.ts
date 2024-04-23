@@ -6,6 +6,7 @@ import {
 import { ComponentDoc } from "react-docgen-typescript";
 import { buildExample } from "./buildExample";
 import { formatCamelCaseToTitle, safePropType } from "./utils";
+import { doc } from "prettier";
 
 export const buildFileMarkdown = async (
   docConfig: ExtendedDocConfig,

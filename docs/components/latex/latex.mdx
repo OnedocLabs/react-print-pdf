@@ -12,28 +12,16 @@ Support
     gap: "0.5rem",
   }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
 
-```jsx
-import { Latex } from "@onedoc/react-print";
-```
-
-Support
-
-<div style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "0.5rem",
-  }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
-
 ### Examples
 
 #### Preview
 
-<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/0-83ad6403/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/latex-83ad6403/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { 0 } from "@onedoc/react-print";
+import { Latex } from "@onedoc/react-print";
 
 <Latex>{String.raw`\frac{1}{2}`}</Latex>;
 
@@ -59,12 +47,12 @@ body {
 
 #### Complex
 
-<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/0-7a00ed36/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/latex-7a00ed36/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { 0 } from "@onedoc/react-print";
+import { Latex } from "@onedoc/react-print";
 
 <Latex>{String.raw`% \f is defined as #1f(#2) using the macro
 \f\relax{x} = \int_{-\infty}^\infty

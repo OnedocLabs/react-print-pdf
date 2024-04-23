@@ -1,5 +1,5 @@
 ---
-title: margins
+title: Margins
 
 
 ---
@@ -18,15 +18,15 @@ Support
 
 You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).
 
-<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/0-7180c434/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/margins-db4795b6/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { 0 } from "@onedoc/react-print";
+import { Margins } from "@onedoc/react-print";
 
 <React.Fragment>
-  <CSS>{`body{background-color:blue}`}</CSS>
+  <CSS>{`body{background-color:lightblue}`}</CSS>
   <Margins pageRatio="A4" top="100" right="100" left="100" bottom="100" />
   <div>Hello world!</div>
 </React.Fragment>;

@@ -53,7 +53,7 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
         },
       },
     },
-    font:{
+    Font:{
       server: true,
       client: true,
       examples: {
@@ -72,7 +72,7 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
       },
 
     },
-    margins:{
+    Margins:{
       server: true,
       client: true,
       examples: {
@@ -82,7 +82,7 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
             "You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
           template: (
             <React.Fragment>
-              <CSS>{`body{background-color:blue}`}</CSS>
+              <CSS>{`body{background-color:lightblue}`}</CSS>
               <Margins pageRatio="A4" top="100" right="100" left="100" bottom="100"/>
               <div>Hello world!</div>
             </React.Fragment>
