@@ -52,6 +52,12 @@ navigation:
               - page: Css
                 path: ../react-print-pdf/docs/components/css/css.mdx
                 slug: css
+              - page: Font
+                path: ../react-print-pdf/docs/components/css/font.mdx
+                slug: font
+              - page: Margins
+                path: ../react-print-pdf/docs/components/css/margins.mdx
+                slug: margins
             icon: fa-brands fa-css3-alt
           - section: Footnote
             contents:

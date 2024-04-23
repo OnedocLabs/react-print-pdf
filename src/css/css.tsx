@@ -1,6 +1,7 @@
 import { DocConfig } from "docgen/types";
 import React from "react";
 import { encode } from "html-entities";
+import { Tailwind } from "..";
 const allowedEntities = {
   "&apos;": "'",
   "&quot;": '"',
@@ -17,6 +18,24 @@ export const CSS = ({ children }: { children: string }) => {
   return <style dangerouslySetInnerHTML={{ __html: contents }} />;
 };
 
+export const Font = ({ url }: { url: string }) => {
+  return <CSS>{`@import url('${url}');`}</CSS>;
+};
+
+type MarginsProps = {
+  pageRatio: string;
+  top: string;
+  right: string;
+  left: string;
+  bottom: string;
+};
+export const Margins = ({ pageRatio, top, right, left, bottom }: MarginsProps) => {
+
+  return <CSS>{`@page {size: ${pageRatio};margin-top:${top}px;margin-right:${right}px;margin-left:${left}px;margin-bottom:${bottom}px;`}</CSS>;
+};
+
+
+
 export const __docConfig: DocConfig = {
   name: "CSS",
   icon: "fa-brands fa-css3-alt",
@@ -32,32 +51,45 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
           description: "Use a simple CSS print property to set the page size.",
           template: <CSS>{`@page { size: a4 landscape; }`}</CSS>,
         },
-        loadFont: {
+      },
+    },
+    font:{
+      server: true,
+      client: true,
+      examples: {
+        default: {
           name: "Load a Google Font",
           description: "Load a Google Font using the `@import` rule.",
           template: (
             <React.Fragment>
-              <CSS>
-                {`@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');`}
-              </CSS>
+              <Font url="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" />
               <p style={{ fontFamily: "Roboto, sans-serif" }}>
                 This text uses the Roboto Light font.
               </p>
             </React.Fragment>
           ),
         },
-        layout: {
+      },
+
+    },
+    margins:{
+      server: true,
+      client: true,
+      examples: {
+        default:{
           name: "Layout",
           description:
             "You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
           template: (
             <React.Fragment>
-              <CSS>{`@page {size: A4;margin-top:1cm;margin-right:1cm;margin-left:1cm;margin-bottom:1cm;`}</CSS>
+              <CSS>{`body{background-color:blue}`}</CSS>
+              <Margins pageRatio="A4" top="100" right="100" left="100" bottom="100"/>
               <div>Hello world!</div>
             </React.Fragment>
           ),
         },
       },
-    },
+
+    }
   },
 };

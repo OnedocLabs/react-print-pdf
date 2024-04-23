@@ -45,7 +45,7 @@ ${docConfig.description ? `description: "${docConfig.description}"` : ""}
 
     let { client, server } = componentInfo || { client: true, server: true };
 
-    markdown += `## ${componentName}\n\n`;
+    // markdown += `## ${componentName}\n\n`;
 
     markdown += `Support\n\n`;
 
