@@ -27,7 +27,7 @@ navigation:
         contents: 
           - page: Getting Started
             path: ../react-print-pdf/docs/introduction.mdx
-            slug: welcome
+            slug: getting-started
             icon: "fa-solid fa-hand-wave"
           - page: Setup
             path: ../react-print-pdf/docs/getting-started/setup.mdx
@@ -57,10 +57,10 @@ navigation:
             path: ./pages/sdk-reference/introduction.mdx
             slug: sdk-reference 
 colors:
-  accentPrimary: 
-    dark: '#1d6100'
-  background: 
-    dark: '#000000'
+  accentPrimary: "#AD8AFF"
+  background:
+    dark: "#000000"
+    light: "#ffffff"
 logo: 
   dark: ./assets/logo-white.svg
 layout:

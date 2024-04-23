@@ -89,14 +89,14 @@
     {
       "group": "Components",
       "pages": [
-        "components/undefined",
-        "components/undefined",
-        "components/undefined",
-        "components/undefined",
-        "components/undefined",
-        "components/undefined",
-        "components/undefined",
-        "components/undefined"
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined"
       ]
     },
     {

@@ -176,13 +176,12 @@ const process = async () => {
   let snippet = `<Cards>`;
 
   sortedDocs.forEach((docFolder) => {
-    const href = path
-      .relative(path.join(__dirname, "../docs"), docFolder.outputPath)
-      .replace(".mdx", "");
+
+    const tempPath = "/react-print/components/"+docFolder.name;
 
     snippet += `<Card title="${docFolder.name}" icon="${
       docFolder.icon
-    }" href="${href}">
+    }" href="${tempPath.toLocaleLowerCase()}">
     ${docFolder.description.split(".")[0]}.
   </Card>`;
   });
@@ -227,7 +226,7 @@ const process = async () => {
   mint.navigation.forEach((navItem, index) => {
     if (navItem.group === "Components") {
       mint.navigation[index].pages = sortedDocs.map((docFile) => {
-        return `components/${docFile.baseName}`;
+        return `/react-print/components/${docFile.baseName}`;
       });
     } else if (navItem.group === "Templates") {
       // Group templates by category
@@ -278,7 +277,7 @@ const process = async () => {
 
   const introductionPath = path.join(__dirname, "../docs/introduction.mdx");
 
-  replaceInFile(introductionPath, "<Components />", snippet); //TODO: fix the relative component import in Fern to avoid this
+  replaceInFile(introductionPath, "<Components/>", snippet); //TODO: fix the relative component import in Fern to avoid this
 
 
   //-------------------------------------------------------------------------------- GENERATE DOCS.YML FILE for Fern --------------------------------------------------------------------------------
