@@ -48,7 +48,7 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
       client: true,
       examples: {
         default: {
-          description: "Use a simple CSS print property to set the page size.",
+          description: "Use a simple CSS tag to support CSS in your document.",
           template: <CSS>{`@page { size: a4 landscape; }`}</CSS>,
         },
       },
@@ -59,7 +59,7 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
       examples: {
         default: {
           name: "Load a Google Font",
-          description: "Load a Google Font using the `@import` rule.",
+          description: "Load a Google Font its URL. This will allow you to use the font in your document.",
           template: (
             <React.Fragment>
               <Font url="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" />
@@ -79,7 +79,7 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
         default:{
           name: "Layout",
           description:
-            "You can use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
+            "Set the page ratio and margin sizes in px. You can also use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
           template: (
             <React.Fragment>
               <CSS>{`body{background-color:lightblue}`}</CSS>

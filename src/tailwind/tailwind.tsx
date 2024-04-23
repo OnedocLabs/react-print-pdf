@@ -89,6 +89,7 @@ The supported Tailwind version is 3.3.2 due to changes in the PostCSS plugin syn
       server: true,
       examples: {
         default: {
+          description: "Use a simple Tailwind tag to support Tailwind in your document.",
           template: (
             <Tailwind>
               <div className="bg-gradient-to-tr from-blue-500 to-blue-700 rounded-2xl p-12"></div>

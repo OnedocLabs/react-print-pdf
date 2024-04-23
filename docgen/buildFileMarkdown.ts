@@ -47,6 +47,9 @@ ${docConfig.description ? `description: "${docConfig.description}"` : ""}
     let { client, server } = componentInfo || { client: true, server: true };
 
     // markdown += `## ${componentName}\n\n`;
+    if (component && component.description) {
+      markdown += `${component.description}\n\n`;
+    }
 
     markdown += `Support\n\n`;
 
@@ -65,12 +68,8 @@ ${docConfig.description ? `description: "${docConfig.description}"` : ""}
     server ? check : noCheck
   }<span>Server-side</span></div></div>\n\n`;
 
-    if (component && component.description) {
-      markdown += `${component.description}\n\n`;
-    }
 
     if (Object.keys(examples).length > 0) {
-      markdown += `### Examples\n\n`;
 
       if (examples.default) {
         markdown += `#### Preview\n\n`;
@@ -84,6 +83,8 @@ ${docConfig.description ? `description: "${docConfig.description}"` : ""}
 
         markdown += exampleMarkdown;
       }
+
+      markdown += `### Examples\n\n`;
 
       if (Object.keys(examples).filter((key) => key !== "default").length > 0) {
         for (const [exampleName, example] of Object.entries(examples)) {
@@ -109,23 +110,23 @@ ${docConfig.description ? `description: "${docConfig.description}"` : ""}
       markdown += `\`\`\`jsx\nimport { ${componentName} } from "@onedoc/react-print";\n\`\`\`\n\n`;
     }
 
-    if (
-      component &&
-      component.props &&
-      Object.keys(component.props).length > 0
-    ) {
-      markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
+    // if (
+    //   component &&
+    //   component.props &&
+    //   Object.keys(component.props).length > 0
+    // ) {
+    //   markdown += `### API\n\n<ResponseField name="Props">\n<Expandable defaultOpen={true} title="Show available props">\n`;
 
-      Object.entries(component.props).forEach(([propName, prop]) => {
-        markdown += `<ResponseField name="${propName}" type="${safePropType(
-          prop.type.name
-        )}" required={${prop.required}}>\n\n${
-          prop.description
-        }\n\n${prop.defaultValue ? `Default: \`${JSON.stringify(prop.defaultValue.value)}\`\n\n` : ""}</ResponseField>\n`;
-      });
+    //   Object.entries(component.props).forEach(([propName, prop]) => {
+    //     markdown += `<ResponseField name="${propName}" type="${safePropType(
+    //       prop.type.name
+    //     )}" required={${prop.required}}>\n\n${
+    //       prop.description
+    //     }\n\n${prop.defaultValue ? `Default: \`${JSON.stringify(prop.defaultValue.value)}\`\n\n` : ""}</ResponseField>\n`;
+    //   });
 
-      markdown += `</Expandable></ResponseField>\n`;
-    }
+    //   markdown += `</Expandable></ResponseField>\n`;
+    // }
   }
 
   return markdown;

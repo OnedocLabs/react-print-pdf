@@ -38,9 +38,11 @@ LaTeX rendering is still in beta. Please report any issues you encounter on our 
       client: true,
       examples: {
         default: {
+          description: "Use a simple Latex tag to support Latex in your document.",
           template: <Latex>{String.raw`\frac{1}{2}`}</Latex>,
         },
         complex: {
+          description: "Write complex LaTeX formulas in your document.",
           template: (
             <Latex>{String.raw`% \f is defined as #1f(#2) using the macro
 \f\relax{x} = \int_{-\infty}^\infty

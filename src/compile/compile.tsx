@@ -88,9 +88,9 @@ export const __docConfig: DocConfig = {
       client: true,
       examples: {
         default:{
-          description: `Use a simple function to render a React component to an HTML string.
+          description: `A simple function to compile a React component to an HTML string with the Onedoc print styles.
           \`\`\`jsx
-          const html = await compile(<Component />;
+          const html = await compile(<Component />);
           \`\`\``,
           template: <Tailwind><div className="bg-red"></div></Tailwind>,
 

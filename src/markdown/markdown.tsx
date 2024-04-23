@@ -17,6 +17,7 @@ You can also use custom components and variables to make your Markdown more dyna
       client: true,
       examples: {
         default: {
+          description: "Use a simple Markdowb tag to support Markdown in your document.",
           template: (
             <Markdown>{`# Hello, world!
 
