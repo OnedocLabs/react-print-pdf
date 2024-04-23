@@ -18,14 +18,21 @@ Creates an automatically numbered footnote. This will remove the footnote conten
 
 #### Preview
 
-<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/footnote-fb378308/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs/images/previews/footnote-8eedda14/document.1.jpg?raw=true" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
 import { Footnote } from "@onedoc/react-print";
 
-<Footnote>This is a sample footnote.</Footnote>;
+<div>
+  This is a footnote to explani what CSS{" "}
+  <Footnote>
+    CSS is the acronym of “Cascading Style Sheets”. CSS is a computer language
+    for laying out and structuring web pages (HTML or XML).
+  </Footnote>{" "}
+  is.
+</div>;
 
 ```
 </CodeBlock>
