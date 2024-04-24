@@ -164,6 +164,9 @@ navigation:
           - page: Getting started
             path: ./pages/api-reference/introduction.mdx
             slug: api-reference
+          - page: Authentication
+            path: ./pages/api-reference/authentication.mdx
+            slug: authentication
       - api: API Reference
   - tab: SDK
     layout:
