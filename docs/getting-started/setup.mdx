@@ -4,6 +4,24 @@ sidebarTitle: "Setup"
 description: "Create a brand-new folder with packages powered by React Print."
 icon: "fa-solid fa-hammer"
 ---
+# Fast Set Up ⚡️
+
+Clone this repository ⬇️
+<Card 
+  title='dev-local'
+  icon='fa-brands fa-github'
+  href='https://github.com/OnedocLabs/dev-local'
+>
+Clone our dev-local repository and follow the instructions in the readMe to get started quickly.
+</Card>
+
+![dev-local view](https://github.com/OnedocLabs/dev-local/blob/main/src/images/screenshot-dev-local.png?raw=true)
+
+<Callout intent='tip' title='Using dev-local'>
+We recommed splitting your editor into two windows, one for the code and the other for the PDF viewing integration.
+</Callout>
+
+# Manual Set Up 🛠️
 
 ## 1. Create directory
 
@@ -37,7 +55,7 @@ pnpm add @onedoc/react-print
 
 ## 3. Create your first PDF Component
 
-Create a new folder call `documents`, then create a new file inside call `index.jsx` and copy the following code:
+Create a new `documents` folder, then create a new file inside called `index.jsx` and copy the following code:
 
 ```jsx document/index.tsx
 import { PageTop, PageBottom, PageBreak } from "@onedoc/react-print";
@@ -62,6 +80,8 @@ export const Document = ({ props }) => {
 
 ## 4. Compile your document to HTML
 
+Back in your parent folder, create a `main.jsx` file that imports your document an renders it using the `compile` function.
+
 ```js index.tsx
 import { compile } from "@onedoc/react-print";
 import { Document } from "./document";
@@ -73,8 +93,7 @@ console.log(html);
 
 ## 5. Generate your document with FileForge
 
-It's now time to generate your PDF from your component. We recommend using [FileForge](/integrations/onedoc) as react-print has beem build especially to work witht his software. However, feel free to use any integrations that suits you the best.
-
+We recommend generating your PDF using the [FileForge API](/integrations/onedoc), as it is specifically designed to integrate seamlessly with react-print. However, you are welcome to choose any external renderer that better meets your needs.
 [How to generate my PDF from my react-print component.](/api-reference/api-reference/generate)
 
 ## 6. Next steps
