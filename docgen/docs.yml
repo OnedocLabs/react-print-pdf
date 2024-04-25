@@ -101,6 +101,8 @@ colors:
     light: "#ffffff"
 logo: 
   dark: ./assets/logo-white.svg
+  light: ./assets/logo-black.svg
+favicon: ./assets/favicon.png
 layout:
   searchbar-placement: header
 navbar-links:
