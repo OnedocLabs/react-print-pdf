@@ -27,8 +27,6 @@ export const compile = async (
 
   const ReactDOMServer = await import("react-dom/server");
 
-  console.log(ReactDOMServer);
-
   let Element = (
     <>
       <CSS>{onedocStyles}</CSS>
