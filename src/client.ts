@@ -23,3 +23,5 @@ export { compile, CompileOptions } from "./compile/compile";
 export { CSS } from "./css/css";
 export { Markdown } from "./markdown/markdown";
 export { Latex } from "./latex/latex";
+export { Tailwind } from "./tailwind/tailwind";
+export { Field } from "./signature/signature";

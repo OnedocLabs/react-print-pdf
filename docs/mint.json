@@ -95,6 +95,7 @@
         "components/latex",
         "components/markdown",
         "components/shell",
+        "components/signature",
         "components/tailwind",
         "components/variables"
       ]
