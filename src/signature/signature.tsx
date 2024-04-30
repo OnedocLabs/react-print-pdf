@@ -1,4 +1,4 @@
-import { Tailwind } from "@onedoc/react-print";
+import { Tailwind } from "../tailwind/tailwind";
 import { DocConfig } from "docgen/types";
 import React from "react";
 
