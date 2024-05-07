@@ -26,17 +26,17 @@ navigation:
       - section: Welcome
         contents: 
           - page: Getting Started
-            path: ../react-print-pdf/docs/introduction.mdx
+            path: ./react-print-pdf/docs/introduction.mdx
             slug: getting-started
             icon: "fa-solid fa-hand-wave"
           - page: Setup
-            path: ../react-print-pdf/docs/getting-started/setup.mdx
+            path: ./react-print-pdf/docs/getting-started/setup.mdx
             slug: setup
             icon: "fa-solid fa-hammer"
       - section: Contributing
         contents: 
           - page: Contributing
-            path: ../react-print-pdf/docs/contributing.mdx
+            path: ./react-print-pdf/docs/contributing.mdx
             slug: contributing
             icon: "fa-solid fa-code-pull-request"
       - section: Components
@@ -46,34 +46,34 @@ navigation:
           - section: Invoices
             contents:
                 - page: Invoice
-                  path: ../react-print-pdf/docs/ui/templates/invoice.mdx
+                  path: ./react-print-pdf/docs/ui/templates/invoice.mdx
                   slug: invoice
                 - page: Invoice Advanced
-                  path: ../react-print-pdf/docs/ui/templates/invoice-advanced.mdx
+                  path: ./react-print-pdf/docs/ui/templates/invoice-advanced.mdx
                   slug: invoice-advanced
             icon: fa-solid fa-file-invoice
           - section: Legal
             contents:
               - page: NDA Markdown
-                path: ../react-print-pdf/docs/ui/templates/nda-markdown.mdx
+                path: ./react-print-pdf/docs/ui/templates/nda-markdown.mdx
                 slug: nda-markdown
             icon: fa-solid fa-file-signature
           - section: Receipts
             contents:
               - page: Receipt
-                path: ../react-print-pdf/docs/ui/templates/receipt.mdx
+                path: ./react-print-pdf/docs/ui/templates/receipt.mdx
                 slug: receipt
             icon: fa-solid fa-receipt
           - section: Reports
             contents:
               - page: Report Charts
-                path: ../react-print-pdf/docs/ui/templates/report-charts.mdx
+                path: ./react-print-pdf/docs/ui/templates/report-charts.mdx
                 slug: report-charts
             icon: fa-solid fa-chart-line
           - section: Scientific
             contents:
               - page: Scientific Report
-                path: ../react-print-pdf/docs/ui/templates/scientific-report.mdx
+                path: ./react-print-pdf/docs/ui/templates/scientific-report.mdx
                 slug: scientific-report
             icon: fa-solid fa-flask
   - tab: API
