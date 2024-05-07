@@ -1,5 +1,5 @@
 instances:
-  - url: https://fileforge.docs.buildwithfern.com
+  - url: 'https://fileforge.docs.buildwithfern.com'
 title: Fileforge
 tabs:
   welcome:
@@ -44,82 +44,82 @@ navigation:
           - section: Compile
             contents:
               - page: Compile
-                path: ../react-print-pdf/docs/components/compile/compile.mdx
+                path: ./react-print-pdf/docs/components/compile/compile.mdx
                 slug: compile
             icon: fa-solid fa-code
           - section: Css
             contents:
               - page: Css
-                path: ../react-print-pdf/docs/components/css/css.mdx
+                path: ./react-print-pdf/docs/components/css/css.mdx
                 slug: css
               - page: Font
-                path: ../react-print-pdf/docs/components/css/font.mdx
+                path: ./react-print-pdf/docs/components/css/font.mdx
                 slug: font
               - page: Margins
-                path: ../react-print-pdf/docs/components/css/margins.mdx
+                path: ./react-print-pdf/docs/components/css/margins.mdx
                 slug: margins
             icon: fa-brands fa-css3-alt
           - section: Footnote
             contents:
               - page: Footnote
-                path: ../react-print-pdf/docs/components/footnote/footnote.mdx
+                path: ./react-print-pdf/docs/components/footnote/footnote.mdx
                 slug: footnote
             icon: fa-solid fa-info
           - section: Latex
             contents:
               - page: Latex
-                path: ../react-print-pdf/docs/components/latex/latex.mdx
+                path: ./react-print-pdf/docs/components/latex/latex.mdx
                 slug: latex
             icon: fa-solid fa-square-root-variable
           - section: Markdown
             contents:
               - page: Markdown
-                path: ../react-print-pdf/docs/components/markdown/markdown.mdx
+                path: ./react-print-pdf/docs/components/markdown/markdown.mdx
                 slug: markdown
             icon: fa-brands fa-markdown
           - section: Shell
             contents:
               - page: Floatbottom
-                path: ../react-print-pdf/docs/components/shell/floatbottom.mdx
+                path: ./react-print-pdf/docs/components/shell/floatbottom.mdx
                 slug: floatbottom
               - page: Pagebottom
-                path: ../react-print-pdf/docs/components/shell/pagebottom.mdx
+                path: ./react-print-pdf/docs/components/shell/pagebottom.mdx
                 slug: pagebottom
               - page: Pagetop
-                path: ../react-print-pdf/docs/components/shell/pagetop.mdx
+                path: ./react-print-pdf/docs/components/shell/pagetop.mdx
                 slug: pagetop
             icon: fa-solid fa-border-all
           - section: Tailwind
             contents:
               - page: Tailwind
-                path: ../react-print-pdf/docs/components/tailwind/tailwind.mdx
+                path: ./react-print-pdf/docs/components/tailwind/tailwind.mdx
                 slug: tailwind
             icon: fa-solid fa-wind
           - section: Variables
             contents:
               - page: Pagenumber
-                path: ../react-print-pdf/docs/components/variables/pagenumber.mdx
+                path: ./react-print-pdf/docs/components/variables/pagenumber.mdx
                 slug: pagenumber
               - page: Pagesnumber
-                path: ../react-print-pdf/docs/components/variables/pagesnumber.mdx
+                path: ./react-print-pdf/docs/components/variables/pagesnumber.mdx
                 slug: pagesnumber
               - page: Runningh1
-                path: ../react-print-pdf/docs/components/variables/runningh1.mdx
+                path: ./react-print-pdf/docs/components/variables/runningh1.mdx
                 slug: runningh1
               - page: Runningh2
-                path: ../react-print-pdf/docs/components/variables/runningh2.mdx
+                path: ./react-print-pdf/docs/components/variables/runningh2.mdx
                 slug: runningh2
               - page: Runningh3
-                path: ../react-print-pdf/docs/components/variables/runningh3.mdx
+                path: ./react-print-pdf/docs/components/variables/runningh3.mdx
                 slug: runningh3
               - page: Runningh4
-                path: ../react-print-pdf/docs/components/variables/runningh4.mdx
+                path: ./react-print-pdf/docs/components/variables/runningh4.mdx
                 slug: runningh4
               - page: Runningh5
-                path: ../react-print-pdf/docs/components/variables/runningh5.mdx
+                path: ./react-print-pdf/docs/components/variables/runningh5.mdx
                 slug: runningh5
               - page: Runningh6
-                path: ../react-print-pdf/docs/components/variables/runningh6.mdx
+                path: ./react-print-pdf/docs/components/variables/runningh6.mdx
                 slug: runningh6
             icon: fa-solid fa-subscript
       - section: Examples
@@ -189,7 +189,7 @@ layout:
 navbar-links:
   - type: minimal
     text: Support
-    url: mailto:contact@onedoclabs.com
+    url: 'mailto:contact@onedoclabs.com'
   - type: outlined
     text: Get Started
-    url: https://app.onedoclabs.com/login
+    url: 'https://app.onedoclabs.com/login'

@@ -309,7 +309,7 @@ const process = async () => {
     newSection.contents.push(
       {
         page: slug.charAt(0).toUpperCase() + slug.slice(1),
-        path: `../react-print-pdf/docs/components/${subdir}/${file}`,
+        path: `./react-print-pdf/docs/components/${subdir}/${file}`,
         slug: slug
       });
   });
