@@ -19,17 +19,6 @@ export const indexCss = fs.readFileSync(
   path.join(__dirname, "../dist/index.css")
 );
 
-export function buildUrlFromDocsToHosted(path:string) {  
-  const github_base_url = 'https://github.com/OnedocLabs/react-print-pdf/blob/ffo-48-include-documentation-for-the-react-print-library-with/docs'
-  const regex = /\/docs(.*)/;
-  const match = path.match(regex);
-
-  if (match && match[1]) {
-    console.log(match[1]); // Outputs: /images/previews/footnote-fb378308/document.1.jpg
-    return github_base_url + match[1] + '?raw=true';
-  }
-}
-
 export async function renderPreview(
   component: React.ReactElement,
   componentName: string,
@@ -116,8 +105,8 @@ export async function renderPreview(
 
   const pages = (await glob(path.join(targetFolder, "*.jpg"))).sort();
   const pdf = await glob(path.join(targetFolder, "*.pdf"));
-  const imagePath = buildUrlFromDocsToHosted(pages[0]);
-  const pdfPath = buildUrlFromDocsToHosted(pdf[0]);
+  const imagePath = path.relative(path.dirname(outputPath), pages[0]);
+  const pdfPath = path.relative(path.dirname(outputPath), pdf[0]);
 
   return {
     imagePath,
