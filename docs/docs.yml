@@ -201,8 +201,9 @@ navigation:
     layout:
       - section: HTML to PDF
         contents:
-          - page: Generate a PDF
-            path: ./pages/help_center/html_to_pdf/generate-pdf-from-html.mdx
+          - page: Generate a PDF with react-print
+            path: >-
+              ./pages/help_center/html_to_pdf/generate-pdf-from-html-react-print.mdx
             slug: generate-pdf-from-html
           - page: Generate a PDF with assets
             path: ./pages/help_center/html_to_pdf/generate-pdf-from-html-assets.mdx
@@ -210,11 +211,6 @@ navigation:
           - page: Generate a hosted PDF
             path: ./pages/help_center/html_to_pdf/generate-hosted-pdf-from-html.mdx
             slug: generate-hosted-pdf
-      - section: Merge PDFs
-        contents:
-          - page: Merge multiple PDF files into one
-            path: ./pages/help_center/merge_pdfs/merge-multiple-pdfs.mdx
-            slug: merge-multiple-pdf-files
 colors:
   accentPrimary: '#AD8AFF'
   background:
