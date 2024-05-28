@@ -89,15 +89,15 @@
     {
       "group": "Components",
       "pages": [
-        "components/compile",
-        "components/css",
-        "components/footnote",
-        "components/latex",
-        "components/markdown",
-        "components/shell",
-        "components/signature",
-        "components/tailwind",
-        "components/variables"
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined",
+        "/react-print/components/undefined"
       ]
     },
     {

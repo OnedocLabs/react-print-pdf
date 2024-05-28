@@ -114,11 +114,6 @@ navigation:
           - page: Merge
             path: ./pages/sdk-reference/node/merge.mdx
             slug: node-merge
-      - section: Python
-        contents:
-          - page: Getting Started
-            path: ./pages/sdk-reference/python/introduction.mdx
-            slug: python-sdk-reference
   - tab: help
     layout:
       - section: HTML to PDF
