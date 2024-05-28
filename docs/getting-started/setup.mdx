@@ -40,15 +40,15 @@ Get the react-print package locally
 <CodeBlocks>
 
 ```sh title="npm"
-npm install @onedoc/react-print
+npm install @fileforge/react-print
 ```
 
 ```sh title="yarn"
-yarn add @onedoc/react-print
+yarn add @fileforge/react-print
 ```
 
 ```sh title="pnpm"
-pnpm add @onedoc/react-print
+pnpm add @fileforge/react-print
 ```
 
 </CodeBlocks>
@@ -58,7 +58,7 @@ pnpm add @onedoc/react-print
 Create a new `documents` folder, then create a new file inside called `index.jsx` and copy the following code:
 
 ```jsx document/index.tsx
-import { PageTop, PageBottom, PageBreak } from "@onedoc/react-print";
+import { PageTop, PageBottom, PageBreak } from "@fileforge/react-print";
 import * as React from "react";
 
 export const Document = ({ props }) => {
@@ -83,7 +83,7 @@ export const Document = ({ props }) => {
 Back in your parent folder, create a `main.jsx` file that imports your document an renders it using the `compile` function.
 
 ```js index.tsx
-import { compile } from "@onedoc/react-print";
+import { compile } from "@fileforge/react-print";
 import { Document } from "./document";
 
 const html = await compile(<Document />);
