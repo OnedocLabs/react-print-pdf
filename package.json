@@ -35,7 +35,7 @@
     "build": "patch-package && tsup --external @onedoc/react-print --clean && tsup --external @onedoc/react-print",
     "test": "vitest --browser chrome",
     "dev": "(cd ./docs && mintlify dev --watch)",
-    "build-components": "npm run build && tsx ./docgen/index_one.ts",
+    "build-components": "npm run build && tsx ./docgen/index.ts",
     "prune-docs": "tsx ./docgen/prune.ts",
     "build-components-commit": "npm run build-components && npm run prune-docs"
   },

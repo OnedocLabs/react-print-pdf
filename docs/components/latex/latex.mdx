@@ -21,7 +21,7 @@ Use a simple Latex tag to support Latex in your document.
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { Latex } from "@onedoc/react-print";
+import { Latex } from "@fileforge/react-print";
 
 <Latex>{String.raw`\frac{1}{2}`}</Latex>;
 
@@ -56,7 +56,7 @@ Write complex LaTeX formulas in your document.
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { Latex } from "@onedoc/react-print";
+import { Latex } from "@fileforge/react-print";
 
 <Latex>{String.raw`% \f is defined as #1f(#2) using the macro
 \f\relax{x} = \int_{-\infty}^\infty

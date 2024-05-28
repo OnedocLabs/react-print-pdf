@@ -107,7 +107,7 @@ ${docConfig.description ? `description: "${docConfig.description}"` : ""}
         }
       }
     } else {
-      markdown += `\`\`\`jsx\nimport { ${componentName} } from "@onedoc/react-print";\n\`\`\`\n\n`;
+      markdown += `\`\`\`jsx\nimport { ${componentName} } from "@fileforge/react-print";\n\`\`\`\n\n`;
     }
 
     // if (

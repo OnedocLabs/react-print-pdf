@@ -24,7 +24,7 @@ A simple function to compile a React component to an HTML string with the Onedoc
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { compile } from "@onedoc/react-print";
+import { compile } from "@fileforge/react-print";
 
 <Tailwind>
   <div className="bg-red"></div>
@@ -65,7 +65,7 @@ const html = await compile(<Component />, { emotion: true });
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
 <CodeBlock title="template.tsx">
 ```jsx
-import { compile } from "@onedoc/react-print";
+import { compile } from "@fileforge/react-print";
 import { Button, ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 <>
