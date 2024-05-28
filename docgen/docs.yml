@@ -90,6 +90,9 @@ navigation:
             path: ./pages/api-reference/authentication.mdx
             slug: authentication
       - api: API Reference
+        snippets: 
+            typescript: "@fileforge/client"
+            python: "fileforge"
   - tab: SDK
     layout:
       - section: Getting Started
