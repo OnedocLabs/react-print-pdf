@@ -38,7 +38,7 @@ export async function buildTemplates() {
         esbuildPlugins: [
           mdx({
             remarkPlugins: [remarkFrontmatter],
-            providerImportSource: "@onedoc/react-print/mdx",
+            providerImportSource: "@fileforge/react-print/mdx",
           }),
           RawPlugin(),
         ],

@@ -13,11 +13,46 @@ Signature and form filling are currently only available to select customers. If 
 
 Support
 
-<div style={{
+<div
+  style={{
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: "0.5rem",
-  }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
+  }}
+>
+  <div
+    className="flex items-center p-3 border rounded-md border-gray-700"
+    style={{ borderColor: "#374151" }}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5 mr-2"
+      viewBox="0 0 512 512"
+    >
+      <path
+        fill="#22c55e"
+        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
+      />
+    </svg>
+    <span>Client-side</span>
+  </div>
+  <div
+    className="flex items-center p-3 border rounded-md"
+    style={{ borderColor: "#374151" }}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5 mr-2"
+      viewBox="0 0 512 512"
+    >
+      <path
+        fill="#22c55e"
+        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
+      />
+    </svg>
+    <span>Server-side</span>
+  </div>
+</div>
 
 ### Examples
 
@@ -27,39 +62,44 @@ The created fields can be signed as-is in Acrobat Reader or other PDF viewers, u
 
 Supported fields:
 
-| Field Type | Description |
-|------------|-------------|
-| signHere | Signature field |
-| signHereOptional | Optional signature field |
-| signInitialHere | Initials field |
-| signInitialHereOptional | Optional initials field |
-| company | Company name field |
-| dateSigned | Date signed field |
-| title | Title field |
-| fullName | Full name field |
-| lastName | Last name field |
-| firstName | First name field |
-| emailAddress | Email address field |
-| number | Number field |
-| date | Date field |
-| ssn | Social Security Number field |
-| zip5 | ZIP code field |
-| zip5dash4 | ZIP code with 4-digit extension field |
-| note | Note field |
-| list | List field |
-| checkbox | Checkbox field |
-| radio | Radio button field |
-| approve | Approve button field |
-| decline | Decline button field |
-| view | View button field |
-| signerAttachment | Signer attachment field |
-| signerAttachmentOptional | Optional signer attachment field |
+| Field Type               | Description                           |
+| ------------------------ | ------------------------------------- |
+| signHere                 | Signature field                       |
+| signHereOptional         | Optional signature field              |
+| signInitialHere          | Initials field                        |
+| signInitialHereOptional  | Optional initials field               |
+| company                  | Company name field                    |
+| dateSigned               | Date signed field                     |
+| title                    | Title field                           |
+| fullName                 | Full name field                       |
+| lastName                 | Last name field                       |
+| firstName                | First name field                      |
+| emailAddress             | Email address field                   |
+| number                   | Number field                          |
+| date                     | Date field                            |
+| ssn                      | Social Security Number field          |
+| zip5                     | ZIP code field                        |
+| zip5dash4                | ZIP code with 4-digit extension field |
+| note                     | Note field                            |
+| list                     | List field                            |
+| checkbox                 | Checkbox field                        |
+| radio                    | Radio button field                    |
+| approve                  | Approve button field                  |
+| decline                  | Decline button field                  |
+| view                     | View button field                     |
+| signerAttachment         | Signer attachment field               |
+| signerAttachmentOptional | Optional signer attachment field      |
 
-<Frame type="glass"><img src="../images/previews/field-81a661f2/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass">
+  <img
+    src="../images/previews/field-81a661f2/document.1.jpg"
+    style={{ maxHeight: "400px", borderRadius: "0.25rem", overflow: "hidden" }}
+  />
+</Frame>
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { Field } from "@onedoc/react-print";
+import { Field } from "@fileforge/react-print";
 
 <>
   <Tailwind>
@@ -88,9 +128,10 @@ import { Field } from "@onedoc/react-print";
       />
     </div>
   </Tailwind>
-</>;
+</>
+;
 
-```
+````
 ```css base.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
@@ -104,6 +145,6 @@ body {
   size: A4;
 }
 
-```
-</CodeGroup></div>
+````
 
+</CodeGroup></div>

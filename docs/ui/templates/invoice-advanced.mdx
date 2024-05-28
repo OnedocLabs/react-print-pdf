@@ -4,10 +4,15 @@ icon: file-invoice
 category: Invoices
 ---
 
-<Frame type="glass"><img src="../../images/previews/ui-templates-invoice-advanced-4497fe25/document.1.jpg" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass">
+  <img
+    src="../../images/previews/ui-templates-invoice-advanced-4497fe25/document.1.jpg"
+    style={{ maxHeight: "600px", borderRadius: "0.25rem", overflow: "hidden" }}
+  />
+</Frame>
 
 ```jsx
-import { Footnote, PageBottom, Tailwind, CSS } from "@onedoc/react-print";
+import { Footnote, PageBottom, Tailwind, CSS } from "@fileforge/react-print";
 import { QRCodeSVG } from "qrcode.react";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
@@ -187,6 +192,4 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
     </table>
   </div>
 </Tailwind>;
-
 ```
-

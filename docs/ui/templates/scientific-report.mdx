@@ -4,7 +4,12 @@ icon: flask
 category: Reports
 ---
 
-<Frame type="glass"><img src="../../images/previews/ui-templates-scientific-report-01382231/document.1.jpg" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass">
+  <img
+    src="../../images/previews/ui-templates-scientific-report-01382231/document.1.jpg"
+    style={{ maxHeight: "600px", borderRadius: "0.25rem", overflow: "hidden" }}
+  />
+</Frame>
 
 ```jsx
 import React, { createContext, useEffect, useState } from "react";
@@ -15,7 +20,7 @@ import {
   PageBreak,
   Footnote,
   Markdown,
-} from "@onedoc/react-print";
+} from "@fileforge/react-print";
 
 export const SectionComponent = ({ title, content, isSection }) => {
   return (
@@ -32,7 +37,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
 };
 
 <React.Fragment>
-  {/* A CSS snippet to define the page size, margins, fonts, etc. 
+  {/* A CSS snippet to define the page size, margins, fonts, etc.
       It also enforce the space between line to be small*/}
   <CSS>
     {String.raw`
@@ -44,7 +49,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
           body {
             line-height: 1.1;
           }
-          
+
         `}
   </CSS>
 
@@ -373,11 +378,11 @@ export const SectionComponent = ({ title, content, isSection }) => {
                 style={{ color: "blue" }}
               >{`[The BEST open-source library](https://github.com/OnedocLabs/react-print-pdf)`}</Markdown>{" "}
             </Footnote>
-            , consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur.
+            , consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur.
           </p>
         }
         isSection={false}
@@ -466,6 +471,4 @@ export const SectionComponent = ({ title, content, isSection }) => {
     </div>
   </Tailwind>
 </React.Fragment>;
-
 ```
-
