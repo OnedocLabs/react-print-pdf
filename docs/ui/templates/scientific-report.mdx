@@ -4,7 +4,7 @@ icon: flask
 category: Reports
 ---
 
-<Frame type="glass"><img src="../../images/previews/ui-templates-scientific-report-01382231/document.1.jpg" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame type="glass"><img src="../../images/previews/ui-templates-scientific-report-d26af32f/document.1.jpg" style={{ maxHeight: '600px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
 
 ```jsx
 import React, { createContext, useEffect, useState } from "react";
@@ -15,7 +15,7 @@ import {
   PageBreak,
   Footnote,
   Markdown,
-} from "@onedoc/react-print";
+} from "@fileforge/react-print";
 
 export const SectionComponent = ({ title, content, isSection }) => {
   return (
@@ -32,7 +32,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
 };
 
 <React.Fragment>
-  {/* A CSS snippet to define the page size, margins, fonts, etc. 
+  {/* A CSS snippet to define the page size, margins, fonts, etc.
       It also enforce the space between line to be small*/}
   <CSS>
     {String.raw`
@@ -44,7 +44,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
           body {
             line-height: 1.1;
           }
-          
+
         `}
   </CSS>
 
@@ -298,8 +298,9 @@ export const SectionComponent = ({ title, content, isSection }) => {
             <pre className="bg-gray-100 p-2">
               <code>
                 {String.raw`function helloWorld() {
-  console.log("Hello, World!");
-  console.log("This is a code snippet");
+
+console.log("Hello, World!");
+console.log("This is a code snippet");
 }`}
               </code>
             </pre>

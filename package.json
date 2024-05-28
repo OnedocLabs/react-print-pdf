@@ -1,7 +1,7 @@
 {
-  "name": "@onedoc/react-print",
+  "name": "@fileforge/react-print",
   "version": "0.1.133",
-  "description": "Onedoc components for JavaScript React",
+  "description": "Fileforge components for JavaScript React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -32,7 +32,7 @@
     }
   },
   "scripts": {
-    "build": "patch-package && tsup --external @onedoc/react-print --clean && tsup --external @onedoc/react-print",
+    "build": "patch-package && tsup --external @fileforge/react-print --clean && tsup --external @fileforge/react-print",
     "test": "vitest --browser chrome",
     "dev": "(cd ./docs && mintlify dev --watch)",
     "build-components": "npm run build && tsx ./docgen/index.ts",

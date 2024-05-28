@@ -61,19 +61,19 @@ Get the _react-print_ component library.
 ### With npm
 
 ```sh npm
-npm install @onedoc/react-print
+npm install @fileforge/react-print
 ```
 
 ### With yarn
 
 ```sh yarn
-yarn add @onedoc/react-print
+yarn add @fileforge/react-print
 ```
 
 ### With pnpm
 
 ```sh pnpm
-pnpm add @onedoc/react-print
+pnpm add @fileforge/react-print
 ```
 
 ## 2. Import component ↪️
@@ -81,7 +81,7 @@ pnpm add @onedoc/react-print
 Import the components you need to your PDF template from our list of pre-build components :
 
 ```javascript
-import { PageTop, PageBottom, PageBreak } from "@onedoc/react-print";
+import { PageTop, PageBottom, PageBreak } from "@fileforge/react-print";
 ```
 
 ## 3. Integrate in your document 📄

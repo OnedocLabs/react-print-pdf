@@ -33,7 +33,7 @@ export const buildExample = async (
 \`\`\`jsx template.tsx
 import { ${component}${
     example.imports ? `, ${example.imports.join(", ")}` : ""
-  } } from "@onedoc/react-print";${
+  } } from "@fileforge/react-print";${
     example.externalImports ? `\n${example.externalImports.join("\n")}` : ""
   }
 

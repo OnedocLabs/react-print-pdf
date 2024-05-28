@@ -26,7 +26,7 @@ Use a simple CSS print property to set the page size.
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { CSS } from "@onedoc/react-print";
+import { CSS } from "@fileforge/react-print";
 
 <CSS>{`@page { size: a4 landscape; }`}</CSS>;
 
@@ -55,7 +55,7 @@ Load a Google Font using the `@import` rule.
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { CSS } from "@onedoc/react-print";
+import { CSS } from "@fileforge/react-print";
 
 <React.Fragment>
   <CSS>
@@ -91,7 +91,7 @@ You can use the `@page` at-rule in CSS to manage all aspects of printed pages. M
 
 <div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
 ```jsx template.tsx
-import { CSS } from "@onedoc/react-print";
+import { CSS } from "@fileforge/react-print";
 
 <React.Fragment>
   <CSS>{`@page {size: A4;margin-top:1cm;margin-right:1cm;margin-left:1cm;margin-bottom:1cm;`}</CSS>

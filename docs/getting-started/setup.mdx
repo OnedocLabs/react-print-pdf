@@ -22,15 +22,15 @@ Get the react-print package locally
 <CodeGroup>
 
 ```sh npm
-npm install @onedoc/react-print
+npm install @fileforge/react-print
 ```
 
 ```sh yarn
-yarn add @onedoc/react-print
+yarn add @fileforge/react-print
 ```
 
 ```sh pnpm
-pnpm add @onedoc/react-print
+pnpm add @fileforge/react-print
 ```
 
 </CodeGroup>
@@ -40,7 +40,7 @@ pnpm add @onedoc/react-print
 Create a new folder call `documents`, then create a new file inside call `index.tsx` and copy the following code:
 
 ```jsx document/index.tsx
-import { PageTop, PageBottom, PageBreak } from "@onedoc/react-print";
+import { PageTop, PageBottom, PageBreak } from "@fileforge/react-print";
 import * as React from "react";
 
 export const Document = ({ props }) => {
@@ -63,7 +63,7 @@ export const Document = ({ props }) => {
 ## 4. Compile your document to HTML
 
 ```js index.tsx
-import { compile } from "@onedoc/react-print";
+import { compile } from "@fileforge/react-print";
 import { Document } from "./document";
 
 const html = await compile(<Document />);
