@@ -10,9 +10,9 @@ tabs:
   API:
     display-name: API Reference
     icon: fa-solid fa-bolt
-  SDK:
-    display-name: SDK Reference
-    icon: fa-solid fa-code
+  help:
+    display-name: Help Center
+    icon: fa-solid fa-question
 navigation:
   - tab: welcome
     layout:
@@ -168,13 +168,6 @@ navigation:
             path: ./pages/api-reference/authentication.mdx
             slug: authentication
       - api: API Reference
-  - tab: SDK
-    layout:
-      - section: Getting Started
-        contents:
-          - page: Getting Started
-            path: ./pages/sdk-reference/introduction.mdx
-            slug: sdk-reference
 colors:
   accentPrimary: '#AD8AFF'
   background:

@@ -3,16 +3,19 @@ instances:
 title: Fileforge
 tabs:
   welcome:
-      display-name: Welcome
+    display-name: Welcome
   react-print:
     display-name: react-print
-    icon: "fa-brands fa-react"
+    icon: fa-brands fa-react
   API:
     display-name: API Reference
-    icon: "fa-solid fa-bolt"
+    icon: fa-solid fa-bolt
   SDK:
     display-name: SDK Reference
-    icon: "fa-solid fa-code"
+    icon: fa-solid fa-code
+  help:
+    display-name: Help Center
+    icon: fa-solid fa-question
 navigation:
   - tab: welcome
     layout:
@@ -93,7 +96,44 @@ navigation:
         contents:
           - page: Getting Started
             path: ./pages/sdk-reference/introduction.mdx
-            slug: sdk-reference 
+            slug: sdk-reference
+      - section: Node
+        contents:
+          - page: Getting Started
+            path: ./pages/sdk-reference/node/introduction.mdx
+            slug: node-sdk-reference
+          - page: Error Handling
+            path: ./pages/sdk-reference/node/errors.mdx
+            slug: node-error-handling
+          - page: Generate from HTML
+            path: ./pages/sdk-reference/node/generate_from_html.mdx
+            slug: node-generate-from-html
+          - page: Merge
+            path: ./pages/sdk-reference/node/merge.mdx
+            slug: node-merge
+      - section: Python
+        contents:
+          - page: Getting Started
+            path: ./pages/sdk-reference/python/introduction.mdx
+            slug: python-sdk-reference
+  - tab: help
+    layout:
+      - section: HTML to PDF
+        contents:
+          - page: Generate a PDF
+            path: ./pages/help_center/html_to_pdf/generate-pdf-from-html.mdx
+            slug: generate-pdf-from-html
+          - page: Generate a PDF with assets
+            path: ./pages/help_center/html_to_pdf/generate-pdf-from-html-assets.mdx
+            slug: generate-pdf-from-html-assets
+          - page: Generate a hosted PDF
+            path: ./pages/help_center/html_to_pdf/generate-hosted-pdf-from-html.mdx
+            slug: generate-hosted-pdf
+      - section:  Merge PDFs
+        contents:
+          - page: Merge multiple PDF files into one
+            path: ./pages/help_center/merge_pdfs/merge-multiple-pdfs.mdx
+            slug: merge-multiple-pdf-files 
 colors:
   accentPrimary: "#AD8AFF"
   background:
