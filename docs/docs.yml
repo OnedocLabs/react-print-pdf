@@ -1,5 +1,6 @@
 instances:
   - url: 'https://fileforge.docs.buildwithfern.com'
+    custom-domain: 'https://docs.fileforge.com'
 title: Fileforge
 tabs:
   welcome:
@@ -179,7 +180,6 @@ navigation:
       - api: API Reference
         snippets:
           typescript: '@fileforge/client'
-          python: fileforge
   - tab: SDK
     layout:
       - section: Getting Started
@@ -195,12 +195,38 @@ navigation:
           - page: Error Handling
             path: ./pages/sdk-reference/node/errors.mdx
             slug: node-error-handling
-          - page: Generate from HTML
-            path: ./pages/sdk-reference/node/generate_from_html.mdx
-            slug: node-generate-from-html
-          - page: Merge
-            path: ./pages/sdk-reference/node/merge.mdx
-            slug: node-merge
+          - section: PDF
+            contents:
+              - page: fromDocx
+                path: ./pages/sdk-reference/node/PDF/fromDocx.mdx
+                slug: from-docx
+              - page: generate
+                path: ./pages/sdk-reference/node/PDF/generate.mdx
+                slug: generate-from-html
+              - page: merge
+                path: ./pages/sdk-reference/node/PDF/merge.mdx
+                slug: merge
+              - section: Form
+                contents:
+                  - page: detect
+                    path: ./pages/sdk-reference/node/Form/detect.mdx
+                    slug: detect
+                  - page: mark
+                    path: ./pages/sdk-reference/node/Form/mark.mdx
+                    slug: mark
+                  - page: fill
+                    path: ./pages/sdk-reference/node/Form/fill.mdx
+                    slug: fill
+                  - section: Types
+                    contents:
+                      - page: FormFillRequestOptionsFieldsItem
+                        path: >-
+                          ./pages/sdk-reference/node/Form/Types/formFillRequestOptionsFieldsItem.mdx
+                        slug: formFillRequestOptionsFieldsItem
+                      - page: FormDetectResponseItem
+                        path: >-
+                          ./pages/sdk-reference/node/Form/Types/FormDetectResponseItem.mdx
+                        slug: formDetectResponseItem
   - tab: help
     layout:
       - section: HTML to PDF
