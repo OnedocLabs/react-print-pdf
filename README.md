@@ -1,4 +1,4 @@
-![Twitter Cover_text](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/6861210a-5f0d-4898-9529-bb13dfa982d1)
+![Cover Fileforge](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/6861210a-5f0d-4898-9529-bb13dfa982d1)
 
 <div align="center"><strong>React Print</strong></div>
 <div align="center">The new way to build documents.<br />High-quality, unstyled components for creating PDFs.</div>
@@ -50,7 +50,8 @@ We believe documents are at the core of communication—invoices, contracts, res
 
 Unlike other solutions, _react-print-pdf_ gives you complete control over your documents, allowing you to design complex layouts with features like footnotes, headers, margins, and more. Additionally, it enables you to track and analyze specific parts of your document, and build and update charts using data from your database. And this is just the beginning—our team and the community will continue to develop great features to simplify the PDF generation process.
 
-![Legacy Solution vs. React-print-pdf](docs/images/legacy-vs-react-print.avif)
+![Legacy Solution vs. React-print-pdf](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/a8834372-047e-46ff-a4ff-26083df88594)
+
 
 # Getting started 🚀
 
@@ -111,7 +112,6 @@ export const Document = ({ props }) => {
 import { compile } from "@fileforge/react-print";
 
 const html = await compile(<Document />);
-
 ```
 
 # Components 🗂️
