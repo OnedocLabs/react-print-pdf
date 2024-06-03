@@ -19,8 +19,8 @@
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Onedoclabs/react-print)](https://github.com/OnedocLabs/react-print)
 [![Discord](https://img.shields.io/discord/1182321379081736192?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/uRJE6e2rgr)
-[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Onedoclabs)](https://twitter.com/Onedoclabs)
-[![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/onedoc)
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/FileforgeLabs)](https://twitter.com/FileforgeLabs)
+[![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/fileforge)
 
 </div>
 
@@ -33,7 +33,7 @@ https://github.com/OnedocLabs/react-print-pdf/assets/33000377/0d8815a7-e858-4541
 # Key Features 🎯
 
 - **Easy to use**: Build your first PDF with react-print-pdf in less than 5 minutes.
-- **Open source**: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
+- **Open source**: Freedom is beautiful, and so is Fileforge. React-print-pdf is open source and free to use.
 - **Components & Templates**: Kickstart your next document by using our list of components and template created by Fileforge's Team and the community.
 - **100% Layout's control**: Unlike other solutions, you have complete control over 100% of your layout, including margins, headers, footers, and more.
 - **Integrate dynamic data to your PDF**: Streamline data from your database and integrate it seamlessly into your PDFs.
@@ -175,8 +175,8 @@ Wanna help ? Awesome! There are many ways you can contribute! Take a look at:
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Onedoclabs/react-print)](https://github.com/OnedocLabs/react-print)
 [![Discord](https://img.shields.io/discord/1182321379081736192?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/uRJE6e2rgr)
-[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Onedoclabs)](https://twitter.com/Onedoclabs)
-[![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/onedoc)
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/FileforgeLabs)](https://twitter.com/FileforgeLabs)
+[![YC](https://img.shields.io/badge/Y%20Combinator-W24-orange?style=flat-square)](https://www.ycombinator.com/companies/fileforge)
 
 </div>
 
