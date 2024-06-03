@@ -1,16 +1,16 @@
-![React email cover](docs/images/react-email-cover.avif)
+![Twitter Cover_text](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/6861210a-5f0d-4898-9529-bb13dfa982d1)
 
 <div align="center"><strong>React Print</strong></div>
 <div align="center">The new way to build documents.<br />High-quality, unstyled components for creating PDFs.</div>
 <br />
 <div align="center">
-<a href="https://www.onedoclabs.com/">Website</a>
+<a href="https://www.fileforge.com/">Website</a>
 <span> · </span>
-<a href="https://github.com/OnedocLabs/react-print">GitHub</a>
+<a href="https://github.com/OnedocLabs/">GitHub</a>
 <span> · </span>
 <a href="https://discord.com/invite/uRJE6e2rgr">Discord</a>
 <span> · </span>
-<a href="https://react.onedoclabs.com">Documentation</a>
+<a href="https://fileforge.docs.buildwithfern.com/react-print/welcome/getting-started">Documentation</a>
 </div>
 
 <br/>
@@ -34,7 +34,7 @@ https://github.com/OnedocLabs/react-print-pdf/assets/33000377/0d8815a7-e858-4541
 
 - **Easy to use**: Build your first PDF with react-print-pdf in less than 5 minutes.
 - **Open source**: Freedom is beautiful, and so is Onedoc. React-print-pdf is open source and free to use.
-- **Components & Templates**: Kickstart your next document by using our list of components and template created by Onedoc's Team and the community.
+- **Components & Templates**: Kickstart your next document by using our list of components and template created by Fileforge's Team and the community.
 - **100% Layout's control**: Unlike other solutions, you have complete control over 100% of your layout, including margins, headers, footers, and more.
 - **Integrate dynamic data to your PDF**: Streamline data from your database and integrate it seamlessly into your PDFs.
 
@@ -110,7 +110,7 @@ export const document = ({ props }) => {
 
 A set of standard components to help you build amazing documents without having to deal with the mess of creating complex layouts and maintaining archaic markup. Help us extend this list by actively contributing and adding your favorite components!
 
-[Browse all currently supported components →](https://react.onedoclabs.com/introduction#components)
+[Browse all currently supported components →](https://fileforge.docs.buildwithfern.com/react-print/components/compile/compile)
 
 > [!NOTE]
 > Help us extend this list by actively contributing and adding your favorite components!
@@ -119,7 +119,7 @@ A set of standard components to help you build amazing documents without having 
 
 PDF designed with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
 
-- [Onedoc](https://app.onedoclabs.com/login) : HTML to PDF, cloud hosting, analytics and more.
+- [Fileforge](https://app.fileforge.com/login) : HTML to PDF, cloud hosting, analytics and more.
 - [Prince XML](https://www.princexml.com/) : simple HTML to PDF tool
 - Others _(coming soon..)_
 
@@ -127,9 +127,9 @@ PDF designed with _react-print-print_ can be generated, hosted (and more) with y
 
 This project is open-source and is intended to be maintained and built by and for developers. </br>
 
-Wanna help ? Awesome! There are many ways you can contribute ! Take a look at:
+Wanna help ? Awesome! There are many ways you can contribute! Take a look at:
 
-- [Contributing Guide](https://react.onedoclabs.com/contributing)
+- [Contributing Guide](https://fileforge.docs.buildwithfern.com/react-print/contributing/contributing)
 
 # Authors 🧑‍💻
 
