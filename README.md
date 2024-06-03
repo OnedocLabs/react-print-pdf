@@ -89,7 +89,7 @@ import { PageTop, PageBottom, PageBreak } from "@fileforge/react-print";
 Integrate your components and include styles where needed.
 
 ```javascript
-export const document = ({ props }) => {
+export const Document = ({ props }) => {
   return (
     <div>
       <PageTop>
@@ -104,6 +104,14 @@ export const document = ({ props }) => {
     </div>
   );
 };
+```
+
+## 4. Generate HTML 💻
+```javascript
+import { compile } from "@fileforge/react-print";
+
+const html = await compile(<Document />);
+
 ```
 
 # Components 🗂️
