@@ -32,7 +32,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
 };
 
 <React.Fragment>
-  {/* A CSS snippet to define the page size, margins, fonts, etc. 
+  {/* A CSS snippet to define the page size, margins, fonts, etc.
       It also enforce the space between line to be small*/}
   <CSS>
     {String.raw`
@@ -44,7 +44,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
           body {
             line-height: 1.1;
           }
-          
+
         `}
   </CSS>
 
@@ -298,8 +298,9 @@ export const SectionComponent = ({ title, content, isSection }) => {
             <pre className="bg-gray-100 p-2">
               <code>
                 {String.raw`function helloWorld() {
-  console.log("Hello, World!");
-  console.log("This is a code snippet");
+
+console.log("Hello, World!");
+console.log("This is a code snippet");
 }`}
               </code>
             </pre>

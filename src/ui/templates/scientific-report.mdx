@@ -9,21 +9,20 @@ import {Tailwind, CSS, Latex, PageBreak, Footnote, Markdown} from "@fileforge/re
 
 export const SectionComponent = ({ title, content, isSection }) => {
   return (
-      <div>
-        {isSection ? (
-          <h2 className="text-md italic text-center uppercase">{title}</h2>
-        ) : (
-          <h3 className="text-sm italic">{title}</h3>
-        )}
-        {/* The content should have an indent on the first sentence, not after*/}
-        <div className="text-xs text-justify">{content}</div>
-      </div>
+    <div>
+      {isSection ? (
+        <h2 className="text-md italic text-center uppercase">{title}</h2>
+      ) : (
+        <h3 className="text-sm italic">{title}</h3>
+      )}
+      {/* The content should have an indent on the first sentence, not after*/}
+      <div className="text-xs text-justify">{content}</div>
+    </div>
   );
 };
 
-  
 <React.Fragment>
-      {/* A CSS snippet to define the page size, margins, fonts, etc. 
+      {/* A CSS snippet to define the page size, margins, fonts, etc.
       It also enforce the space between line to be small*/}
       <CSS>
         {String.raw`
@@ -35,7 +34,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
           body {
             line-height: 1.1;
           }
-          
+
         `}
       </CSS>
 
@@ -49,9 +48,9 @@ export const SectionComponent = ({ title, content, isSection }) => {
       </div>
 
       <br />
-      
+
       {/* A Tailwind component to define the layout of the page */}
-      
+
         {/* 2 columns */}
         <div className="columns-2 gap-8" style={{columnFill:"auto"}}>
           {/* Abstract*/}
@@ -71,14 +70,14 @@ export const SectionComponent = ({ title, content, isSection }) => {
             title="A. Sub Section"
             content={
               <p className="text-justify text-xs">
-                Lorem ipsum dolor sit amet [2], consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <Footnote style={{float:"footnote page"}}>Footnote 1</Footnote>  
+                Lorem ipsum dolor sit amet [2], consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <Footnote style={{float:"footnote page"}}>Footnote 1</Footnote>
               </p>
             }
             isSection={false}
           />
 
           <br/>
-            
+
             {/* A sub section with a title and a content with a formula */}
           <SectionComponent
             title="B. Sub section"
@@ -96,7 +95,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
                 </Latex>
               </div>
             </React.Fragment>
-              
+
             }
             isSection={false}
           />
@@ -127,7 +126,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
           {/* A section Data with  */}
           <SectionComponent title="2. Data" content={null} isSection={true} />
 
-          {/* A sub section with a title and a content */}  
+          {/* A sub section with a title and a content */}
           <SectionComponent
             title="A. Sub section"
             content={
@@ -182,7 +181,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
           {/* A Section Methodology */}
           <SectionComponent title="3. Methodology" content={null} isSection={true} />
 
-          {/* A sub section with a title and a content */}  
+          {/* A sub section with a title and a content */}
           <SectionComponent
             title="A. Sub section"
             content={
@@ -195,7 +194,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
 
           <br/>
 
-          {/* A sub section with a title and a content, and a code snippet */}  
+          {/* A sub section with a title and a content, and a code snippet */}
           <SectionComponent
             title="B. Sub section"
             content={
@@ -207,15 +206,16 @@ export const SectionComponent = ({ title, content, isSection }) => {
                 <pre className="bg-gray-100 p-2">
                   <code>
                     {String.raw`function helloWorld() {
-  console.log("Hello, World!");
-  console.log("This is a code snippet");
+
+console.log("Hello, World!");
+console.log("This is a code snippet");
 }`}
-                  </code>
-                </pre>
-              </React.Fragment>
-            }
-            isSection={false}
-          />
+</code>
+</pre>
+</React.Fragment>
+}
+isSection={false}
+/>
 
           <br/>
           <br/>
@@ -270,7 +270,7 @@ export const SectionComponent = ({ title, content, isSection }) => {
             }
             isSection={false}
 
-          />  
+          />
 
           <br/>
 
@@ -317,4 +317,3 @@ export const SectionComponent = ({ title, content, isSection }) => {
         </div>
       </Tailwind>
     </React.Fragment>
-
