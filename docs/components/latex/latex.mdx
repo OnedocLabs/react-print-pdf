@@ -1,18 +1,8 @@
 ---
-title: LaTeX
-icon: square-root-variable
-description: "Render LaTeX formulas right in your React components.
+title: Latex
 
-<Warning>
-LaTeX rendering is still in beta. Please report any issues you encounter on our [Discord](https://discord.com/invite/uRJE6e2rgr).
-</Warning>
 
-<Note>Rendering LaTeX using KaTeX requires pulling a remote stylesshet hosted by jsdelivr. This is done to prevent the styles from being purged.</Note>
-
-<Tip>You can use `String.raw` to avoid escaping LaTeX backslashes.</Tip>"
 ---
-
-## Latex
 
 Support
 
@@ -22,20 +12,23 @@ Support
     gap: "0.5rem",
   }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
 
-### Examples
-
 #### Preview
 
-<Frame type="glass"><img src="../images/previews/latex-83ad6403/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+Use a simple Latex tag to support Latex in your document.
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<Frame background="subtle"><img src="../../images/previews/latex-83ad6403/document.1.jpg" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Latex } from "@fileforge/react-print";
 
 <Latex>{String.raw`\frac{1}{2}`}</Latex>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -49,14 +42,20 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
+
+### Examples
 
 #### Complex
 
-<Frame type="glass"><img src="../images/previews/latex-7a00ed36/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+Write complex LaTeX formulas in your document.
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<Frame background="subtle"><img src="../../images/previews/latex-7a00ed36/document.1.jpg" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Latex } from "@fileforge/react-print";
 
 <Latex>{String.raw`% \f is defined as #1f(#2) using the macro
@@ -65,7 +64,9 @@ import { Latex } from "@fileforge/react-print";
     \,d\xi`}</Latex>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -79,5 +80,6 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
 

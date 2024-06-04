@@ -10,13 +10,14 @@ export const __docConfig: DocConfig = {
 Markdown allows you to easily separate content from the layout, making it easier to maintain and update your templates. You can pull in content from a CMS or other sources, and use Markdown to format it.
 
 You can also use custom components and variables to make your Markdown more dynamic. For example, you can replace Markdown components with your own components, or use variables to insert dynamic content.`,
-  icon: "markdown",
+  icon: "fa-brands fa-markdown",
   components: {
     Markdown: {
       server: true,
       client: true,
       examples: {
         default: {
+          description: "Use a simple Markdown tag to support Markdown in your document.",
           template: (
             <Markdown>{`# Hello, world!
 

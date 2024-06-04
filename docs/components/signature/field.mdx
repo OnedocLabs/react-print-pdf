@@ -1,15 +1,8 @@
 ---
-title: Signature
-icon: signature
-description: "Add signature fields to your document. You can specify various types of fields like signature, initials, date, and more.
+title: Field
 
-<Warning>
-Signature and form filling are currently only available to select customers. If you would like to use these features in your project, please reach out at contact@onedoclabs.com.
-</Warning>
-"
+
 ---
-
-## Field
 
 Support
 
@@ -18,8 +11,6 @@ Support
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: "0.5rem",
   }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
-
-### Examples
 
 #### Preview
 
@@ -55,10 +46,11 @@ Supported fields:
 | signerAttachment | Signer attachment field |
 | signerAttachmentOptional | Optional signer attachment field |
 
-<Frame type="glass"><img src="../images/previews/field-81a661f2/document.1.jpg" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>
+<Frame background="subtle"><img src="../../images/previews/field-81a661f2/document.1.jpg" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>
 
-<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-```jsx template.tsx
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
 import { Field } from "@fileforge/react-print";
 
 <>
@@ -91,7 +83,9 @@ import { Field } from "@fileforge/react-print";
 </>;
 
 ```
-```css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 html,
@@ -105,5 +99,8 @@ body {
 }
 
 ```
-</CodeGroup></div>
+</CodeBlock>
+</CodeBlocks></div>
+
+### Examples
 

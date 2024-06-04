@@ -3,6 +3,7 @@ import * as path from "path";
 import * as fs from "fs";
 import { build } from "tsup";
 import * as docgen from "react-docgen-typescript";
+import * as yaml from "js-yaml";
 import { DocConfig } from "./types";
 import {
   formatCamelCaseToTitle,
@@ -12,6 +13,10 @@ import {
 import { buildFileMarkdown } from "./buildFileMarkdown";
 import { buildTemplateList, buildTemplates } from "./buildTemplates";
 import { RawPlugin } from "../build/raw";
+import { TabPanel } from "@chakra-ui/react";
+import { Component } from "react";
+import { check, doc } from "prettier";
+import { replaceInFile } from "./pageBuilder/buildIntroduction";
 
 const tmpDir = path.join(__dirname, "../.tmp");
 const docsPath = path.join(__dirname, "../docs/components");
@@ -22,6 +27,14 @@ const options: docgen.ParserOptions = {
     skipPropsWithoutDoc: true,
   },
 };
+
+type docFolder = {
+  icon: string;
+  name: string;
+  description: string;
+  outputPath: string;
+  files: docFile[];
+}
 
 type docFile = {
   name: string;
@@ -83,62 +96,104 @@ const process = async () => {
 
         docConfig = mergeTemplateInfo(docConfig, templates);
 
-        const outputPath = path.join(
+        const folderOutputPath:string = path.join(
           __dirname,
-          `../docs/components/${path.basename(filePath, ".tsx")}.mdx`
+          `../docs/components/${path.basename(filePath, ".tsx")}`
         );
 
-        const markdown = await buildFileMarkdown(docConfig, types, outputPath);
+        let docFiles: docFile[] = [];
+
+        for (const [componentName, value] of Object.entries(docConfig.components)) {
+
+          const componentDocConfig = Object.assign(
+            {
+              name: componentName,
+              description: "",
+              components: {[componentName]: value},
+            }
+          );
+
+          const outputPath = `${folderOutputPath}/${componentName.toLocaleLowerCase()}.mdx`;
+
+          const componentType = types.filter(e=>e.displayName === componentName);
+
+          const markdown = await buildFileMarkdown(componentDocConfig, componentType, outputPath);
+
+          docFiles.push(
+            {
+              name: componentDocConfig.name,
+              baseName: path.basename(filePath, ".tsx"),
+              path: path
+                .relative(path.join(__dirname, "../src"), filePath)
+                .toLowerCase(),
+              outputPath,
+              markdown,
+              config: componentDocConfig,
+            }
+          )
+
+        }
 
         return {
+          icon: docConfig.icon,
           name: docConfig.name,
-          baseName: path.basename(filePath, ".tsx"),
-          path: path
-            .relative(path.join(__dirname, "../src"), filePath)
-            .toLowerCase(),
-          outputPath,
-          markdown,
-          config: docConfig,
-        };
-      })
+          description: docConfig.description,
+          outputPath: folderOutputPath,
+          files: docFiles
+        };;
+        })
     )
-  ).filter(Boolean) as docFile[];
+  ).filter(Boolean) as docFolder[];
 
   // Check if the directory exists, if not, create it
-  if (!fs.existsSync(docsPath)) {
-    fs.mkdirSync(docsPath, { recursive: true });
-  } else {
-    fs.rmSync(docsPath, { recursive: true });
-    fs.mkdirSync(docsPath, { recursive: true });
+  function checkDirectorySync(directory: string, remove: boolean = true) {
+    if (!fs.existsSync(directory)) {
+      fs.mkdirSync(directory, { recursive: true });
+    } else {
+      if(remove){
+        fs.rmSync(directory, { recursive: true });
+      }
+      fs.mkdirSync(directory, { recursive: true });
+    }
   }
 
+  checkDirectorySync(docsPath);
+  
   const sortedDocs = docs.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
 
   sortedDocs.forEach((docFile) => {
-    fs.writeFileSync(docFile.outputPath, docFile.markdown);
+    docFile.files.forEach((file)=>{
+
+      checkDirectorySync(docFile.outputPath, false);
+
+      fs.writeFileSync(file.outputPath, file.markdown);
+    })
   });
 
   // Build the card groups
-  let snippet = `<CardGroup>`;
+  let snippet = `<Cards>`;
 
-  sortedDocs.forEach((docFile) => {
-    const href = path
-      .relative(path.join(__dirname, "../docs"), docFile.outputPath)
-      .replace(".mdx", "");
+  sortedDocs.forEach((docFolder) => {
 
-    snippet += `<Card title="${docFile.name}" icon="${
-      docFile.config.icon
-    }" href="${href}">
-    ${docFile.config.description.split(".")[0]}.
+    const tempPath = "/react-print/components/"+docFolder.name;
+
+    snippet += `<Card title="${docFolder.name}" icon="${
+      docFolder.icon
+    }" href="${tempPath.toLocaleLowerCase()}">
+    ${docFolder.description.split(".")[0]}.
   </Card>`;
   });
 
-  snippet += `</CardGroup>`;
+  snippet += `</Cards>`;
+
+  const snippetsPath = path.join(__dirname, "../docs/snippets");
+
+  checkDirectorySync(snippetsPath);
 
   fs.writeFileSync(
-    path.join(__dirname, "../docs/snippets/components.mdx"),
+    snippetsPath+"/components.mdx",
     snippet
   );
 
@@ -171,7 +226,7 @@ const process = async () => {
   mint.navigation.forEach((navItem, index) => {
     if (navItem.group === "Components") {
       mint.navigation[index].pages = sortedDocs.map((docFile) => {
-        return `components/${docFile.baseName}`;
+        return `/react-print/components/${docFile.baseName}`;
       });
     } else if (navItem.group === "Templates") {
       // Group templates by category
@@ -217,6 +272,59 @@ const process = async () => {
   });
 
   fs.writeFileSync(mintPath, JSON.stringify(mint, null, 2));
+
+  //-------------------------------------------------------------------------------- GENERATE introduction.mdx FILE for Fern --------------------------------------------------------------------------------
+
+  const introductionPath = path.join(__dirname, "../docs/introduction.mdx");
+
+  replaceInFile(introductionPath, "<Components/>", snippet); //TODO: fix the relative component import in Fern to avoid this
+
+
+  //-------------------------------------------------------------------------------- GENERATE DOCS.YML FILE for Fern --------------------------------------------------------------------------------
+  // genreating the docs.yml file with dynamic content for components
+  const docYMLFile = path.join(__dirname, "../docs/docs.yml");
+
+  // Load and parse the YAML file
+  const docsYml:any = yaml.load(fs.readFileSync(__dirname+'/docs.yml', 'utf8'));
+  // Get the Components section
+  const componentsSection = docsYml.navigation.find(section => section.tab === 'react-print').layout.find(section => section.section === 'Components');
+
+  const subdirs = fs.readdirSync(docsPath, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
+
+  subdirs.forEach(subdir => {
+  // Create a new section for the subdirectory
+  
+  const newSection = {
+    section:  subdir.charAt(0).toUpperCase() + subdir.slice(1),
+    contents: [],
+    icon: sortedDocs.find(df => df.name.toLocaleLowerCase() === subdir.toLocaleLowerCase())!.icon
+  };
+
+  // Get all mdx files in the subdirectory
+  const mdxFiles = fs.readdirSync(path.join(docsPath, subdir)).filter(file => path.extname(file) === '.mdx');
+
+  // Add each mdx file to the new section
+  mdxFiles.forEach(file => {
+    const slug = path.basename(file, '.mdx');
+    newSection.contents.push(
+      {
+        page: slug.charAt(0).toUpperCase() + slug.slice(1),
+        path: `./react-print-pdf/docs/components/${subdir}/${file}`,
+        slug: slug
+      });
+  });
+
+  // Add the new section to componentsSection.contents
+  componentsSection.contents.push(newSection);
+});
+
+  // Convert the updated object back into YAML
+  const updatedYaml = yaml.dump(docsYml);
+
+  // Write the updated YAML back to the file
+  fs.writeFileSync(docYMLFile, updatedYaml, 'utf8');
+
+  
 };
 
 process();

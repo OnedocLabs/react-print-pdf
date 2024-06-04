@@ -2,8 +2,26 @@
 title: "Setup"
 sidebarTitle: "Setup"
 description: "Create a brand-new folder with packages powered by React Print."
-icon: "hammer"
+icon: "fa-solid fa-hammer"
 ---
+# Fast Set Up ⚡️
+
+Clone this repository ⬇️
+<Card 
+  title='dev-local'
+  icon='fa-brands fa-github'
+  href='https://github.com/OnedocLabs/dev-local'
+>
+Clone our dev-local repository and follow the instructions in the readMe to get started quickly.
+</Card>
+
+![dev-local view](https://github.com/OnedocLabs/dev-local/blob/main/src/images/screenshot-dev-local.png?raw=true)
+
+<Callout intent='tip' title='Using dev-local'>
+We recommed splitting your editor into two windows, one for the code and the other for the PDF viewing integration.
+</Callout>
+
+# Manual Set Up 🛠️
 
 ## 1. Create directory
 
@@ -19,25 +37,26 @@ npm init -y
 
 Get the react-print package locally
 
-<CodeGroup>
+<CodeBlocks>
 
-```sh npm
+```sh title="npm"
 npm install @fileforge/react-print
 ```
 
-```sh yarn
+```sh title="yarn"
 yarn add @fileforge/react-print
 ```
 
-```sh pnpm
+```sh title="pnpm"
 pnpm add @fileforge/react-print
 ```
 
-</CodeGroup>
+</CodeBlocks>
 
 ## 3. Create your first PDF Component
 
-Create a new folder call `documents`, then create a new file inside call `index.tsx` and copy the following code:
+Create a new `documents` folder, then create a new file inside called `index.jsx` and copy the following code:
+
 
 ```jsx document/index.tsx
 import { PageTop, PageBottom, PageBreak } from "@fileforge/react-print";
@@ -62,6 +81,8 @@ export const Document = ({ props }) => {
 
 ## 4. Compile your document to HTML
 
+Back in your parent folder, create a `main.jsx` file that imports your document an renders it using the `compile` function.
+
 ```js index.tsx
 import { compile } from "@fileforge/react-print";
 import { Document } from "./document";
@@ -71,19 +92,18 @@ const html = await compile(<Document />);
 console.log(html);
 ```
 
-## 5. Generate your document with Onedoc
+## 5. Generate your document with FileForge
 
-It's now time to generate your PDF from your component. We recommend using [Onedoc](/integrations/onedoc) as react-print has beem build especially to work witht his software. However, feel free to use any integrations that suits you the best.
-
-[How to generate my PDF from my react-print component](/integrations/onedoc)
+We recommend generating your PDF using the [FileForge API](/integrations/onedoc), as it is specifically designed to integrate seamlessly with react-print. However, you are welcome to choose any external renderer that better meets your needs.
+[How to generate my PDF from my react-print component.](/api-reference/api-reference/generate)
 
 ## 6. Next steps
 
 Try to modify your PDF by using our different pre-built components.
 
-<CardGroup>
-  <Card title="Headings" icon='up' href="/components/headings">
-    A React component to help build running heads.
+<Cards>
+  <Card title="Compile" icon='up' href="/react-print/components/compile">
+    A React component to help compile your React code for PDF rendering.
   </Card>
 
 {" "}
@@ -95,4 +115,4 @@ Try to modify your PDF by using our different pre-built components.
   <Card title="Shell" icon='table-layout' href="/components/button">
     A suite of React components for structured document layout management.
   </Card>
-</CardGroup>
+</Cards>

@@ -6,6 +6,7 @@ import { Button, ChakraProvider } from "@chakra-ui/react";
 import onedocStyles from "../../dist/index.css?raw";
 
 import { CSS } from "../css/css";
+import { Tailwind } from "../tailwind/tailwind";
 
 export interface CompileOptions {
   /**
@@ -76,7 +77,7 @@ export const compile = async (
 
 export const __docConfig: DocConfig = {
   name: "compile",
-  icon: "code",
+  icon: "fa-solid fa-code",
   description:
     "Compile a React component to a string with the Onedoc print styles.",
   components: {
@@ -84,6 +85,14 @@ export const __docConfig: DocConfig = {
       server: true,
       client: true,
       examples: {
+        default:{
+          description: `A simple function to compile a React component to an HTML string with the Onedoc print styles.
+          \`\`\`jsx
+          const html = await compile(<Component />);
+          \`\`\``,
+          template: <Tailwind><div className="bg-red-400">Hello World!</div></Tailwind>,
+
+        },
         emotion: {
           description: `Pass \`{ emotion: true }\` as the second compile option to merge and extract critical CSS using Emotion. Some libraries such as Chakra UI require this option to work correctly.
 

@@ -25,12 +25,13 @@ export const buildExample = async (
     markdown += `${example.description}\n\n`;
   }
 
-  markdown += `<Frame type="glass"><img src="${paths.imagePath}" style={{ maxHeight: '400px', borderRadius: "0.25rem", overflow: "hidden" }} /></Frame>\n\n`;
+  markdown += `<Frame background="subtle"><img src="${paths.imagePath}" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>\n\n`;
 
   // Check if the folder docs/previews contain the image
 
-  markdown += `<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeGroup>
-\`\`\`jsx template.tsx
+  markdown += `<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+\`\`\`jsx
 import { ${component}${
     example.imports ? `, ${example.imports.join(", ")}` : ""
   } } from "@fileforge/react-print";${
@@ -39,10 +40,13 @@ import { ${component}${
 
 ${snippet}
 \`\`\`
-\`\`\`css base.css
+</CodeBlock>
+<CodeBlock title="styles.css">
+\`\`\`css
 ${baseCss}
 \`\`\`
-</CodeGroup></div>\n\n`;
+</CodeBlock>
+</CodeBlocks></div>\n\n`;
 
   // markdown += `<a href="${pdfPath}">Download the PDF example ↓</a>\n\n`;
 

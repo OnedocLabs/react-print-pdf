@@ -1,0 +1,96 @@
+---
+title: compile
+
+
+---
+
+Support
+
+<div style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "0.5rem",
+  }}><div className="flex items-center p-3 border rounded-md border-gray-700" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Client-side</span></div><div className="flex items-center p-3 border rounded-md" style={{borderColor: '#374151'}}><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 512 512"><path fill="#22c55e" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Server-side</span></div></div>
+
+#### Preview
+
+A simple function to compile a React component to an HTML string with the Onedoc print styles.
+          ```jsx
+          const html = await compile(<Component />);
+          ```
+
+<Frame background="subtle"><img src="../../images/previews/compile-2e394416/document.1.jpg" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
+import { compile } from "@fileforge/react-print";
+
+<Tailwind>
+  <div className="bg-red-400">Hello World!</div>
+</Tailwind>;
+
+```
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeBlock>
+</CodeBlocks></div>
+
+### Examples
+
+#### Emotion CSS
+
+Pass `{ emotion: true }` as the second compile option to merge and extract critical CSS using Emotion. Some libraries such as Chakra UI require this option to work correctly.
+
+```jsx
+const html = await compile(<Component />, { emotion: true });
+```
+
+<Frame background="subtle"><img src="../../images/previews/compile-1badee62/document.1.jpg" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
+import { compile } from "@fileforge/react-print";
+import { Button, ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+<>
+  <ChakraProvider>
+    <Button colorScheme="blue">Hello</Button>
+  </ChakraProvider>
+</>;
+
+```
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeBlock>
+</CodeBlocks></div>
+

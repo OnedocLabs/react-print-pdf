@@ -1,0 +1,261 @@
+instances:
+  - url: https://fileforge.docs.buildwithfern.com
+    custom-domain: https://docs.fileforge.com
+title: Fileforge
+tabs:
+  welcome:
+    display-name: Welcome
+  react-print:
+    display-name: react-print
+    icon: fa-brands fa-react
+  API:
+    display-name: API Reference
+    icon: fa-solid fa-bolt
+  SDK:
+    display-name: SDK Reference
+    icon: fa-solid fa-code
+  help:
+    display-name: Help Center
+    icon: fa-solid fa-question
+navigation:
+  - tab: welcome
+    layout:
+      - section: Get Started
+        contents:
+          - page: Welcome
+            path: ./pages/overview/introduction.mdx
+            slug: welcome
+  - tab: react-print
+    layout:
+      - section: Welcome
+        contents:
+          - page: Getting Started
+            path: ./react-print-pdf/docs/introduction.mdx
+            slug: getting-started
+            icon: fa-solid fa-hand-wave
+          - page: Setup
+            path: ./react-print-pdf/docs/getting-started/setup.mdx
+            slug: setup
+            icon: fa-solid fa-hammer
+      - section: Contributing
+        contents:
+          - page: Contributing
+            path: ./react-print-pdf/docs/contributing.mdx
+            slug: contributing
+            icon: fa-solid fa-code-pull-request
+      - section: Components
+        contents:
+          - section: Compile
+            contents:
+              - page: Compile
+                path: ./react-print-pdf/docs/components/compile/compile.mdx
+                slug: compile
+            icon: fa-solid fa-code
+          - section: Css
+            contents:
+              - page: Css
+                path: ./react-print-pdf/docs/components/css/css.mdx
+                slug: css
+              - page: Font
+                path: ./react-print-pdf/docs/components/css/font.mdx
+                slug: font
+              - page: Margins
+                path: ./react-print-pdf/docs/components/css/margins.mdx
+                slug: margins
+            icon: fa-brands fa-css3-alt
+          - section: Footnote
+            contents:
+              - page: Footnote
+                path: ./react-print-pdf/docs/components/footnote/footnote.mdx
+                slug: footnote
+            icon: fa-solid fa-info
+          - section: Latex
+            contents:
+              - page: Latex
+                path: ./react-print-pdf/docs/components/latex/latex.mdx
+                slug: latex
+            icon: fa-solid fa-square-root-variable
+          - section: Markdown
+            contents:
+              - page: Markdown
+                path: ./react-print-pdf/docs/components/markdown/markdown.mdx
+                slug: markdown
+            icon: fa-brands fa-markdown
+          - section: Shell
+            contents:
+              - page: Floatbottom
+                path: ./react-print-pdf/docs/components/shell/floatbottom.mdx
+                slug: floatbottom
+              - page: Pagebottom
+                path: ./react-print-pdf/docs/components/shell/pagebottom.mdx
+                slug: pagebottom
+              - page: Pagetop
+                path: ./react-print-pdf/docs/components/shell/pagetop.mdx
+                slug: pagetop
+            icon: fa-solid fa-border-all
+          - section: Signature
+            contents:
+              - page: Field
+                path: ./react-print-pdf/docs/components/signature/field.mdx
+                slug: field
+            icon: signature
+          - section: Tailwind
+            contents:
+              - page: Tailwind
+                path: ./react-print-pdf/docs/components/tailwind/tailwind.mdx
+                slug: tailwind
+            icon: fa-solid fa-wind
+          - section: Variables
+            contents:
+              - page: Pagenumber
+                path: ./react-print-pdf/docs/components/variables/pagenumber.mdx
+                slug: pagenumber
+              - page: Pagesnumber
+                path: ./react-print-pdf/docs/components/variables/pagesnumber.mdx
+                slug: pagesnumber
+              - page: Runningh1
+                path: ./react-print-pdf/docs/components/variables/runningh1.mdx
+                slug: runningh1
+              - page: Runningh2
+                path: ./react-print-pdf/docs/components/variables/runningh2.mdx
+                slug: runningh2
+              - page: Runningh3
+                path: ./react-print-pdf/docs/components/variables/runningh3.mdx
+                slug: runningh3
+              - page: Runningh4
+                path: ./react-print-pdf/docs/components/variables/runningh4.mdx
+                slug: runningh4
+              - page: Runningh5
+                path: ./react-print-pdf/docs/components/variables/runningh5.mdx
+                slug: runningh5
+              - page: Runningh6
+                path: ./react-print-pdf/docs/components/variables/runningh6.mdx
+                slug: runningh6
+            icon: fa-solid fa-subscript
+      - section: Examples
+        contents:
+          - section: Invoices
+            contents:
+              - page: Invoice
+                path: ./react-print-pdf/docs/ui/templates/invoice.mdx
+                slug: invoice
+              - page: Invoice Advanced
+                path: ./react-print-pdf/docs/ui/templates/invoice-advanced.mdx
+                slug: invoice-advanced
+            icon: fa-solid fa-file-invoice
+          - section: Legal
+            contents:
+              - page: NDA Markdown
+                path: ./react-print-pdf/docs/ui/templates/nda-markdown.mdx
+                slug: nda-markdown
+            icon: fa-solid fa-file-signature
+          - section: Receipts
+            contents:
+              - page: Receipt
+                path: ./react-print-pdf/docs/ui/templates/receipt.mdx
+                slug: receipt
+            icon: fa-solid fa-receipt
+          - section: Reports
+            contents:
+              - page: Report Charts
+                path: ./react-print-pdf/docs/ui/templates/report-charts.mdx
+                slug: report-charts
+            icon: fa-solid fa-chart-line
+          - section: Scientific
+            contents:
+              - page: Scientific Report
+                path: ./react-print-pdf/docs/ui/templates/scientific-report.mdx
+                slug: scientific-report
+            icon: fa-solid fa-flask
+  - tab: API
+    layout:
+      - section: Introduction
+        contents:
+          - page: Getting started
+            path: ./pages/api-reference/introduction.mdx
+            slug: api-reference
+          - page: Authentication
+            path: ./pages/api-reference/authentication.mdx
+            slug: authentication
+      - api: API Reference
+        snippets:
+          typescript: '@fileforge/client'
+  - tab: SDK
+    layout:
+      - section: Getting Started
+        contents:
+          - page: Getting Started
+            path: ./pages/sdk-reference/introduction.mdx
+            slug: sdk-reference
+      - section: Node
+        contents:
+          - page: Getting Started
+            path: ./pages/sdk-reference/node/introduction.mdx
+            slug: node-sdk-reference
+          - page: Error Handling
+            path: ./pages/sdk-reference/node/errors.mdx
+            slug: node-error-handling
+          - section: PDF
+            contents:
+              - page: fromDocx
+                path: ./pages/sdk-reference/node/PDF/fromDocx.mdx
+                slug: from-docx
+              - page: generate
+                path: ./pages/sdk-reference/node/PDF/generate.mdx
+                slug: generate-from-html
+              - page: merge
+                path: ./pages/sdk-reference/node/PDF/merge.mdx
+                slug: merge
+              - section: Form
+                contents:
+                  - page: detect
+                    path: ./pages/sdk-reference/node/Form/detect.mdx
+                    slug: detect
+                  - page: mark
+                    path: ./pages/sdk-reference/node/Form/mark.mdx
+                    slug: mark
+                  - page: fill
+                    path: ./pages/sdk-reference/node/Form/fill.mdx
+                    slug: fill
+                  - section: Types
+                    contents:
+                      - page: FormFillRequestOptionsFieldsItem
+                        path: >-
+                          ./pages/sdk-reference/node/Form/Types/formFillRequestOptionsFieldsItem.mdx
+                        slug: formFillRequestOptionsFieldsItem
+                      - page: FormDetectResponseItem
+                        path: >-
+                          ./pages/sdk-reference/node/Form/Types/FormDetectResponseItem.mdx
+                        slug: formDetectResponseItem
+  - tab: help
+    layout:
+      - section: HTML to PDF
+        contents:
+          - page: Generate a PDF with react-print
+            path: >-
+              ./pages/help_center/html_to_pdf/generate-pdf-from-html-react-print.mdx
+            slug: generate-pdf-from-html
+          - page: Generate a PDF with assets
+            path: ./pages/help_center/html_to_pdf/generate-pdf-from-html-assets.mdx
+            slug: generate-pdf-from-html-assets
+          - page: Generate a hosted PDF
+            path: ./pages/help_center/html_to_pdf/generate-hosted-pdf-from-html.mdx
+            slug: generate-hosted-pdf
+colors:
+  accentPrimary: '#AD8AFF'
+  background:
+    dark: '#000000'
+    light: '#ffffff'
+logo:
+  dark: ./assets/logo-white.svg
+  light: ./assets/logo-black.svg
+favicon: ./assets/favicon.png
+layout:
+  searchbar-placement: header
+navbar-links:
+  - type: minimal
+    text: Support
+    url: mailto:contact@onedoclabs.com
+  - type: outlined
+    text: Get Started
+    url: https://app.onedoclabs.com/login

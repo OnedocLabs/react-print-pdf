@@ -25,7 +25,7 @@ export const Footnote = ({
 };
 
 export const __docConfig: DocConfig = {
-  icon: "info",
+  icon: "fa-solid fa-info",
   description: "Create automatically numbered footnotes.",
   components: {
     Footnote: {
@@ -33,7 +33,7 @@ export const __docConfig: DocConfig = {
       client: true,
       examples: {
         default: {
-          template: <Footnote>This is a sample footnote.</Footnote>,
+          template: <div>This is a footnote to explaning what CSS <Footnote>CSS is the acronym of “Cascading Style Sheets”. CSS is a computer language for laying out and structuring web pages (HTML or XML).</Footnote> is.</div>,
         },
       },
     },
