@@ -10,7 +10,7 @@
 <span> · </span>
 <a href="https://discord.com/invite/uRJE6e2rgr">Discord</a>
 <span> · </span>
-<a href="https://fileforge.docs.buildwithfern.com/react-print/welcome/getting-started">Documentation</a>
+<a href="https://docs.fileforge.com/react-print/welcome/getting-started">Documentation</a>
 </div>
 
 <br/>
@@ -118,7 +118,7 @@ const html = await compile(<Document />);
 
 A set of standard components to help you build amazing documents without having to deal with the mess of creating complex layouts and maintaining archaic markup. Help us extend this list by actively contributing and adding your favorite components!
 
-[Browse all currently supported components →](https://fileforge.docs.buildwithfern.com/react-print/components/compile/compile)
+[Browse all currently supported components →](https://docs.fileforge.com/react-print/components/compile/compile)
 
 > [!NOTE]
 > Help us extend this list by actively contributing and adding your favorite components!
@@ -137,7 +137,7 @@ This project is open-source and is intended to be maintained and built by and fo
 
 Wanna help ? Awesome! There are many ways you can contribute! Take a look at:
 
-- [Contributing Guide](https://fileforge.docs.buildwithfern.com/react-print/contributing/contributing)
+- [Contributing Guide](https://docs.fileforge.com/react-print/contributing/contributing)
 
 # Authors 🧑‍💻
 
