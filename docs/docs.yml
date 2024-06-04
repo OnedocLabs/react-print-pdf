@@ -1,6 +1,6 @@
 instances:
-  - url: 'https://fileforge.docs.buildwithfern.com'
-    custom-domain: 'https://docs.fileforge.com'
+  - url: https://fileforge.docs.buildwithfern.com
+    custom-domain: https://docs.fileforge.com
 title: Fileforge
 tabs:
   welcome:
@@ -255,7 +255,7 @@ layout:
 navbar-links:
   - type: minimal
     text: Support
-    url: 'mailto:contact@onedoclabs.com'
+    url: mailto:contact@onedoclabs.com
   - type: outlined
     text: Get Started
-    url: 'https://app.onedoclabs.com/login'
+    url: https://app.onedoclabs.com/login
