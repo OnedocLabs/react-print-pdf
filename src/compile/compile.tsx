@@ -90,7 +90,7 @@ export const __docConfig: DocConfig = {
           \`\`\`jsx
           const html = await compile(<Component />);
           \`\`\``,
-          template: <Tailwind><div className="bg-red"></div></Tailwind>,
+          template: <Tailwind><div className="bg-red-400">Hello World!</div></Tailwind>,
 
         },
         emotion: {
