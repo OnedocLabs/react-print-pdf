@@ -2,23 +2,19 @@ import fs from 'fs';
 import path from 'path';
 
 
-export const replaceInFile = (filePath: string, search: string, replace: string) => {
+export const replaceInFile = (filePath: string, search: RegExp, replace: string) => {
 
   let fileContents = fs.readFileSync(filePath, 'utf8');
 
-  // Find the location to insert at
-  const insertLocation = fileContents.indexOf(search);
+  if (search.test(fileContents)) {
+    // Replace the pattern with the new content
+    fileContents = fileContents.replace(search, replace);
 
-  // Check if the location was found
-  if (insertLocation !== -1) {
-    // Insert the new content
-    const newContent = replace;
-    fileContents = fileContents.replace(search,newContent);
-
-    // Write the file back out
+    // Write the updated content back to the file
     fs.writeFileSync(filePath, fileContents);
+    console.log('Replacement successful');
   } else {
-    console.log('Location not found');
+    console.log('Pattern not found');
   }
 
 }
