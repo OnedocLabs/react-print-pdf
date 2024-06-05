@@ -163,6 +163,8 @@ const process = async () => {
     return a.name.localeCompare(b.name);
   });
 
+  fs.writeFileSync(path.join(__dirname , "../docs/sortedDocs.json"), JSON.stringify(sortedDocs)); //writes the object for future processing in fileforge-docs
+
   sortedDocs.forEach((docFile) => {
     docFile.files.forEach((file)=>{
 
