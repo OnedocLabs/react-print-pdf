@@ -163,6 +163,8 @@ const process = async () => {
     return a.name.localeCompare(b.name);
   });
 
+  fs.writeFileSync(path.join(__dirname , "../docs/sortedDocs.json"), JSON.stringify(sortedDocs)); //writes the object for future processing in fileforge-docs
+
   sortedDocs.forEach((docFile) => {
     docFile.files.forEach((file)=>{
 
@@ -277,52 +279,7 @@ const process = async () => {
 
   const introductionPath = path.join(__dirname, "../docs/introduction.mdx");
 
-  replaceInFile(introductionPath, "<Components/>", snippet); //TODO: fix the relative component import in Fern to avoid this
-
-
-  //-------------------------------------------------------------------------------- GENERATE DOCS.YML FILE for Fern --------------------------------------------------------------------------------
-  // genreating the docs.yml file with dynamic content for components
-  const docYMLFile = path.join(__dirname, "../docs/docs.yml");
-
-  // Load and parse the YAML file
-  const docsYml:any = yaml.load(fs.readFileSync(__dirname+'/docs.yml', 'utf8'));
-  // Get the Components section
-  const componentsSection = docsYml.navigation.find(section => section.tab === 'react-print').layout.find(section => section.section === 'Components');
-
-  const subdirs = fs.readdirSync(docsPath, { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
-
-  subdirs.forEach(subdir => {
-  // Create a new section for the subdirectory
-  
-  const newSection = {
-    section:  subdir.charAt(0).toUpperCase() + subdir.slice(1),
-    contents: [],
-    icon: sortedDocs.find(df => df.name.toLocaleLowerCase() === subdir.toLocaleLowerCase())!.icon
-  };
-
-  // Get all mdx files in the subdirectory
-  const mdxFiles = fs.readdirSync(path.join(docsPath, subdir)).filter(file => path.extname(file) === '.mdx');
-
-  // Add each mdx file to the new section
-  mdxFiles.forEach(file => {
-    const slug = path.basename(file, '.mdx');
-    newSection.contents.push(
-      {
-        page: slug.charAt(0).toUpperCase() + slug.slice(1),
-        path: `./react-print-pdf/docs/components/${subdir}/${file}`,
-        slug: slug
-      });
-  });
-
-  // Add the new section to componentsSection.contents
-  componentsSection.contents.push(newSection);
-});
-
-  // Convert the updated object back into YAML
-  const updatedYaml = yaml.dump(docsYml);
-
-  // Write the updated YAML back to the file
-  fs.writeFileSync(docYMLFile, updatedYaml, 'utf8');
+  replaceInFile(introductionPath, /<Cards>[\s\S]*?<\/Cards>/, snippet); //TODO: fix the relative component import in Fern to avoid this
 
   
 };
