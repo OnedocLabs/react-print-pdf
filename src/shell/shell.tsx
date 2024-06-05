@@ -81,6 +81,15 @@ export const __docConfig: DocConfig = {
   icon: "fa-solid fa-border-all",
   description: "Display content in other page regions.",
   components: {
+    CurrentPageTop: {
+      server: true,
+      client: true,
+      examples: {
+        default: {
+          template: <CurrentPageTop style={{ backgroundColor: "#bfdbfe" }} />,
+        },
+      },
+    },
     PageTop: {
       server: true,
       client: true,
@@ -105,6 +114,24 @@ export const __docConfig: DocConfig = {
       examples: {
         default: {
           template: <FloatBottom>Here are some floated contents</FloatBottom>,
+        },
+      },
+    },
+    PageBreak: {
+      server: true,
+      client: true,
+      examples: {
+        default: {
+          template: <div><div>Hello on this page</div><PageBreak /><div>World on that page</div></div>,
+        },
+      },
+    },
+    NoBreak: {
+      server: true,
+      client: true,
+      examples: {
+        default: {
+          template: <NoBreak>This content will not be split between two pages.</NoBreak>,
         },
       },
     },
