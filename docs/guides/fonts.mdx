@@ -1,0 +1,77 @@
+Fonts work the same way as they would in the browser.
+
+## Hosted Webfont
+
+You can add a link to any hosted webfont stylesheet, such as:
+
+* Google Fonts or Typekit,
+* Self-hosted fonts on an existing website.
+
+To use these fonts when converting to PDF, you will have to link the stylesheet in your HTML. Given that HTML5 supports `<link>` placement in the `<head>` and `<body>`, you can place the link in either location, or inside your React component.
+
+<Tabs>
+<Tab title="HTML">
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+<body style={{
+    fontFamily: 'Roboto, sans-serif'
+}}>
+  <p>Some text</p>
+</body>
+</html>
+```
+</Tab>
+<Tab title="React">
+```jsx
+const Document = () => {
+  return (
+    <>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" />
+      <p style={{
+        fontFamily: "Roboto, sans-serif"
+      }}>
+      </p>
+    </>
+  )
+}
+```
+</Tab>
+</Tabs>
+
+## Local Webfont
+
+You can also use local webfonts. To do this, you will need to include the font files as an asset when uploading with the Onedoc SDK. You can then reference the font in your CSS.
+
+```css
+@font-face {
+  font-family: 'Roboto';
+  src: url('Roboto-Regular.ttf') format('truetype');
+}
+```
+
+<Tabs>
+<Tab title="With the SDK">
+```ts
+const file = ff.pdf.generate([
+  new File([fs.readFileSync("index.html")], "index.html", {
+    type: "text/html",
+  }),
+  new File([fs.readFileSync("Roboto-Regular.ttf")], "Roboto-Regular.ttf", {
+    type: "font/ttf",
+  }),
+], {})
+```
+</Tab>
+<Tab title="With a CURL request">
+```sh
+curl -X POST "https://api.fileforge.com/pdf/generate" \
+  -H "X-API-Key: YOUR_API_KEY" \
+  -F "files[]=@index.html;type=text/html" \
+  -F "files[]=@Roboto-Regular.ttf;type=font/ttf"
+```
+</Tab>
+</Tabs>
