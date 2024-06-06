@@ -1,0 +1,278 @@
+## Properties
+
+### Size and Orientation
+
+Page size and orientation can be changed using the CSS [`@page { size }`](https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size) rule.
+
+<Tabs>
+  <Tab title="Raw CSS">
+  ```css
+@page {
+    size: letter landscape;
+}
+```
+  </Tab>
+  <Tab title="react-print">
+  ```jsx
+  <CSS>
+  {`
+  @page {
+      size: letter landscape;
+  }
+  `}
+  </CSS>
+  ```
+  </Tab>
+</Tabs>
+
+### Margins
+
+<Callout intent="warning" title="Header and Footer">
+  Header and footer components, such as defined using [`<PageTop>`](/react-print/components/shell/pagetop) and [`<PageBottom>`](/react-print/components/shell/pagebottom), live in the margin area. **If the margin is too small, the header and footer may be clipped.**
+</Callout>
+
+<Callout intent="note" title="Margin Units">
+  If your PDF is meant for printing, it is best advised to set the margin properties in absolute units, such as `in` or `cm`. Font-size relative units such as `em` or `rem` are not recommended, as changing the root font-size may affect the readability of content close to page edges.
+</Callout>
+
+Margins can be set using the CSS [`@page { margin }`](https://developer.mozilla.org/fr/docs/Web/CSS/margin) rule.
+
+<Tabs>
+  <Tab title="Raw CSS">
+  ```css
+@page {
+    margin: 1in;
+}
+```
+  </Tab>
+  <Tab title="react-print">
+  ```jsx
+  <CSS>
+  {`
+  @page {
+      margin: 1in;
+  }
+  `}
+  </CSS>
+  ```
+  </Tab>
+</Tabs>
+
+### Alternate Margins
+
+You can set different margins for various pages using [page-specific layouts](#page-specific-layout).
+
+### Headers and Footers
+
+Headers and footers can be added to your documents by removing elements from the flow and placing them in the margin area. We recommend using the [`<PageTop>`](/react-print/components/shell/pagetop) and [`<PageBottom>`](/react-print/components/shell/pagebottom) components to create headers and footers.
+
+<Callout intent="warning">
+Header and footer elements appear on all subsequent pages to where they would appear in the normal flow.
+
+This has several implications:
+
+* If you wish to have the header and footer on all pages, **you should put them at the very beginning of the document,**
+* You may overwrite the header and footer by creating a new header and footer later in the document flow,
+* If you wish to have different headers and footers on different pages, **you should use [page-specific layouts](#page-specific-layout).**
+</Callout>
+
+<Tabs>
+  <Tab title="react-print">
+  ```jsx
+  import { PageTop, PageBottom, PageNumber, PagesNumber } from '@fileforge/react-print';
+
+<body>
+  <PageTop>
+    <h1>Header</h1>
+  </PageTop>
+  <PageBottom>
+    <PageNumber /> of <PagesNumber />
+  </PageBottom>
+  <main>
+  {/** Your content here **/}
+  </main>
+</body>
+  ```
+  </Tab>
+  <Tab title="Raw CSS">
+  ```css
+@page {
+    @top-center {
+        content: element(header); /** Moves the header element to the top-center */
+    }
+
+    @bottom-center {
+        content: counter(page) " of " counter(pages);
+    }
+}
+
+@page:blank {
+    @top-center {
+        content: ''; /** Removes the header element from blank pages */
+    }
+}
+
+header {
+    position: running(header); /** Removes the header element from the document flow */
+}
+  ```
+  </Tab>
+</Tabs>
+
+### Background Graphics
+
+You can add edge-to-edge background graphics to your document by adding `background` properties to the `@page` rule.
+
+<Tabs>
+  <Tab title="Raw CSS">
+  ```css
+@page {
+    background-color: lightblue;
+}
+
+@page:first {
+    background-image: url('background.jpg');
+    background-size: cover;
+}
+```
+  </Tab>
+  <Tab title="react-print">
+  ```jsx
+  <CSS>
+  {`
+  @page {
+    background-color: lightblue;
+  }
+
+  @page:first {
+    background-image: url('background.jpg');
+    background-size: cover;
+  }
+  `}
+  </CSS>
+  ```
+  </Tab>
+</Tabs>
+
+
+### Watermarks
+
+You can add watermarks to your document by adding `@prince-overlay` properties to the `@page` rule.
+
+<Tabs>
+  <Tab title="Raw CSS">
+  ```css
+@page {
+    @prince-overlay {
+      content: "Confidential";
+      font-size: 48pt;
+      color: lightgray;
+      transform: rotate(-45deg);
+    }
+}
+```
+  </Tab>
+  <Tab title="react-print">
+  ```jsx
+  <CSS>
+  {`
+  @page {
+    @prince-overlay {
+      content: "Confidential";
+      font-size: 48pt;
+      color: lightgray;
+      transform: rotate(-45deg);
+    }
+  }
+  `}
+  </CSS>
+  ```
+  </Tab>
+</Tabs>
+
+
+## Page-Specific Layout
+
+### Page Selectors
+
+You can use various properties to style only specific pages in your document. For example, you can set different margins for even and odd pages, or you can add a background image to the title page.
+
+<Tabs>
+  <Tab title="Even and odd pages">
+  ```css
+  /** By default, the first page of a document is a right page **/
+  @page:right {
+    margin-right: 1in;
+  }
+
+  @page:left {
+    margin-left: 1in;
+  }
+  ```
+  </Tab>
+  <Tab title="First page">
+  ```css
+  @page:first {
+    background-image: url('title-page.jpg');
+  }
+  ```
+  </Tab>
+  <Tab title="Blank page">
+  ```css
+  /** Adds a watermark to blank pages **/
+  @page:blank {
+    @prince-overlay {
+      content: "This page left empty intentionally";
+    }
+  }
+  ```
+  </Tab>
+</Tabs>
+
+### Named Pages
+
+`@page` rules apply to all pages in the document. If you wish to control aspects of a specific page, you can use named pages and apply the rules to the named page. Named pages work similarly to all other `@page` selectors.
+
+<Tabs>
+  <Tab title="Raw CSS">
+  ```css
+  table {
+    page: page-landscape;
+  }
+
+  @page page-landscape {
+    size: landscape;
+  }
+  ```
+  </Tab>
+  <Tab title="react-print">
+  ```jsx
+  <CSS>
+  {`
+  .table-landscape {
+    page: page-landscape;
+  }
+
+  @page page-landscape {
+    size: landscape;
+  }
+  `}
+  </CSS>
+  ```
+  </Tab>
+</Tabs>
+
+You can then use the `table-landscape` class to apply the landscape layout to a specific table. The table will be moved into a new page with the landscape layout.
+
+```html
+<table class="table-landscape">
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Row 1, Cell 1</td>
+    <td>Row 1, Cell 2</td>
+  </tr>
+</table>
+```
