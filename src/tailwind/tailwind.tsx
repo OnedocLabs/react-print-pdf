@@ -19,6 +19,9 @@ import { CSS } from "../css/css";
 import preflightCss from "../../node_modules/tailwindcss/lib/css/preflight.css?raw";
 import { createTailwindcssPlugin } from "@mhsdesign/jit-browser-tailwindcss";
 
+// @ts-ignore
+import isPseudoClass from "@csstools/postcss-is-pseudo-class";
+
 export const Tailwind = ({
   children,
   config,
@@ -53,6 +56,7 @@ export const Tailwind = ({
       content: [{ content: markup, extension: "html" }],
     }),
     // postcssCssVariables,
+    isPseudoClass(),
     postcssColorFunctionalNotation,
   ]).process(
     String.raw`
@@ -89,7 +93,8 @@ The supported Tailwind version is 3.3.2 due to changes in the PostCSS plugin syn
       server: true,
       examples: {
         default: {
-          description: "Use a simple Tailwind tag to support Tailwind in your document.",
+          description:
+            "Use a simple Tailwind tag to support Tailwind in your document.",
           template: (
             <Tailwind>
               <div className="bg-gradient-to-tr from-blue-500 to-blue-700 rounded-2xl p-12"></div>

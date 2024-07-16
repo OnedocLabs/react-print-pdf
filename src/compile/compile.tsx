@@ -62,15 +62,20 @@ export const compile = async (
 
   const { default: postcss } = await import("postcss");
   const { default: cssvariables } = await import("postcss-css-variables");
+  const { default: isPseudoClass } = await import(
+    // @ts-ignore
+    "@csstools/postcss-is-pseudo-class"
+  );
   // @ts-ignore
   const { default: logical } = await import("postcss-logical");
 
-  const result = await postcss([cssvariables(), logical()]).process(
-    mergedStylesheet,
-    {
-      from: undefined,
-    }
-  );
+  const result = await postcss([
+    cssvariables(),
+    logical(),
+    isPseudoClass(),
+  ]).process(mergedStylesheet, {
+    from: undefined,
+  });
 
   return `<style>${result.css}</style>${html}`;
 };
@@ -85,13 +90,16 @@ export const __docConfig: DocConfig = {
       server: true,
       client: true,
       examples: {
-        default:{
+        default: {
           description: `A simple function to compile a React component to an HTML string with the Onedoc print styles.
           \`\`\`jsx
           const html = await compile(<Component />);
           \`\`\``,
-          template: <Tailwind><div className="bg-red-400">Hello World!</div></Tailwind>,
-
+          template: (
+            <Tailwind>
+              <div className="bg-red-400">Hello World!</div>
+            </Tailwind>
+          ),
         },
         emotion: {
           description: `Pass \`{ emotion: true }\` as the second compile option to merge and extract critical CSS using Emotion. Some libraries such as Chakra UI require this option to work correctly.
