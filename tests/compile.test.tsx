@@ -25,3 +25,21 @@ test("works with tailwind", async () => {
 
   expect(html).toContain("rgba(239, 68, 68");
 });
+
+test("works with tailwind dark", async () => {
+  const TestComponent = () => (
+    <Tailwind
+      config={{
+        darkMode: "class",
+      }}
+    >
+      <div className="dark:bg-red-500">Test</div>
+    </Tailwind>
+  );
+
+  const html = await compile(<TestComponent />);
+
+  console.log(html);
+
+  expect(html).toContain("rgba(239, 68, 68");
+});
