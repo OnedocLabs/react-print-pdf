@@ -1,7 +1,6 @@
 import { DocConfig } from "docgen/types";
 import React from "react";
 import { encode } from "html-entities";
-import { Tailwind } from "..";
 const allowedEntities = {
   "&apos;": "'",
   "&quot;": '"',
@@ -29,12 +28,17 @@ type MarginsProps = {
   left: string;
   bottom: string;
 };
-export const Margins = ({ pageRatio, top, right, left, bottom }: MarginsProps) => {
-
-  return <CSS>{`@page {size: ${pageRatio};margin-top:${top}px;margin-right:${right}px;margin-left:${left}px;margin-bottom:${bottom}px;`}</CSS>;
+export const Margins = ({
+  pageRatio,
+  top,
+  right,
+  left,
+  bottom,
+}: MarginsProps) => {
+  return (
+    <CSS>{`@page {size: ${pageRatio};margin-top:${top}px;margin-right:${right}px;margin-left:${left}px;margin-bottom:${bottom}px;`}</CSS>
+  );
 };
-
-
 
 export const __docConfig: DocConfig = {
   name: "CSS",
@@ -53,13 +57,14 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
         },
       },
     },
-    Font:{
+    Font: {
       server: true,
       client: true,
       examples: {
         default: {
           name: "Load a Google Font",
-          description: "Load a Google Font its URL. This will allow you to use the font in your document.",
+          description:
+            "Load a Google Font its URL. This will allow you to use the font in your document.",
           template: (
             <React.Fragment>
               <Font url="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" />
@@ -70,26 +75,30 @@ NB: While you can add regular CSS with the \`<style>\` tag, it's recommended to 
           ),
         },
       },
-
     },
-    Margins:{
+    Margins: {
       server: true,
       client: true,
       examples: {
-        default:{
+        default: {
           name: "Layout",
           description:
             "Set the page ratio and margin sizes in px. You can also use the `@page` at-rule in CSS to manage all aspects of printed pages. More on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@page).",
           template: (
             <React.Fragment>
               <CSS>{`body{background-color:lightblue}`}</CSS>
-              <Margins pageRatio="A4" top="100" right="100" left="100" bottom="100"/>
+              <Margins
+                pageRatio="A4"
+                top="100"
+                right="100"
+                left="100"
+                bottom="100"
+              />
               <div>Hello world!</div>
             </React.Fragment>
           ),
         },
       },
-
-    }
+    },
   },
 };
