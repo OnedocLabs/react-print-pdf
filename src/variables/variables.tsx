@@ -3,6 +3,7 @@ import "./headings.css";
 import "./variables.css";
 import { DocConfig } from "../../docgen/types";
 import { PageTop } from "../shell/shell";
+import { CSS } from "../css/css";
 
 /**
  * Returns the current page number.
@@ -16,11 +17,16 @@ export const PageNumber = ({
   counterStyle?: string;
 }) => {
   return (
-    <span
-      style={{
-        content: `counter(page, ${counterStyle})`,
-      }}
-    />
+    <>
+      <CSS>
+        {`
+.onedoc-page-number-${counterStyle}:before {
+  content: counter(page, ${counterStyle});
+}
+        `}
+      </CSS>
+      <span className={`onedoc-page-number-${counterStyle}`} />
+    </>
   );
 };
 
@@ -36,11 +42,16 @@ export const PagesNumber = ({
   counterStyle?: string;
 }) => {
   return (
-    <span
-      style={{
-        content: `counter(pages, ${counterStyle})`,
-      }}
-    />
+    <>
+      <CSS>
+        {`
+.onedoc-pages-number-${counterStyle}:before {
+  content: counter(pages, ${counterStyle});
+}
+        `}
+      </CSS>
+      <span className={`onedoc-pages-number-${counterStyle}`} />
+    </>
   );
 };
 
@@ -48,7 +59,7 @@ const RunningHeader = (level: number) => {
   return ({ before = "", after = "" }: { before?: string; after?: string }) => {
     return (
       <span
-        className={`--onedoc-heading-contents --onedoc-h${level}-contents`}
+        className={`onedoc-heading-contents onedoc-h${level}-contents`}
         data-before={before}
         data-after={after}
       />

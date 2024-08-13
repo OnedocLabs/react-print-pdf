@@ -9,7 +9,7 @@ import { DocConfig } from "../../docgen/types";
  */
 export const PageTop = (props: React.HTMLProps<HTMLDivElement>) => {
   return (
-    <div {...props} className={`--onedoc-page-top ${props?.className || ""}`} />
+    <div {...props} className={`onedoc-page-top ${props?.className || ""}`} />
   );
 };
 
@@ -22,7 +22,7 @@ export const CurrentPageTop = (props: React.HTMLProps<HTMLDivElement>) => {
   return (
     <div
       {...props}
-      className={`--onedoc-current-page-top ${props?.className || ""}`}
+      className={`onedoc-current-page-top ${props?.className || ""}`}
     />
   );
 };
@@ -34,7 +34,7 @@ export const PageBottom = (props: React.HTMLProps<HTMLDivElement>) => {
   return (
     <div
       {...props}
-      className={`--onedoc-page-bottom ${props?.className || ""}`}
+      className={`onedoc-page-bottom ${props?.className || ""}`}
     />
   );
 };
@@ -44,10 +44,7 @@ export const PageBottom = (props: React.HTMLProps<HTMLDivElement>) => {
  */
 export const PageBreak = (props: React.HTMLProps<HTMLDivElement>) => {
   return (
-    <div
-      {...props}
-      className={`--onedoc-page-break ${props?.className || ""}`}
-    />
+    <div {...props} className={`onedoc-page-break ${props?.className || ""}`} />
   );
 };
 
@@ -56,7 +53,7 @@ export const PageBreak = (props: React.HTMLProps<HTMLDivElement>) => {
  */
 export const NoBreak = (props: React.HTMLProps<HTMLDivElement>) => {
   return (
-    <div {...props} className={`--onedoc-no-break ${props?.className || ""}`} />
+    <div {...props} className={`onedoc-no-break ${props?.className || ""}`} />
   );
 };
 
@@ -122,7 +119,13 @@ export const __docConfig: DocConfig = {
       client: true,
       examples: {
         default: {
-          template: <div><div>Hello on this page</div><PageBreak /><div>World on that page</div></div>,
+          template: (
+            <div>
+              <div>Hello on this page</div>
+              <PageBreak />
+              <div>World on that page</div>
+            </div>
+          ),
         },
       },
     },
@@ -131,7 +134,9 @@ export const __docConfig: DocConfig = {
       client: true,
       examples: {
         default: {
-          template: <NoBreak>This content will not be split between two pages.</NoBreak>,
+          template: (
+            <NoBreak>This content will not be split between two pages.</NoBreak>
+          ),
         },
       },
     },
