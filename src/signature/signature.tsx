@@ -49,7 +49,7 @@ export const Field = ({
         type === "radio" ? "radio" : type === "checkbox" ? "checkbox" : "text"
       }
       data-onedoc-sign={type}
-      className={`--onedoc-signature-field --onedoc-signature-field-${type} ${props.className || ""}`}
+      className={`onedoc-signature-field onedoc-signature-field-${type} ${props.className || ""}`}
     />
   );
 };

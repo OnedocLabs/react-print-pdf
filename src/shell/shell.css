@@ -1,37 +1,41 @@
 @page {
   @top-left {
-    content: flow(--onedoc-page-top);
+    content: flow(FileforgePageTop);
+    content: element(FileforgePageTop);
     position: relative;
   }
 
   @bottom-left {
-    content: flow(--onedoc-page-bottom);
+    content: flow(FileforgePageBottom);
+    content: element(FileforgePageBottom);
     position: relative;
   }
 }
 
-.--onedoc-page-top {
-  -prince-flow: static(--onedoc-page-top);
+.onedoc-page-top {
+  position: running(FileforgePageTop) !important;
+  -prince-flow: static(FileforgePageTop);
   width: 100%;
   height: 100%;
 }
 
-.--onedoc-current-page-top {
-  position: --onedoc-page-top;
+.onedoc-current-page-top {
+  position: FileforgePageTop;
   width: 100%;
   height: 100%;
 }
 
-.--onedoc-page-bottom {
-  -prince-flow: static(--onedoc-page-bottom);
+.onedoc-page-bottom {
+  position: running(FileforgePageBottom) !important;
+  -prince-flow: static(FileforgePageBottom);
   width: 100%;
   height: 100%;
 }
 
-.--onedoc-page-break {
+.onedoc-page-break {
   page-break-after: always;
 }
 
-.--onedoc-no-break {
+.onedoc-no-break {
   page-break-inside: avoid;
 }

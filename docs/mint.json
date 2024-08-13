@@ -75,15 +75,22 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": ["introduction", "contributing"]
+      "pages": [
+        "introduction",
+        "contributing"
+      ]
     },
     {
       "group": "Getting Started",
-      "pages": ["getting-started/setup"]
+      "pages": [
+        "getting-started/setup"
+      ]
     },
     {
       "group": "Integrations",
-      "pages": ["integrations/onedoc"]
+      "pages": [
+        "integrations/onedoc"
+      ]
     },
     {
       "group": "Components",
@@ -112,21 +119,30 @@
         },
         {
           "group": "Receipts",
-          "pages": ["ui/templates/receipt"]
+          "pages": [
+            "ui/templates/receipt"
+          ]
         },
         {
           "group": "NDA",
-          "pages": ["ui/templates/nda-markdown"]
+          "pages": [
+            "ui/templates/nda-markdown"
+          ]
         },
         {
           "group": "Invoices",
-          "pages": ["ui/templates/invoice", "ui/templates/invoice-advanced"]
+          "pages": [
+            "ui/templates/invoice",
+            "ui/templates/invoice-advanced"
+          ]
         }
       ]
     },
     {
       "group": "Troubleshooting",
-      "pages": ["troubleshooting/faq"]
+      "pages": [
+        "troubleshooting/faq"
+      ]
     }
   ],
   "footerSocials": {

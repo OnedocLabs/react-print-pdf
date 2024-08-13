@@ -15,10 +15,7 @@ export const Footnote = ({
   children: React.ReactNode;
 }) => {
   return (
-    <span
-      className="--onedoc-footnote text-left text-xs font-normal"
-      {...props}
-    >
+    <span className="onedoc-footnote text-left text-xs font-normal" {...props}>
       {children}
     </span>
   );
@@ -33,7 +30,17 @@ export const __docConfig: DocConfig = {
       client: true,
       examples: {
         default: {
-          template: <div>This is a footnote to explaning what CSS <Footnote>CSS is the acronym of “Cascading Style Sheets”. CSS is a computer language for laying out and structuring web pages (HTML or XML).</Footnote> is.</div>,
+          template: (
+            <div>
+              This is a footnote to explaning what CSS{" "}
+              <Footnote>
+                CSS is the acronym of “Cascading Style Sheets”. CSS is a
+                computer language for laying out and structuring web pages (HTML
+                or XML).
+              </Footnote>{" "}
+              is.
+            </div>
+          ),
         },
       },
     },

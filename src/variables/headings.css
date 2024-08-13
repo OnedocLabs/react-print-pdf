@@ -1,58 +1,58 @@
 h1 {
-  string-set: onedocH1Contents contents onedocH2Contents "" onedocH3Contents ""
-    onedocH4Contents "" onedocH5Contents "" onedocH6Contents "";
+  string-set: onedocH1Contents content(text);
 }
 
 h2 {
-  string-set: onedocH2Contents contents onedocH3Contents "" onedocH4Contents ""
-    onedocH5Contents "" onedocH6Contents "";
+  string-set: onedocH2Contents content(text) onedocH3Contents ""
+    onedocH4Contents "" onedocH5Contents "" onedocH6Contents "";
 }
 
 h3 {
-  string-set: onedocH3Contents contents onedocH4Contents "" onedocH5Contents ""
-    onedocH6Contents "";
+  string-set: onedocH3Contents content(text) onedocH4Contents ""
+    onedocH5Contents "" onedocH6Contents "";
 }
 
 h4 {
-  string-set: onedocH4Contents contents onedocH5Contents "" onedocH6Contents "";
+  string-set: onedocH4Contents content(text) onedocH5Contents ""
+    onedocH6Contents "";
 }
 
 h5 {
-  string-set: onedocH5Contents contents onedocH6Contents "";
+  string-set: onedocH5Contents content(text) onedocH6Contents "";
 }
 
 h6 {
-  string-set: onedocH6Contents contents;
+  string-set: onedocH6Contents content(text);
 }
 
-.--onedoc-heading-contents:not(:empty)::before {
+.onedoc-heading-contents:not(:empty)::before {
   content: attr(data-before);
 }
 
-.--onedoc-heading-contents:not(:empty)::after {
+.onedoc-heading-contents:not(:empty)::after {
   content: attr(data-after);
 }
 
-.--onedoc-h1-contents {
+.onedoc-h1-contents:before {
   content: string(onedocH1Contents);
 }
 
-.--onedoc-h2-contents {
+.onedoc-h2-contents:before {
   content: string(onedocH2Contents);
 }
 
-.--onedoc-h3-contents {
+.onedoc-h3-contents:before {
   content: string(onedocH3Contents);
 }
 
-.--onedoc-h4-contents {
+.onedoc-h4-contents:before {
   content: string(onedocH4Contents);
 }
 
-.--onedoc-h5-contents {
+.onedoc-h5-contents:before {
   content: string(onedocH5Contents);
 }
 
-.--onedoc-h6-contents {
+.onedoc-h6-contents:before {
   content: string(onedocH6Contents);
 }
