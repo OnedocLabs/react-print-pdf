@@ -4,6 +4,8 @@ import { encode } from "html-entities";
 const allowedEntities = {
   "&apos;": "'",
   "&quot;": '"',
+  "&gt;": ">",
+  ":where": ":is", // This may introduce specificity issues, but there is no workaround supported by the engine.
 };
 
 export const CSS = ({ children }: { children: string }) => {
