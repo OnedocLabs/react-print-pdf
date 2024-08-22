@@ -102,3 +102,49 @@ body {
 </CodeBlock>
 </CodeBlocks></div>
 
+#### Disable Preflight
+
+You can disable the Tailwind Preflight CSS.
+
+<Frame background="subtle"><img src="../../images/previews/tailwind-33b7c4e5/document.1.jpg" style={{  width: '100%', height: 'auto', maxHeight: '500px', borderRadius: "0.25rem", overflow: "hidden", border: '1px solid #E5E4E2' }} /></Frame>
+
+<div style={{paddingTop: "1rem", paddingBottom: "1rem"}}><CodeBlocks>
+<CodeBlock title="template.tsx">
+```jsx
+import { Tailwind } from "@fileforge/react-print";
+
+<Tailwind
+  config={{
+    corePlugins: {
+      preflight: false,
+    },
+  }}
+>
+  <div className="bg-primary p-12 rounded-2xl"></div>
+  <h1>Level 1 Header</h1>
+  <p className="text-slate-800">
+    This is a Tailwind component. All children of this component will have
+    access to the Tailwind CSS classes.
+  </p>
+</Tailwind>;
+
+```
+</CodeBlock>
+<CodeBlock title="styles.css">
+```css
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+html,
+body {
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+}
+
+@page {
+  size: A4;
+}
+
+```
+</CodeBlock>
+</CodeBlocks></div>
+

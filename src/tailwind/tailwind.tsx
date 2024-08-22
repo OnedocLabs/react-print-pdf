@@ -50,6 +50,14 @@ export const Tailwind = ({
     },
   };
 
+  let showPreflight = true;
+
+  if (corePlugins && Array.isArray(corePlugins)) {
+    showPreflight = corePlugins.includes("preflight");
+  } else if (corePlugins && typeof corePlugins === "object") {
+    showPreflight = corePlugins.preflight === false ? false : true;
+  }
+
   const { css } = postcss([
     createTailwindcssPlugin({
       tailwindConfig,
@@ -64,7 +72,7 @@ export const Tailwind = ({
         @tailwind components;
         @tailwind utilities;
 
-        ${preflightCss}
+        ${showPreflight ? preflightCss : ""}
       `,
     {
       from: undefined,
@@ -123,6 +131,26 @@ The supported Tailwind version is 3.3.2 due to changes in the PostCSS plugin syn
             >
               <div className="bg-primary p-12 rounded-2xl"></div>
               <p className="py-12 text-slate-800">
+                This is a Tailwind component. All children of this component
+                will have access to the Tailwind CSS classes.
+              </p>
+            </Tailwind>
+          ),
+        },
+        preflight: {
+          name: "Disable Preflight",
+          description: "You can disable the Tailwind Preflight CSS.",
+          template: (
+            <Tailwind
+              config={{
+                corePlugins: {
+                  preflight: false,
+                },
+              }}
+            >
+              <div className="bg-primary p-12 rounded-2xl"></div>
+              <h1>Level 1 Header</h1>
+              <p className="text-slate-800">
                 This is a Tailwind component. All children of this component
                 will have access to the Tailwind CSS classes.
               </p>
