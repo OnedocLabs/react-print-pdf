@@ -4,7 +4,7 @@
 <div align="center">The new way to build documents.<br />High-quality, unstyled components for creating PDFs.</div>
 <br />
 <div align="center">
-<a href="https://www.fileforge.com/">Website</a>
+<a href="https://www.fileforge.com/">Fileforge Website</a>
 <span> · </span>
 <a href="https://github.com/OnedocLabs/">GitHub</a>
 <span> · </span>
@@ -51,7 +51,6 @@ We believe documents are at the core of communication—invoices, contracts, res
 Unlike other solutions, _react-print-pdf_ gives you complete control over your documents, allowing you to design complex layouts with features like footnotes, headers, margins, and more. Additionally, it enables you to track and analyze specific parts of your document, and build and update charts using data from your database. And this is just the beginning—our team and the community will continue to develop great features to simplify the PDF generation process.
 
 ![Legacy Solution vs. React-print-pdf](https://github.com/OnedocLabs/react-print-pdf/assets/33000377/a8834372-047e-46ff-a4ff-26083df88594)
-
 
 # Getting started 🚀
 
@@ -108,6 +107,7 @@ export const Document = ({ props }) => {
 ```
 
 ## 4. Generate HTML 💻
+
 ```javascript
 import { compile } from "@fileforge/react-print";
 
@@ -128,8 +128,6 @@ A set of standard components to help you build amazing documents without having 
 PDF designed with _react-print-print_ can be generated, hosted (and more) with your preferred document management providers.
 
 - [Fileforge](https://app.fileforge.com/login) : HTML to PDF, cloud hosting, analytics and more.
-- [Prince XML](https://www.princexml.com/) : simple HTML to PDF tool
-- Others _(coming soon..)_
 
 # Contributing 🫂
 
