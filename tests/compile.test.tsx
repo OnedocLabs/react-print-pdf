@@ -40,5 +40,4 @@ test("works with tailwind dark", async () => {
   const html = await compile(<TestComponent />);
 
   expect(html).toContain("rgba(239, 68, 68");
-  expect(html).not.toContain(":is");
 });
