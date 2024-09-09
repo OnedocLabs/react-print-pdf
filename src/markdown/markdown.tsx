@@ -17,7 +17,8 @@ You can also use custom components and variables to make your Markdown more dyna
       client: true,
       examples: {
         default: {
-          description: "Use a simple Markdown tag to support Markdown in your document.",
+          description:
+            "Use a simple Markdown tag to support Markdown in your document.",
           template: (
             <Markdown>{`# Hello, world!
 
@@ -43,7 +44,11 @@ This is a paragraph with a [link](https://google.com)`}</Markdown>
                     component: () => "John Doe",
                   },
                   KPI: {
-                    component: ({ children }) => (
+                    component: ({
+                      children,
+                    }: {
+                      children: React.ReactNode;
+                    }) => (
                       <div style={{ color: "blue", fontSize: "2rem" }}>
                         {children}
                       </div>

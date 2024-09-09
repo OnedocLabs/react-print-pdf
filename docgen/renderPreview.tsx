@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 
-import { Onedoc } from "@onedoc/client";
+import { FileforgeClient } from "@fileforge/client";
 import * as crypto from "crypto";
 import * as path from "path";
 import * as fs from "fs";
@@ -8,11 +8,14 @@ import { fromBuffer } from "pdf2pic";
 import { glob } from "glob";
 import { compile, CompileOptions } from "../dist";
 import React from "react";
+import { pipeline } from "stream/promises";
 
 config({ path: ".env.local" });
 config();
 
-const onedoc = new Onedoc(process.env.ONEDOC_API_KEY!);
+const ff = new FileforgeClient({
+  apiKey: process.env.ONEDOC_API_KEY!,
+});
 
 export const baseCss = fs.readFileSync(path.join(__dirname, "./base.css"));
 export const indexCss = fs.readFileSync(
@@ -29,7 +32,10 @@ export async function renderPreview(
   const Component = component;
   const Element = <>{Component}</>;
 
-  const html = (await compile(Element, compileOptions)) as string;
+  const html = `<!doctype html><html><head>
+          <link rel="stylesheet" href="base.css" />
+          <link rel="stylesheet" href="index.css" />
+          </head><body>${await compile(Element, compileOptions)}</body></html>` as string;
 
   const hash = crypto.createHash("sha256");
   hash.update(html);
@@ -41,34 +47,21 @@ export async function renderPreview(
 
   // If the file doesn't exist, create it by generating the document with Onedoc
   if (!fs.existsSync(targetFolder)) {
-    const { file, info, error } = await onedoc.render({
-      html,
-      assets: [
-        ...(useBaseCss
-          ? [
-              {
-                path: "base.css",
-                content: baseCss,
-              },
-            ]
-          : [
-              {
-                path: "default.css",
-                content: Buffer.from(`@page { size: A4; }`),
-              },
-            ]),
-        {
-          path: "index.css",
-          content: indexCss,
-        },
+    const file = await ff.pdf.generate(
+      [
+        new File([html], "index.html", { type: "text/html" }),
+        useBaseCss
+          ? new File([baseCss], "base.css", { type: "text/css" })
+          : new File([`@page { size: A4; }`], "base.css", { type: "text/css" }),
+        new File([indexCss], "index.css", { type: "text/css" }),
       ],
-      save: false,
-      test: false,
-    });
-
-    if (error) {
-      throw new Error(`Error rendering the document: ${error}`);
-    }
+      {
+        options: {
+          host: false,
+          test: false,
+        },
+      }
+    );
 
     // Create the directory
     fs.mkdirSync(targetFolder, { recursive: true });
@@ -76,10 +69,12 @@ export async function renderPreview(
     // Write the HTML to a file
     fs.writeFileSync(path.join(targetFolder, "index.html"), html);
 
-    const buffer = Buffer.from(file);
+    await pipeline(
+      file,
+      fs.createWriteStream(path.join(targetFolder, "document.pdf"))
+    );
 
-    // Save the buffer to a file called id.pdf
-    fs.writeFileSync(path.join(targetFolder, "document.pdf"), buffer);
+    const buffer = fs.readFileSync(path.join(targetFolder, "document.pdf"));
 
     const pdf2pic = fromBuffer(buffer, {
       density: 300,
