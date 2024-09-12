@@ -5,12 +5,11 @@
 
 import { DocConfig } from "docgen/types";
 import React from "react";
-import postcss, { Processor } from "postcss";
+import postcss from "postcss";
 // import type { Config as TailwindConfig } from "tailwindcss";
 // @ts-ignore
 import postcssColorFunctionalNotation from "postcss-color-functional-notation";
 
-import { quickSafeRenderToString } from "./utils.resend";
 import type { CorePluginsConfig } from "tailwindcss/types/config";
 
 import { CSS } from "../css/css";
@@ -21,6 +20,7 @@ import { createTailwindcssPlugin } from "@mhsdesign/jit-browser-tailwindcss";
 
 // @ts-ignore
 import isPseudoClass from "@csstools/postcss-is-pseudo-class";
+import { renderToString } from "react-dom/server";
 
 export const Tailwind = ({
   children,
@@ -38,7 +38,15 @@ export const Tailwind = ({
    */
   config?: any; // Omit<TailwindConfig, "content">;
 }) => {
-  const markup = quickSafeRenderToString(children);
+  const markup = renderToString(<>{children}</>);
+
+  const classNamesList = (markup.match(/class="([^"]*)"/g) || [])
+    .map((match) => {
+      return match.substring(7, match.length - 1).split(" ");
+    })
+    .flat();
+
+  const classNamesSet = new Set(classNamesList);
 
   const corePlugins = config?.corePlugins as CorePluginsConfig;
 
@@ -61,7 +69,13 @@ export const Tailwind = ({
   const { css } = postcss([
     createTailwindcssPlugin({
       tailwindConfig,
-      content: [{ content: markup, extension: "html" }],
+      content: [
+        {
+          content: `<div class="${Array.from(classNamesSet).join(" ")}"
+        }"></div>`,
+          extension: "html",
+        },
+      ],
     }),
     // postcssCssVariables,
     isPseudoClass(),

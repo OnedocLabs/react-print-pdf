@@ -26,6 +26,24 @@ test("works with tailwind", async () => {
   expect(html).toContain("rgba(239, 68, 68");
 });
 
+test("smoke test tailwind", async () => {
+  const TestComponent = () => {
+    return (
+      <Tailwind>
+        {Array.from({ length: 1000000 }).map((_, i) => (
+          <div key={i} className="bg-red-500">
+            Test
+          </div>
+        ))}
+      </Tailwind>
+    );
+  };
+
+  const html = await compile(<TestComponent />);
+
+  expect(html).toContain("rgba(239, 68, 68");
+});
+
 test("works with tailwind dark", async () => {
   const TestComponent = () => (
     <Tailwind
